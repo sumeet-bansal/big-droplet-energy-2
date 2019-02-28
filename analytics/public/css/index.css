@@ -1,0 +1,31 @@
+.main-content {
+    text-align: center;
+    height: 97vh;
+    display: table;
+    width: 100%;
+}
+
+#center {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#emoji {
+    display: block;
+    font-size: 100px;
+}
+
+#title {
+    font-size: 70px;
+}
+
+#text {
+    font-size: 20px;
+    display: block;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
