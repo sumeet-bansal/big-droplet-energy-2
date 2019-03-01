@@ -55,10 +55,40 @@ Output
 ### Runtime Data
 
 #### JS ERRORS (window.onerror)
+https://blog.sentry.io/2016/01/04/client-javascript-reporting-window-onerror
 
+window.onerror = function (msg, url, lineNo, columnNo, error) {
+  // ... handle error ...
 
+  return false;
+}
 
+window.onerror = function (errorMsg, url, lineNumber, column, errorObj) {
+    alert('Error: ' + errorMsg + ' Script: ' + url + ' Line: ' + lineNumber
+    + ' Column: ' + column + ' StackTrace: ' +  errorObj);
+}
 
+#### Mouse and Keyboard Events
+
+https://wilix-team.github.io/iohook/usage.html#usage-in-a-generic-node-application
+
+Install
+npm install iohook --save # or yarn add iohook
+
+Use
+'use strict';
+
+const ioHook = require('iohook');
+
+ioHook.on('mousemove', event => {
+  console.log(event); // { type: 'mousemove', x: 700, y: 400 }
+});
+
+// Register and start hook
+ioHook.start();
+
+// Alternatively, pass true to start in DEBUG mode.
+ioHook.start(true);
 
 
 
