@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Big Droplet Energy</title>
+	<link href="/css/index.css" rel="stylesheet" type="text/css">
+	<link href="/css/random.css" rel="stylesheet" type="text/css">
+	<link href="/css/font.css" rel="stylesheet" type="text/css">
+	<link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon"/>
+</head>
+<body>
+	<div class="header">
+		<ul class="header-list">
+			<li><a href="/">home</a></li>
+			<li class="divider">|</li>
+			<li><a href="/error">error page</a></li>
+			<li class="divider">|</li>
+			<li><a href="/random">random load</a></li>
+			<li class="divider">|</li>
+			<li><a href="/">foo</a></li>
+			<li class="divider">|</li>
+			<li><a href="/">foo</a></li>
+		</ul>
+    </div>
+    <div class="banner-container">
+        <h2 class="banner-text">RANDOM PAGE</h2>
+    </div>
+	<div class="content" >
+        <h1>Lorem Ipsum</h1>
+        <p>Lorem Ipsum is simply dummy text of the printing and 
+            typesetting industry. Lorem Ipsum has been the industry's 
+            standard dummy text ever since the 1500s, when an unknown 
+            printer took a galley of type and scrambled it to make a 
+            type specimen book.</p>
+        <div id="rand1"></div>
+        <p>Lorem Ipsum is simply dummy text of the printing and 
+            typesetting industry. Lorem Ipsum has been the industry's 
+            standard dummy text ever since the 1500s, when an unknown 
+            printer took a galley of type and scrambled it to make a 
+            type specimen book.</p>
+        <div id="rand2"></div>
+        <p>Lorem Ipsum is simply dummy text of the printing and 
+            typesetting industry. Lorem Ipsum has been the industry's 
+            standard dummy text ever since the 1500s, when an unknown 
+            printer took a galley of type and scrambled it to make a 
+            type specimen book.</p>
+        <div id="rand3"></div>
+        <p>Lorem Ipsum is simply dummy text of the printing and 
+            typesetting industry. Lorem Ipsum has been the industry's 
+            standard dummy text ever since the 1500s, when an unknown 
+            printer took a galley of type and scrambled it to make a 
+            type specimen book.</p>
+            </div>
+    <div class="footer">
+            <ul class="header-list">
+                <li><a href="/">home</a></li>
+            </ul>
+        </div>
+    <script>
+        
+        function loadRand1(){
+            var img1 = document.createElement("img");
+            img1.src = "http://lorempixel.com/output/food-q-c-878-400-1.jpg";
+            var rand1 = document.getElementById("rand1");
+            rand1.appendChild(img1);
+        };
+
+        function loadRand2(){
+            var img2 = document.createElement("img");
+            img2.src = "http://lorempixel.com/output/nightlife-q-c-878-400-7.jpg";
+            var rand2 = document.getElementById("rand2");
+            rand2.appendChild(img2);
+        };
+
+        function loadRand3(){
+            var img3 = document.createElement("img");
+            img3.src = "http://lorempixel.com/output/sports-q-c-878-400-1.jpg";
+            var rand3 = document.getElementById("rand3");
+            rand3.appendChild(img3);
+        };
+
+        function randomDelay() {
+            return 1000*(Math.floor(Math.random() * 7) +1);
+        }
+
+        function Randomize() {
+            setTimeout(loadRand1,randomDelay());
+            setTimeout(loadRand2,randomDelay());
+            setTimeout(loadRand3,randomDelay());
+        }
+
+
+        window.onload = Randomize;
+    </script>
+</body>
+</html>
+

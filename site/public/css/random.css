@@ -1,0 +1,49 @@
+.content {
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+/* BANNER STYLES */
+.banner-container {
+    height: 320px;
+    background: url("http://lorempixel.com/output/animals-q-c-1200-400-2.jpg");
+    background-size: cover;
+}
+
+.banner-text {
+    vertical-align: middle;
+    margin: 0 auto;
+    color: #fff;
+    text-align: center;
+    font-size: 50px;
+    line-height: 320px;
+    background-color: rgba(0,0,0,0.3);
+    text-shadow: 2px 2px rgb(75, 75, 75);
+}
+
+/* BUTTON */
+button {
+    background-color: rgb(255, 170, 73); /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.2) inset;
+}
+
+/* FOOTER STYLES */
+.footer {
+    background: #424242;
+    padding: 20px;
+}
