@@ -56,13 +56,17 @@
                 <li><a href="/">home</a></li>
             </ul>
         </div>
+    <script src="/js/collector.js"></script>
     <script>
         
         function loadRand1(){
             var img1 = document.createElement("img");
             img1.src = "http://lorempixel.com/output/food-q-c-878-400-1.jpg";
-            var rand1 = document.getElementById("rand1");
+	    var rand1 = document.getElementById("rand1");
             rand1.appendChild(img1);
+
+            recordTime(0);
+
         };
 
         function loadRand2(){
@@ -70,6 +74,8 @@
             img2.src = "http://lorempixel.com/output/nightlife-q-c-878-400-7.jpg";
             var rand2 = document.getElementById("rand2");
             rand2.appendChild(img2);
+	    
+	    recordTime(1);
         };
 
         function loadRand3(){
@@ -77,6 +83,8 @@
             img3.src = "http://lorempixel.com/output/sports-q-c-878-400-1.jpg";
             var rand3 = document.getElementById("rand3");
             rand3.appendChild(img3);
+	    
+	    recordTime(2);
         };
 
         function randomDelay() {
@@ -84,13 +92,18 @@
         }
 
         function Randomize() {
+
+            startTime(3);
+
             setTimeout(loadRand1,randomDelay());
-            setTimeout(loadRand2,randomDelay());
+	    setTimeout(loadRand2,randomDelay());
             setTimeout(loadRand3,randomDelay());
-        }
+	}
 
-
+	
         window.onload = Randomize;
+	
+
     </script>
 </body>
 </html>
