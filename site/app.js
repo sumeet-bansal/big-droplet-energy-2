@@ -26,6 +26,8 @@ app.use(session({
 app.use('/', require('./routes/index'));
 app.use('/error', require('./routes/error'));
 app.use('/random', require('./routes/random'));
+app.use('/slow', require('./routes/slow'));
+app.use('/interactive', require('./routes/interactive'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
