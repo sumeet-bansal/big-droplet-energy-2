@@ -70,7 +70,7 @@ router.post('/log', function(req, res) {
 				message: 'Unable to connect to the database.'
 			});
 		}
-		connection.query('INSERT INTO ${table} SET ?', params, (error, results, fields) => {
+		connection.query('INSERT INTO ' + table + ' SET ?', params, (error, results, fields) => {
 			connection.end();
 			if (error) {
 				console.log(error);
