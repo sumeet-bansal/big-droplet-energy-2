@@ -1,5 +1,6 @@
 var express = require('express');
 var mysql = require('mysql');
+var crypto = require('crypto');
 var router = express.Router();
 
 const options = {
@@ -80,6 +81,34 @@ router.post('/log', function(req, res) {
 			}
 			return res.status(200).send({
 				message: 'Database insert successful.'
+			});
+		});
+	});
+});
+
+
+router.get('/cookie', function(req, res) {
+	let cookie = crypto.randomBytes(20).toString('hex');
+	const connection = mysql.createConnection(options);
+	connection.connect(err => {
+		if (err) {
+			console.log(err);
+			return res.status(500).send({
+				message: 'Unable to connect to the database.'
+			});
+		}
+		let ins = {id: cookie, timestamp: Date.now().toString()}
+		connection.query('INSERT INTO cookie SET ?', ins, (error, results, fields) => {
+			connection.end();
+			if (error) {
+				console.log(error);
+				return res.status(500).send({
+					message: 'Database insert failed.'
+				});
+			}
+			return res.status(200).send({
+				message: 'Database insert successful.',
+				cookie: cookie
 			});
 		});
 	});
