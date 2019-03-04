@@ -31,10 +31,7 @@
                         <th>browser language</th>
                         <th>screen width</th>
                         <th>screen height</th>
-                        <th>img 1 loadtime</th>
-                        <th>img 2 loadtime</th>
-                        <th>img 3 loadtime</th>
-                        <th>total loadtime</th>
+                        <th>total</th>
                 </tr>
         <% for(var i=0; i < data.length; i++) { %>
                 <tr>
@@ -44,9 +41,6 @@
                         <td><%= data[i].browserLanguage %></td>
                         <td><%= data[i].screenWidth %></td>
                         <td><%= data[i].screenHeight %></td>
-                        <td><%= data[i].img1 %></td>
-                        <td><%= data[i].img2 %></td>
-                        <td><%= data[i].img3 %></td>
                         <td><%= data[i].total %></td>
                 </tr>
         <% } %>

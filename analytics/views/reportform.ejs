@@ -10,27 +10,32 @@
 </head>
 <body>
 	<div class="header">
-		<ul class="header-list">
-			<li><a href="/">home</a></li>
-			<li class="divider">|</li>
-			<li><a href="/reporterror">error page</a></li>
-			<li class="divider">|</li>
-			<li><a href="/reportrandom">random load</a></li>
-			<li class="divider">|</li>
-			<li><a href="/reportslow">slow load</a></li>
-			<li class="divider">|</li>
-			<li><a href="/reportform">form data</a></li>
-		</ul>
+            <ul class="header-list">
+                <li><a href="/">home</a></li>
+                <li class="divider">|</li>
+                <li><a href="/reporterror">error page</a></li>
+                <li class="divider">|</li>
+                <li><a href="/reportrandom">random load</a></li>
+                <li class="divider">|</li>
+                <li><a href="/reportslow">slow load</a></li>
+                <li class="divider">|</li>
+                <li><a href="/reportform">form data</a></li>
+            </ul>
     </div>
 	<div class="content" >
         <table>
                 <tr>
-                       
+                        <th>id</th>
+                        <th>login</th>
+                        <th>full name</th>
+                        <th>admin</th>
                 </tr>
         <% for(var i=0; i < data.length; i++) { %>
                 <tr>
                         <td><%= data[i].id %></td>
-                      
+                        <td><%= data[i].login %></td>
+                        <td><%= data[i].full_name %></td>
+                        <td><%= data[i].admin %></td>
                 </tr>
         <% } %>
         </table>
