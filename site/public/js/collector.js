@@ -22,18 +22,26 @@ if(!cookieSet){
 
 function sendData(data, endpoint){
 
+  //var clientId = "nginx";
+  //var clientSecret = "admin";
+
+  //var authorizationBasic = $.base64.btoa(clientId + ':' + clientSecret);
+  //var authorizationBasic = window.btoa(clientId + ':' + clientSecret);
+
   var http = new XMLHttpRequest();                                                   
   var url = 'http://134.209.48.201:5001/api/' + endpoint;                                  
   http.open('POST', url, true);                                                      
                                                                                    
   //Send the proper header information along with the request                        
   http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');        
-                                                                                                                                                                    
+  //http.setRequestHeader('Authorization', 'Basic ' + authorizationBasic);
+
   http.onreadystatechange = function() {//Call a function when the state changes. 
     if(http.readyState == 4 && http.status == 200) {                               
       alert(http.responseText);                                                  
     }                                                                              
-  }                                                                                  
+  }            
+	
   http.send("data="+data); 
 }
 
@@ -119,7 +127,8 @@ var loggingObj = {
     cookie: bigCookie
 };
 
-sendData(JSON.stringify(loggingObj), 'log');
+// Default Sent Disabled
+//sendData(JSON.stringify(loggingObj), 'log');
 
 
 //----- Timing Reports ----
@@ -200,6 +209,7 @@ function recordRandomTime(imageNum){
 	  "\nTotal: " + totalTime + "ms");
   }
 
+}
 
 
 /*                                                                                 
@@ -219,7 +229,3 @@ document.onkeypress = function(evt) {
 };                                                                                 
                                                                                    
 */
-
-
-
-}
