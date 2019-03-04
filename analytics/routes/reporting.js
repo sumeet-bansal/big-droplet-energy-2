@@ -2,13 +2,14 @@ var express = require('express');
 var mysql = require('mysql');
 var router = express.Router();
 
-const connection = mysql.createConnection({
-    user    : 'root',
-    password: 'space bar',
-    database: 'collector'
-});
+
 
 router.get('/error', function(req, res, next) {
+    const connection = mysql.createConnection({
+        user    : 'root',
+        password: 'space bar',
+        database: 'collector'
+    });
     connection.connect(function(err) {
         if (err) { console.log(err); }
         connection.query('SELECT * FROM error;', function (err, results, fields){
@@ -20,6 +21,11 @@ router.get('/error', function(req, res, next) {
 });
 
 router.get('/random', function(req, res, next) {
+    const connection = mysql.createConnection({
+        user    : 'root',
+        password: 'space bar',
+        database: 'collector'
+    });
     connection.connect(function(err) {
         if (err) { console.log(err); }
         connection.query('SELECT * FROM random_load;', function (err, results, fields){
@@ -31,6 +37,11 @@ router.get('/random', function(req, res, next) {
 });
 
 router.get('/slow', function(req, res, next) {
+    const connection = mysql.createConnection({
+        user    : 'root',
+        password: 'space bar',
+        database: 'collector'
+    });
     connection.connect(function(err) {
         if (err) { console.log(err); }
         connection.query('SELECT * FROM slow_load;', function (err, results, fields){
@@ -42,6 +53,11 @@ router.get('/slow', function(req, res, next) {
 });
 
 router.get('/form', function(req, res, next) {
+    const connection = mysql.createConnection({
+        user    : 'root',
+        password: 'space bar',
+        database: 'collector'
+    });
     connection.connect(function(err) {
         if (err) { console.log(err); }
         connection.query('SELECT * FROM form_data;', function (err, results, fields){
