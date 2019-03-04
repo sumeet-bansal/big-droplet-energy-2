@@ -25,6 +25,10 @@ app.use(session({
 
 app.use('/', require('./routes/index'));
 app.use('/api', require('./routes/api'));
+app.use('/reporterror', require('./routes/reporterror'));
+app.use('/reportrandom', require('./routes/reportrandom'));
+app.use('/reportslow', require('./routes/reportslow'));
+app.use('/reportform', require('./routes/reportform'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

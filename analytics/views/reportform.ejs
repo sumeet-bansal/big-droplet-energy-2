@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Big Droplet Energy</title>
+	<link href="/css/index.css" rel="stylesheet" type="text/css">
+	<link href="/css/reporterror.css" rel="stylesheet" type="text/css">
+	<link href="/css/font.css" rel="stylesheet" type="text/css">
+	<link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon"/>
+</head>
+<body>
+	<div class="header">
+            <ul class="header-list">
+                <li><a href="/">home</a></li>
+                <li class="divider">|</li>
+                <li><a href="/reporterror">error page</a></li>
+                <li class="divider">|</li>
+                <li><a href="/reportrandom">random load</a></li>
+                <li class="divider">|</li>
+                <li><a href="/reportslow">slow load</a></li>
+                <li class="divider">|</li>
+                <li><a href="/reportform">form data</a></li>
+            </ul>
+    </div>
+	<div class="content" >
+        <table>
+                <tr>
+                        <th>id</th>
+                        <th>login</th>
+                        <th>full name</th>
+                        <th>admin</th>
+                </tr>
+        <% for(var i=0; i < data.length; i++) { %>
+                <tr>
+                        <td><%= data[i].id %></td>
+                        <td><%= data[i].login %></td>
+                        <td><%= data[i].full_name %></td>
+                        <td><%= data[i].admin %></td>
+                </tr>
+        <% } %>
+        </table>
+    </div>
+    <div class="footer">
+            <ul class="header-list">
+                <li><a href="/">home</a></li>
+            </ul>
+        </div>
+    
+</body>
+</html>
+
