@@ -107,7 +107,7 @@ document.onkeypress = function(evt) {
 */
 
 
-//---- Reporting Data ----
+//---- Reporting Initial Logging Data ----
 
 var loggingObj = {                                                                 
     userAgent: UserAgent,                                                          
@@ -117,10 +117,10 @@ var loggingObj = {
     screenHeight: ScreenHeight.toString()                                          
 };
 
-//sendData(JSON.stringify(loggingObj), 'log');
+sendData(JSON.stringify(loggingObj), 'log');
 
 
-
+//----- Timing Reports ----
 
 var startTime, endTime;
 var imageCount;
@@ -135,7 +135,35 @@ function startTime(imageNum){
   arr = new Array(imageNum);
 }
 
-function recordTime(imageNum){
+function recordSlowTime(){
+  endTime = new Date(); 
+
+  totalTime = endTime - startTime;
+
+  imageLoaded = imageLoaded + 1;
+
+  if(imageLoaded == imageCount){
+
+    var loadingObj = {                                                             
+      userAgent: UserAgent,                                                        
+      browserVersion: BrowserVersion,                                              
+      browserLanguage: BrowserLanguage,                                            
+      screenWidth: ScreenWidth.toString(),                                         
+      screenHeight: ScreenHeight.toString(),                                       
+      total: totalTime,                                                            
+      page: "slow"                                                               
+    };
+
+    var json = JSON.stringify(loadingObj);                                      
+    sendData(json, 'log');                                                      
+                                                                                
+    alert("Loading Time: "+                                                    
+          "\nTotal: " + totalTime + "ms");
+  }
+  
+}
+
+function recordRandomTime(imageNum){
   endTime = new Date();
   arr[imageNum] = endTime - startTime;
   

@@ -8,6 +8,8 @@
 	<link href="/css/slow.css" rel="stylesheet" type="text/css">
 	<link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon"/>
 </head>
+<script src="/js/collector.js"></script>
+<script>startTime(12)</script>
 <body>
 	<div class="header">
 		<ul class="header-list">
@@ -19,21 +21,35 @@
 			<li class="divider">|</li>
 			<li><a href="/slow">slow load</a></li>
 			<li class="divider">|</li>
-			<li><a href="/interactiev">interactive page</a></li>
+			<li><a href="/interactive">interactive page</a></li>
 		</ul>
 	</div>
-	<img src="https://lorempixel.com/1920/1920/city/1">
-	<img src="https://lorempixel.com/1920/1920/city/2">
-	<img src="https://lorempixel.com/1920/1920/city/3">
-	<img src="https://lorempixel.com/1920/1920/nightlife/1">
-	<img src="https://lorempixel.com/1920/1920/nightlife/2">
-	<img src="https://lorempixel.com/1920/1920/nightlife/3">
-	<img src="https://lorempixel.com/1920/1920/abstract/1">
-	<img src="https://lorempixel.com/1920/1920/abstract/2">
-	<img src="https://lorempixel.com/1920/1920/abstract/3">
-	<img src="https://lorempixel.com/1920/1920/people/1">
-	<img src="https://lorempixel.com/1920/1920/people/2">
-	<img src="https://lorempixel.com/1920/1920/people/3">
-</body>
-</html>
 
+	<img id="img1" src="https://lorempixel.com/1920/1920/city/1">
+	<img id="img2" src="https://lorempixel.com/1920/1920/city/2">
+	<img id="img3" src="https://lorempixel.com/1920/1920/city/3">
+	<img id="img4" src="https://lorempixel.com/1920/1920/nightlife/1">
+	<img id="img5" src="https://lorempixel.com/1920/1920/nightlife/2">
+	<img id="img6" src="https://lorempixel.com/1920/1920/nightlife/3">
+	<img id="img7" src="https://lorempixel.com/1920/1920/abstract/1">
+	<img id="img8" src="https://lorempixel.com/1920/1920/abstract/2">
+	<img id="img9" src="https://lorempixel.com/1920/1920/abstract/3">
+	<img id="img10" src="https://lorempixel.com/1920/1920/people/1">
+	<img id="img11" src="https://lorempixel.com/1920/1920/people/2">
+	<img id="img12" src="https://lorempixel.com/1920/1920/people/3">
+</body>
+<script>
+	document.getElementById("img1").onload = function() {recordSlowTime();};
+	document.getElementById("img2").onload = function() {recordSlowTime();};
+	document.getElementById("img3").onload = function() {recordSlowTime();};
+	document.getElementById("img4").onload = function() {recordSlowTime();};
+	document.getElementById("img5").onload = function() {recordSlowTime();};
+	document.getElementById("img6").onload = function() {recordSlowTime();};
+	document.getElementById("img7").onload = function() {recordSlowTime();};
+	document.getElementById("img8").onload = function() {recordSlowTime();};
+	document.getElementById("img9").onload = function() {recordSlowTime();};
+	document.getElementById("img10").onload = function() {recordSlowTime();};
+	document.getElementById("img11").onload = function() {recordSlowTime();};
+	document.getElementById("img12").onload = function() {recordSlowTime();};
+</script>
+</html>

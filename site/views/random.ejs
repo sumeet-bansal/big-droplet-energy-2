@@ -17,9 +17,9 @@
 			<li class="divider">|</li>
 			<li><a href="/random">random load</a></li>
 			<li class="divider">|</li>
-			<li><a href="/">foo</a></li>
+			<li><a href="/slow">slow load</a></li>
 			<li class="divider">|</li>
-			<li><a href="/">foo</a></li>
+			<li><a href="interactive">interactive page</a></li>
 		</ul>
     </div>
     <div class="banner-container">
@@ -65,7 +65,7 @@
 	    var rand1 = document.getElementById("rand1");
             rand1.appendChild(img1);
 
-            recordTime(0);
+            recordRandomTime(0);
 
         };
 
@@ -75,7 +75,7 @@
             var rand2 = document.getElementById("rand2");
             rand2.appendChild(img2);
 	    
-	    recordTime(1);
+	    recordRandomTime(1);
         };
 
         function loadRand3(){
@@ -84,7 +84,7 @@
             var rand3 = document.getElementById("rand3");
             rand3.appendChild(img3);
 	    
-	    recordTime(2);
+	    recordRandomTime(2);
         };
 
         function randomDelay() {
