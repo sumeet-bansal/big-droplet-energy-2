@@ -1,3 +1,23 @@
+//---- Cookie Seting ----
+
+var bigCookie;
+
+var cookieSet = false;
+c = document.cookie.split('; ');
+for(i=c.length-1; i>=0; i--){
+  C = c[i].split('=');
+  if(C[0] == "bigDropletEnergy"){
+    bigCookie = C[1];
+    cookieSet = true;
+    }
+}
+
+if(!cookieSet){
+  var randCookie = Math.random().toString(16).substring(2, 15) + Math.random().toString(16).substring(2, 15);
+  document.cookie = "bigDropletEnergy="+randCookie;
+  bigCookie = randCookie;
+}
+
 //---- Sending Data ----
 
 function sendData(data, endpoint){
@@ -80,32 +100,13 @@ window.onerror = function (errorMsg, url, lineNumber, column, obj){
     errorLine: ErrorLine.toString(),
     errorColumn: ErrorColumn.toString(),
     screenWidth: ScreenWidth.toString(),
-    screenHeight: ScreenHeight.toString()
+    screenHeight: ScreenHeight.toString(),
+    cookie: bigCookie
   };
 
   var json = JSON.stringify(errorObj);
   sendData(json, 'error')
 }
-
-
-/*
-
-//---- Keyboard Events -----
-
-var presseKey;
-document.onkeypress = function(evt) {
-  evt = evt || window.event;
-
-  // Ensure we only handle printable keys
-  var charCode = typeof evt.which == "number" ? evt.which : evt.keyCode;
-
-  if (charCode) {
-    pressedKey = charCode;
-  }
-};
-
-*/
-
 
 //---- Reporting Initial Logging Data ----
 
@@ -114,7 +115,8 @@ var loggingObj = {
     browserVersion: BrowserVersion,                                                
     browserLanguage: BrowserLanguage,                                              
     screenWidth: ScreenWidth.toString(),                                           
-    screenHeight: ScreenHeight.toString()                                          
+    screenHeight: ScreenHeight.toString(),
+    cookie: bigCookie
 };
 
 sendData(JSON.stringify(loggingObj), 'log');
@@ -151,7 +153,8 @@ function recordSlowTime(){
       screenWidth: ScreenWidth.toString(),                                         
       screenHeight: ScreenHeight.toString(),                                       
       total: totalTime,                                                            
-      page: "slow"                                                               
+      page: "slow",
+      cookie: bigCookie
     };
 
     var json = JSON.stringify(loadingObj);                                      
@@ -183,7 +186,8 @@ function recordRandomTime(imageNum){
       img2: arr[1],
       img3: arr[2],
       total: totalTime,
-      page: "random"
+      page: "random",
+      cookie: bigCookie
     };
 
     var json = JSON.stringify(loadingObj);                                          
@@ -195,4 +199,27 @@ function recordRandomTime(imageNum){
           "\nImage 3: " +arr[2]+ "ms"+
 	  "\nTotal: " + totalTime + "ms");
   }
+
+
+
+/*                                                                                 
+                                                                                   
+//---- Keyboard Events -----                                                       
+                                                                                   
+var presseKey;                                                                     
+document.onkeypress = function(evt) {                                              
+  evt = evt || window.event;                                                       
+                                                                                   
+  // Ensure we only handle printable keys                                          
+  var charCode = typeof evt.which == "number" ? evt.which : evt.keyCode;           
+                                                                                   
+  if (charCode) {                                                                  
+    pressedKey = charCode;                                                         
+  }                                                                                
+};                                                                                 
+                                                                                   
+*/
+
+
+
 }
