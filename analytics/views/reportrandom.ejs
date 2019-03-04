@@ -10,27 +10,45 @@
 </head>
 <body>
 	<div class="header">
-		<ul class="header-list">
-			<li><a href="/">home</a></li>
-			<li class="divider">|</li>
-			<li><a href="/reporterror">error page</a></li>
-			<li class="divider">|</li>
-			<li><a href="/reportrandom">random load</a></li>
-			<li class="divider">|</li>
-			<li><a href="/reportslow">slow load</a></li>
-			<li class="divider">|</li>
-			<li><a href="/reportform">form data</a></li>
+			<ul class="header-list">
+                <li><a href="/">home</a></li>
+                <li class="divider">|</li>
+                <li><a href="/reporting/error">error page</a></li>
+                <li class="divider">|</li>
+                <li><a href="/reporting/random">random load</a></li>
+                <li class="divider">|</li>
+                <li><a href="/reporting/slow">slow load</a></li>
+                <li class="divider">|</li>
+                <li><a href="/reporting/form">form data</a></li>
+            </ul>
 		</ul>
     </div>
 	<div class="content" >
         <table>
                 <tr>
-                       
+                        <th>id</th>
+                        <th>user agent</th>
+                        <th>browser version</th>
+                        <th>browser language</th>
+                        <th>screen width</th>
+                        <th>screen height</th>
+                        <th>img 1 loadtime</th>
+                        <th>img 2 loadtime</th>
+                        <th>img 3 loadtime</th>
+                        <th>total loadtime</th>
                 </tr>
         <% for(var i=0; i < data.length; i++) { %>
                 <tr>
                         <td><%= data[i].id %></td>
-                      
+                        <td><%= data[i].userAgent %></td>
+                        <td><%= data[i].browserVersion %></td>
+                        <td><%= data[i].browserLanguage %></td>
+                        <td><%= data[i].screenWidth %></td>
+                        <td><%= data[i].screenHeight %></td>
+                        <td><%= data[i].img1 %></td>
+                        <td><%= data[i].img2 %></td>
+                        <td><%= data[i].img3 %></td>
+                        <td><%= data[i].total %></td>
                 </tr>
         <% } %>
         </table>
