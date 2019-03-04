@@ -1,6 +1,32 @@
+//---- Cookie Seting ----
+
+var bigCookie;
+
+var cookieSet = false;
+c = document.cookie.split('; ');
+for(i=c.length-1; i>=0; i--){
+  C = c[i].split('=');
+  if(C[0] == "bigDropletEnergy"){
+    bigCookie = C[1];
+    cookieSet = true;
+    }
+}
+
+if(!cookieSet){
+  var randCookie = Math.random().toString(16).substring(2, 15) + Math.random().toString(16).substring(2, 15);
+  document.cookie = "bigDropletEnergy="+randCookie;
+  bigCookie = randCookie;
+}
+
 //---- Sending Data ----
 
 function sendData(data, endpoint){
+
+  //var clientId = "nginx";
+  //var clientSecret = "admin";
+
+  //var authorizationBasic = $.base64.btoa(clientId + ':' + clientSecret);
+  //var authorizationBasic = window.btoa(clientId + ':' + clientSecret);
 
   var http = new XMLHttpRequest();                                                   
   var url = 'http://134.209.48.201:5001/api/' + endpoint;                                  
@@ -8,12 +34,14 @@ function sendData(data, endpoint){
                                                                                    
   //Send the proper header information along with the request                        
   http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');        
-                                                                                                                                                                    
+  //http.setRequestHeader('Authorization', 'Basic ' + authorizationBasic);
+
   http.onreadystatechange = function() {//Call a function when the state changes. 
     if(http.readyState == 4 && http.status == 200) {                               
       alert(http.responseText);                                                  
     }                                                                              
-  }                                                                                  
+  }            
+	
   http.send("data="+data); 
 }
 
@@ -80,47 +108,30 @@ window.onerror = function (errorMsg, url, lineNumber, column, obj){
     errorLine: ErrorLine.toString(),
     errorColumn: ErrorColumn.toString(),
     screenWidth: ScreenWidth.toString(),
-    screenHeight: ScreenHeight.toString()
+    screenHeight: ScreenHeight.toString(),
+    cookie: bigCookie
   };
 
   var json = JSON.stringify(errorObj);
   sendData(json, 'error')
 }
 
-
-/*
-
-//---- Keyboard Events -----
-
-var presseKey;
-document.onkeypress = function(evt) {
-  evt = evt || window.event;
-
-  // Ensure we only handle printable keys
-  var charCode = typeof evt.which == "number" ? evt.which : evt.keyCode;
-
-  if (charCode) {
-    pressedKey = charCode;
-  }
-};
-
-*/
-
-
-//---- Reporting Data ----
+//---- Reporting Initial Logging Data ----
 
 var loggingObj = {                                                                 
     userAgent: UserAgent,                                                          
     browserVersion: BrowserVersion,                                                
     browserLanguage: BrowserLanguage,                                              
     screenWidth: ScreenWidth.toString(),                                           
-    screenHeight: ScreenHeight.toString()                                          
+    screenHeight: ScreenHeight.toString(),
+    cookie: bigCookie
 };
 
+// Default Sent Disabled
 //sendData(JSON.stringify(loggingObj), 'log');
 
 
-
+//----- Timing Reports ----
 
 var startTime, endTime;
 var imageCount;
@@ -135,7 +146,36 @@ function startTime(imageNum){
   arr = new Array(imageNum);
 }
 
-function recordTime(imageNum){
+function recordSlowTime(){
+  endTime = new Date(); 
+
+  totalTime = endTime - startTime;
+
+  imageLoaded = imageLoaded + 1;
+
+  if(imageLoaded == imageCount){
+
+    var loadingObj = {                                                             
+      userAgent: UserAgent,                                                        
+      browserVersion: BrowserVersion,                                              
+      browserLanguage: BrowserLanguage,                                            
+      screenWidth: ScreenWidth.toString(),                                         
+      screenHeight: ScreenHeight.toString(),                                       
+      total: totalTime,                                                            
+      page: "slow",
+      cookie: bigCookie
+    };
+
+    var json = JSON.stringify(loadingObj);                                      
+    sendData(json, 'log');                                                      
+                                                                                
+    alert("Loading Time: "+                                                    
+          "\nTotal: " + totalTime + "ms");
+  }
+  
+}
+
+function recordRandomTime(imageNum){
   endTime = new Date();
   arr[imageNum] = endTime - startTime;
   
@@ -155,7 +195,8 @@ function recordTime(imageNum){
       img2: arr[1],
       img3: arr[2],
       total: totalTime,
-      page: "random"
+      page: "random",
+      cookie: bigCookie
     };
 
     var json = JSON.stringify(loadingObj);                                          
@@ -167,4 +208,24 @@ function recordTime(imageNum){
           "\nImage 3: " +arr[2]+ "ms"+
 	  "\nTotal: " + totalTime + "ms");
   }
+
 }
+
+
+/*                                                                                 
+                                                                                   
+//---- Keyboard Events -----                                                       
+                                                                                   
+var presseKey;                                                                     
+document.onkeypress = function(evt) {                                              
+  evt = evt || window.event;                                                       
+                                                                                   
+  // Ensure we only handle printable keys                                          
+  var charCode = typeof evt.which == "number" ? evt.which : evt.keyCode;           
+                                                                                   
+  if (charCode) {                                                                  
+    pressedKey = charCode;                                                         
+  }                                                                                
+};                                                                                 
+                                                                                   
+*/
