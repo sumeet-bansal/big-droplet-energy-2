@@ -13,7 +13,7 @@
 		<ul class="header-list">
 			<li><a href="/">home</a></li>
 			<li class="divider">|</li>
-			<li><a href="/error">error page</a></li>
+			<li><a href="/reporterror">error page</a></li>
 			<li class="divider">|</li>
 			<li><a href="/random">random load</a></li>
 			<li class="divider">|</li>
@@ -23,7 +23,34 @@
 		</ul>
     </div>
 	<div class="content" >
-        
+        <table>
+                <tr>
+                        <th>id</th>
+                        <th>error message</th>
+                        <th>error url</th>
+                        <th>error column</th>
+                        <th>error line</th>
+                        <th>browser version</th>
+                        <th>browser language</th>
+                        <th>screen width</th>
+                        <th>screen height</th>
+                        <th>user agent</th>
+                </tr>
+        <% for(var i=0; i < data.length; i++) { %>
+                <tr>
+                        <td><%= data[i].id %></td>
+                        <td><%= data[i].errorMessage %></td>
+                        <td><%= data[i].errorUrl %></td>
+                        <td><%= data[i].errorColumn %></td>
+                        <td><%= data[i].errorLine %></td>
+                        <td><%= data[i].browserVersion %></td>
+                        <td><%= data[i].browserLanguage %></td>
+                        <td><%= data[i].screenWidth %></td>
+                        <td><%= data[i].screenHeight %></td>
+                        <td><%= data[i].userAgent %></td>
+                </tr>
+        <% } %>
+        </table>
     </div>
     <div class="footer">
             <ul class="header-list">
