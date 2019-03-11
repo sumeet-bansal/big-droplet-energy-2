@@ -4,7 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
-
+var passport = require('passport');
+var passport_config = require('./config/passport');
 var app = express();
 
 // view engine setup
@@ -23,7 +24,12 @@ app.use(session({
   resave: true
 }));
 
-app.use('/', require('./routes/index'));
+passport_config(passport);
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use('/signup', passport.authenticate('local-signup'), userResponse);
+// require('./routes/index'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
