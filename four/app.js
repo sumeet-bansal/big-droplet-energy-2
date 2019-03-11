@@ -28,7 +28,7 @@ passport_config(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/signup', passport.authenticate('local-signup'), userResponse);
+app.use('/signup', passport.authenticate('local-signup'));
 app.use('/',require('./routes/index'));
 app.use('/data',require('./routes/data'));
 app.use('/user',require('./routes/user'));
