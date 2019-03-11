@@ -19,35 +19,55 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
-  secret: 'bigdropletenergy',
-  saveUninitialized: true,
-  resave: true
+	secret: 'bigdropletenergy',
+	saveUninitialized: true,
+	resave: true
 }));
 
 passport_config(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/signup', passport.authenticate('local-signup'));
-app.use('/',require('./routes/index'));
-app.use('/data',require('./routes/data'));
-app.use('/user',require('./routes/user'));
+app.use('/', require('./routes/index'));
+app.use('/signup', require('./routes/signup'));
+app.post('/signup-auth', passport.authenticate('local-signup', {
+	successRedirect: '/',
+	failureRedirect: 'signup',
+	failureFlash: true
+}));
+app.use('/login', require('./routes/login'));
+app.post('/login-auth', passport.authenticate('local-login', {
+	successRedirect: '/',
+	failureRedirect: 'signup',
+	failureFlash: true
+}));
+var isauth = function(req, res, next) {
+	if (req.user) {
+		console.log(req.user);
+		return next();
+	} else {
+		return res.status(401).send({
+			error: 'f'
+		});
+	}
+}
+app.use('/data', isauth, require('./routes/data'));
+app.use('/user', require('./routes/user'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404));
+	next(createError(404));
 });
 
 // error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+	// set locals, only providing error in development
+	res.locals.message = err.message;
+	res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('404');
+	// render the error page
+	res.status(err.status || 500);
+	res.render('404');
 });
-
 
 module.exports = app;
