@@ -1,3 +1,7 @@
+body {
+    margin: 0;
+}
+
 .main-content {
     text-align: center;
     height: 97vh;
@@ -29,3 +33,37 @@ ul {
     margin: 0;
     padding: 0;
 }
+
+/* HEADER STYLES */
+
+.header {
+    background: #424242;
+    padding: 20px;
+}
+
+.header-list {
+    display: flex;
+    justify-content: space-around;
+}
+
+.divider {
+    color: #fff;
+    opacity: 0.2;
+}
+
+.header-list li {
+    display: inline-block;
+    color: #fff;
+}
+
+.header-list a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 200;
+    letter-spacing: 1px;
+}
+
+.header-list a:hover {
+    color: rgb(117, 207, 248);
+}
+

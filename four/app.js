@@ -29,7 +29,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/signup', passport.authenticate('local-signup'), userResponse);
-// require('./routes/index'));
+app.use('/',require('./routes/index'));
+app.use('/data',require('./routes/data'));
+app.use('/user',require('./routes/user'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
