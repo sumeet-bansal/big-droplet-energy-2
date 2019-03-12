@@ -1,0 +1,26 @@
+.login-form {
+    margin: 0 auto;
+    text-align: left;
+    border-radius: 10px;
+    padding: 40px; 
+    border: 1px solid rgba(0,0,0,0.4);
+    box-shadow: 5px 5px rgba(0,0,0,0.4);
+}
+
+.login-form * {
+    padding-top: 5px;
+}
+
+#action-button {
+    margin-top: 20px;
+}
+
+.container {
+    height: 100vh;
+}
+
+.row {
+    position: relative;
+    top: 50%;
+    transform: perspective(1px) translateY(-50%);
+}

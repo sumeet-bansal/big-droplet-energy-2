@@ -42,6 +42,7 @@ module.exports = function(passport) {
 	function(req, username, password, callback) {
 		conn.query("SELECT * FROM Users WHERE username = ?", [username], function(err, result) {
 			if (err) {
+				console.log(err);
 				return callback(err);
 			}
 			if (result.length) {
