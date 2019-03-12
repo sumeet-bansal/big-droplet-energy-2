@@ -6,7 +6,7 @@ var router = express.Router();
 const options = {
 	user: 'root',
 	password: 'space bar',
-	database: 'collector'
+	database: 'new_schema'
 }
 
 router.post('/error', function(req, res) {
@@ -81,6 +81,44 @@ router.post('/log', function(req, res) {
 			}
 			return res.status(200).send({
 				message: 'Database insert successful.'
+			});
+		});
+	});
+});
+
+router.post('/cookie', function(req, res) {
+	let params = JSON.parse(req.body.data);
+	const connection = mysql.createConnection(options);
+	connection.connect(err => {
+		if (err) {
+			console.log(err);
+			return res.status(500).send({
+				message: 'Unable to connect to the database.'
+			});
+		}
+		connection.query('UPDATE cookie SET count = count + 1 WHERE id = ?', [params.id], (error, results, fields) => {
+			if (error) {
+				console.log(error);
+				return res.status(500).send({
+					message: 'Database update failed.'
+				});
+			}
+			if (results.affectedRows == 0) {
+				connection.query('INSERT INTO cookie SET ?', params, (err, results, fields) => {
+					connection.end();
+					if (err) {
+						console.log(error);
+						return res.status(500).send({
+							message: 'Database insert failed.'
+						});
+					}
+					return res.status(200).send({
+						message: 'Database insert successful.'
+					});
+				});
+			}
+			return res.status(200).send({
+				message: 'Database update successful.'
 			});
 		});
 	});
