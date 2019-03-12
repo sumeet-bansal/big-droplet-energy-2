@@ -38,7 +38,7 @@ var isauth = function(req, res, next) {
 	}
 }
 
-app.use('/', require('./routes/index'));
+app.use('/', isauth, require('./routes/index'));
 app.use('/signup', require('./routes/signup'));
 app.post('/signup-auth', passport.authenticate('local-signup', {
 	successRedirect: '/',
