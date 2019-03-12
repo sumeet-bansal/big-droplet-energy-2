@@ -1,4 +1,4 @@
-.login-form {
+.signup-form {
     margin: 0 auto;
     text-align: left;
     border-radius: 10px;
@@ -12,7 +12,7 @@
     margin: 0 auto;
 }
 
-.login-form * {
+.signup-form * {
     padding-top: 5px;
 }
 

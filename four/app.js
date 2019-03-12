@@ -28,6 +28,35 @@ passport_config(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
+
+app.use('/signup', require('./routes/signup'));
+app.post('/signup-auth', passport.authenticate('local-signup', {
+	successRedirect: '/',
+	failureRedirect: 'signup',
+	failureFlash: true
+}));
+
+app.use('/login', require('./routes/login'));
+app.post('/login-auth', passport.authenticate('local-login', {
+	successRedirect: '/',
+	failureRedirect: 'login',
+	failureFlash: true
+}));
+
+app.get('/logout', function(req, res){
+	req.logout();
+	res.redirect('/');
+});
+
+// adminchecker
+var isadmin = function(req, res, next) {
+	if (req.user.admin) {
+		return next();
+	} else {
+		return res.render('notadmin');
+	}
+}
+
 // authchecker
 var isauth = function(req, res, next) {
 	if (req.user) {
@@ -39,21 +68,13 @@ var isauth = function(req, res, next) {
 }
 
 app.use('/', isauth, require('./routes/index'));
-app.use('/signup', require('./routes/signup'));
-app.post('/signup-auth', passport.authenticate('local-signup', {
-	successRedirect: '/',
-	failureRedirect: 'signup',
-	failureFlash: true
-}));
-app.use('/login', require('./routes/login'));
-app.post('/login-auth', passport.authenticate('local-login', {
-	successRedirect: '/',
-	failureRedirect: 'login',
-	failureFlash: true
-}));
-
 app.use('/data', isauth, require('./routes/data'));
 app.use('/user', isauth, require('./routes/user'));
+
+// useradmin CRUD
+app.use('/deleteuser', isadmin, require('./routes/deleteuser'));
+app.use('/createuser', isadmin, require('./routes/createuser'));
+app.use('/edituser', isadmin, require('./routes/edituser'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
