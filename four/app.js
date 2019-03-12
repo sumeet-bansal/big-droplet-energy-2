@@ -34,6 +34,7 @@ var isauth = function(req, res, next) {
 		console.log(req.user);
 		return next();
 	} else {
+		console.log(req.user);
 		return res.render('login');
 	}
 }
