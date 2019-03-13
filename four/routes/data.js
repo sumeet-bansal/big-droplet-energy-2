@@ -32,7 +32,6 @@ router.get('/errors', function(req, res, next) {
         connection.query('SELECT * FROM error;', [], function (err, results) {
                 if (err) { console.log(err); } 
                 data = results; 
-                console.log(data);
                 return;
         });
     });
