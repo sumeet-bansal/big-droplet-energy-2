@@ -40,22 +40,22 @@
         <button onclick="Func()">
             Functional Button
         </button>
-        <button onclick="ReferenceError()">
+        <button onclick="rErr()">
             ReferenceError Button
         </button>
-        <button onclick="EvalError()">
+        <button onclick="eErr()">
             EvalError Button
         </button>
-        <button onclick="RangeError()">
+        <button onclick="rErr()">
             RangeError Button
         </button>
-        <button onclick="SyntaxError()">
+        <button onclick="sErr()">
             SyntaxError Button
         </button>
-        <button onclick="TypeError()">
+        <button onclick="tErr()">
             TypeError Button
         </button>
-        <button onclick="URIError()">
+        <button onclick="uErr()">
             URIError Button
         </button>
         <p>Lorem Ipsum is simply dummy text of the printing and 
@@ -86,11 +86,11 @@
             }
         }
 
-        function ReferenceError() {
+        function rErr() {
             aleart('button clicked!');
         }
 
-        function SyntaxError() {
+        function sErr() {
             try {
                 throw new SyntaxError("I'm a SyntaxError!");
             } 
@@ -99,7 +99,7 @@
             }
         }
 
-        function EvalError() {
+        function eErr() {
             try {
                 throw new EvalError("I'm an EvalError!");
             } catch(error) {
@@ -107,7 +107,7 @@
             }
         }
 
-        function RangeError() {
+        function rErr() {
             try {
                 throw new RangeError("I'm an RangeError!");
             } catch(error) {
@@ -115,7 +115,7 @@
             }
         }
 
-        function TypeError() {
+        function tErr() {
             try {
                 throw new TypeError("I'm a TypeError!");
             } catch(error) {
@@ -123,7 +123,7 @@
             }
         }
 
-        function URIError() {
+        function uErr() {
             try {
                 throw new URIError("I'm an URIError!");
             } catch(error) {
