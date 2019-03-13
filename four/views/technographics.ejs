@@ -138,31 +138,6 @@
                                 </div>
                         </div>
                 </div>
-		<div class="container">
-                        <div class="row">
-                                <div class="col-sm">
-                                        <div class="card">
-                                                <h2>Hours Accessed</h2>
-                                                <p>Lorem Ipsum is simply dummy text of the printing
-                                                        and typesetting industry. Lorem Ipsum has been
-                                                        the industry's standard dummy text ever since
-                                                        the 1500s, when an unknown printer took a galley
-                                                        of type and scrambled it to make a type specimen
-                                                        book. It has survived not only five centuries,
-                                                        but also the leap into electronic typesetting,
-                                                        remaining essentially unchanged. It was
-                                                        popularised in the 1960s with the release of
-                                                        Letraset sheets containing Lorem Ipsum passages,
-                                                        and more recently with desktop publishing software
-                                                        like Aldus PageMaker including versions of Lorem Ipsum.
-                                                </p>
-                                        </div>
-                                </div>
-                                <div class="col-sm">
-                                        <canvas id="hour" width="400" height="400"></canvas>
-                                </div>
-                        </div>
-                </div>
 	</div>
 
 	<!-- <h1>Big Droplet Energy &#x1F4A6</h1>
@@ -251,25 +226,43 @@
         });
 
 
-	var ctx2 = document.getElementById("month");                               
-var myChart = new Chart(ctx2, {                                                     
-    type: 'line',                                                               
-  data: {                                                                          
-    labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October","November", "December"],
-    datasets: [{                                                                   
-        label: "Access",
-	data: [1000,3000,4000,5000,3500,1000,500,600,900,1200,900,2000],
-        borderColor: "#3e95cd",                                                    
-        fill: false                                                                 
-      }                                                                            
-    ]                                                                              
-  },                                                                               
-  options: {                                                                       
-    title: {                                                                       
-      display: true,                                                               
-      text: 'Access per month'                            
-    },                                                                             
-  }                                                                                
+	var ctx = document.getElementById("day");                               
+	var myChart = new Chart(ctx, {                                                     
+    	type: 'line',                                                               
+  	data: {                                                                          
+    		labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October","November", "December"],
+    		datasets: [{                                                                   
+        		label: "Access",
+			data: [1000,3000,4000,5000,3500,1000,500,600,900,1200,900,2000],
+        		borderColor: "#3e95cd",                                                    
+        		fill: false                                                                 
+      		}]                                                                              
+  	},                                                                               
+  	options: {                                                                       
+    		title: {                                                                       
+      		display: true,                                                               
+      		text: 'Access per month'                            
+    		},                                                                             
+  	}                         
+	
+	var ctx = document.getElementById("month");                               
+        var myChart = new Chart(ctx, {                                                     
+        type: 'line',                                                               
+        data: {                                                                          
+		labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                datasets: [{                                                                   
+                        label: "Access",                                           
+                        data: [100,200,300,200,250,100,500,600,900,1200,1900,2000],
+                        borderColor: "#3e95cd",                                                    
+                        fill: false                                                                 
+                }]                                                                              
+        },                                                                               
+        options: {                                                                       
+                title: {                                                                       
+                display: true,                                                               
+                text: 'Access per day'                                           
+                },                                                                             
+        }
 }); 
 
 	</script>
