@@ -2,70 +2,45 @@ var express = require('express');
 var mysql = require('mysql');
 var router = express.Router();
 
+const options = {
+	user: 'root',
+	password: 'space bar',
+	database: 'new_schema'
+}
 
-
-router.get('/error', function(req, res, next) {
-    const connection = mysql.createConnection({
-        user    : 'root',
-        password: 'space bar',
-        database: 'collector'
-    });
-    connection.connect(function(err) {
-        if (err) { console.log(err); }
-        connection.query('SELECT * FROM error;', function (err, results, fields){
-            connection.end();
-            if (err) { console.log(err); }
-            res.render('reporterror', {data: results});
-        });
-    });
-});
-
-router.get('/random', function(req, res, next) {
-    const connection = mysql.createConnection({
-        user    : 'root',
-        password: 'space bar',
-        database: 'collector'
-    });
-    connection.connect(function(err) {
-        if (err) { console.log(err); }
-        connection.query('SELECT * FROM random_load;', function (err, results, fields){
-            connection.end();
-            if (err) { console.log(err); }
-            res.render('reportrandom', {data: results});
-        });
-    });
-});
-
-router.get('/slow', function(req, res, next) {
-    const connection = mysql.createConnection({
-        user    : 'root',
-        password: 'space bar',
-        database: 'collector'
-    });
-    connection.connect(function(err) {
-        if (err) { console.log(err); }
-        connection.query('SELECT * FROM slow_load;', function (err, results, fields){
-            connection.end();
-            if (err) { console.log(err); }
-            res.render('reportslow', {data: results});
-        });
-    });
-});
-
-router.get('/form', function(req, res, next) {
-    const connection = mysql.createConnection({
-        user    : 'root',
-        password: 'space bar',
-        database: 'collector'
-    });
-    connection.connect(function(err) {
-        if (err) { console.log(err); }
-        connection.query('SELECT * FROM form_data;', function (err, results, fields){
-            connection.end();
-            if (err) { console.log(err); }
-            res.render('reportform', {data: results});
-        });
-    });
+router.get('/:table', function(req, res) {
+	let table = req.params.table;
+	if (table == 'slow' || table == 'random') {
+		table += '_load';
+	} else if (table == 'form') {
+		table = 'form_data';
+	} else if (table != 'cookie' && table != 'error') {
+		return res.status(404).send({
+			message: 'Invaild route.'
+		});
+	}
+	const connection = mysql.createConnection(options);
+	connection.connect(err => {
+		if (err) {
+			console.log(err);
+			return res.status(500).send({
+				message: 'Unable to connect to the database.'
+			});
+		}
+		connection.query('SELECT * FROM ' + table, (error, results, fields) => {
+			connection.end();
+			if (err) {
+				console.log(err);
+				return res.status(500).send({
+					message: 'Database read failed.'
+				});
+			}
+			return res.render('reporting', {
+				headers: Object.keys(results[0]),
+				data: results.map(row => ({...row}))
+			});
+		});
+	});
 });
 
 module.exports = router;
