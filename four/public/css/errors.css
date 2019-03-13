@@ -1,0 +1,10 @@
+.container {
+    margin-top: 40px;
+}
+
+.card {
+    padding: 20px;
+    position: relative;
+    top: 50%;
+    transform: perspective(1px) translateY(-50%);
+}

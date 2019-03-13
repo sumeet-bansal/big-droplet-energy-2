@@ -67,8 +67,8 @@ var isauth = function(req, res, next) {
 	}
 }
 
-app.use('/', isauth, require('./routes/index'));
-app.use('/data', isauth, require('./routes/data'));
+app.use('/', require('./routes/index'));
+app.use('/data', require('./routes/data'));
 app.use('/user', isauth, require('./routes/user'));
 
 // useradmin CRUD
