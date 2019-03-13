@@ -86,50 +86,29 @@
             }
         }
 
-        function rErr() {
-            aleart('button clicked!');
-        }
+    function rErr() {
+        aleart('button clicked!');
+    }
 
-        function sErr() {
-            try {
-                throw new SyntaxError("I'm a SyntaxError!");
-            } 
-            catch(error) {
-                alert("caught a " + error.name + ": " + error.message);
-            }
-        }
+    function sErr() {
+        throw new SyntaxError("I'm a SyntaxError!");
+    }
 
-        function eErr() {
-            try {
-                throw new EvalError("I'm an EvalError!");
-            } catch(error) {
-                alert("caught a " + error.name + ": " + error.message);
-            }
-        }
+    function eErr() {
+        throw new EvalError("I'm an EvalError!");
+    }
 
-        function rErr() {
-            try {
-                throw new RangeError("I'm an RangeError!");
-            } catch(error) {
-                alert("caught a " + error.name + ": " + error.message);
-            }
-        }
+    function rErr() {
+        throw new RangeError("I'm an RangeError!");
+    }
 
-        function tErr() {
-            try {
-                throw new TypeError("I'm a TypeError!");
-            } catch(error) {
-                alert("caught a " + error.name + ": " + error.message);
-            }
-        }
+    function tErr() {
+        throw new TypeError("I'm a TypeError!");
+    }
 
-        function uErr() {
-            try {
-                throw new URIError("I'm an URIError!");
-            } catch(error) {
-                alert("caught a " + error.name + ": " + error.message);
-            }
-        }
+    function uErr() {
+        throw new URIError("I'm an URIError!");
+    }
     </script>
 </body>
 </html>
