@@ -251,13 +251,14 @@
         });
 
 
-	var ctx = document.getElementById("month");                               
-var myChart = new Chart(ctx, {                                                     
+	var ctx2 = document.getElementById("month");                               
+var myChart = new Chart(ctx2, {                                                     
     type: 'Line',                                                               
   data: {                                                                          
     labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October","November", "December"],
     datasets: [{                                                                   
-        data: [1000,3000,4000,5000,3500,1000,500,600,900,1200,900,2000],
+        label: "Access",
+	data: [1000,3000,4000,5000,3500,1000,500,600,900,1200,900,2000],
         borderColor: "#3e95cd",                                                    
         fill: false                                                                 
       }                                                                            
@@ -268,12 +269,6 @@ var myChart = new Chart(ctx, {
       display: true,                                                               
       text: 'Access per month'                            
     },                                                                             
-    scales: {                                                                      
-            xAxes: [{                                                              
-                type: 'linear',                                                    
-                position: 'bottom'                                                 
-            }]                                                                     
-        }                                                                          
   }                                                                                
 }); 
 
