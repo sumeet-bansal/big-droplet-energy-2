@@ -37,7 +37,19 @@ router.get('/errors', function(req, res, next) {
         });
     });
 
-
+    // parse data
+    var dr = { 
+        refErr: {count:0}, 
+        typErr: {count:0}, 
+        uriErr: {count:0}, 
+        synErr: {count:0}, 
+        rngErr: {count:0}, 
+        evlErr: {count:0}
+    }
+    for (var i = 0; i < data.length; i++) {
+        var type = data[i].errorMessage;
+        console.log(type);
+    }
 
     res.render('errors', data);
 });

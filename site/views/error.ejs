@@ -95,9 +95,7 @@
     }
 
     function eErr() {
-        for (var i = 0; i < 10; i++) {
-            throw new EvalError("I'm an EvalError!");
-        }
+        throw new EvalError("I'm an EvalError!");
     }
 
     function rErr() {
