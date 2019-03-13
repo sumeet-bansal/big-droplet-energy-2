@@ -40,8 +40,23 @@
         <button onclick="Func()">
             Functional Button
         </button>
-        <button onclick="errorFunc()">
-            Error Button
+        <button onclick="ReferenceError()">
+            ReferenceError Button
+        </button>
+        <button onclick="EvalError()">
+            EvalError Button
+        </button>
+        <button onclick="RangeError()">
+            RangeError Button
+        </button>
+        <button onclick="SyntaxError()">
+            SyntaxError Button
+        </button>
+        <button onclick="TypeError()">
+            TypeError Button
+        </button>
+        <button onclick="URIError()">
+            URIError Button
         </button>
         <p>Lorem Ipsum is simply dummy text of the printing and 
             typesetting industry. Lorem Ipsum has been the industry's 
@@ -71,8 +86,49 @@
             }
         }
 
-        function errorFunc() {
-                aleart('button clicked!');
+        function ReferenceError() {
+            aleart('button clicked!');
+        }
+
+        function SyntaxError() {
+            try {
+                throw new SyntaxError("I'm a SyntaxError!");
+            } 
+            catch(error) {
+                alert("caught a " + error.name + ": " + error.message);
+            }
+        }
+
+        function EvalError() {
+            try {
+                throw new EvalError("I'm an EvalError!");
+            } catch(error) {
+                alert("caught a " + error.name + ": " + error.message);
+            }
+        }
+
+        function RangeError() {
+            try {
+                throw new RangeError("I'm an RangeError!");
+            } catch(error) {
+                alert("caught a " + error.name + ": " + error.message);
+            }
+        }
+
+        function TypeError() {
+            try {
+                throw new TypeError("I'm a TypeError!");
+            } catch(error) {
+                alert("caught a " + error.name + ": " + error.message);
+            }
+        }
+
+        function URIError() {
+            try {
+                throw new URIError("I'm an URIError!");
+            } catch(error) {
+                alert("caught a " + error.name + ": " + error.message);
+            }
         }
     </script>
 </body>
