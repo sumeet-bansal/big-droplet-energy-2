@@ -9,8 +9,12 @@ body {
     width: 100%;
 }
 
+.content {
+    margin: 40px;
+}
+
 #center {
-    display: table-cell;
+    margin-top: 20px; 
     vertical-align: middle;
 }
 
@@ -31,6 +35,7 @@ body {
 ul {
     list-style-type: none;
     margin: 0;
+    margin-bottom: 0 !important;
     padding: 0;
 }
 
@@ -67,3 +72,7 @@ ul {
     color: rgb(117, 207, 248);
 }
 
+/* table styles */
+th, tr, td {
+    border: 1px solid gray;
+}

@@ -2,19 +2,7 @@ var express = require('express');
 var mysql = require('mysql');
 var router = express.Router();
 
-router.get('/profile', function(req, res, next) {
-    let user = {
-        id: req.user.id,
-        username: req.user.username,
-        password: req.user.password,
-        admin: req.user.admin
-    };
-    res.render('userprofile', {
-        user: user
-    });
-});
-
-router.get('/admin', function(req, res, next) {
+router.post('/', function(req, res, next) {
     const connection = mysql.createConnection({
         user: 'root',
         password: 'space bar',
@@ -26,15 +14,13 @@ router.get('/admin', function(req, res, next) {
         password: req.user.password,
         admin: req.user.admin
     };
+    console.log(req.body.id);
     if (req.user.admin) {
         connection.connect(function(err) {
             if (err) { console.log(err); }
-            connection.query('SELECT * FROM Users;', function (err, results, fields) {
+            connection.query('DELETE FROM Users WHERE id = ?;', [req.body.id], function (err, results, fields) {
                 if (err) { console.log(err); } 
-                res.render('useradmin', {
-                    user: user,
-                    data: results
-                });
+                return;
             });
         });
     } else {

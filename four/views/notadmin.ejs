@@ -6,7 +6,6 @@
 	<link href="/css/index.css" rel="stylesheet" type="text/css">
 	<link href="/css/font.css" rel="stylesheet" type="text/css">
 	<link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon"/>
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
 <body>
 	<div class="header">
@@ -25,15 +24,7 @@
 	<div class="main-content" >
 		<span id="center">
 			<span id="emoji">&#x1F4A6;</span>
-			<span id="title"><%= user.username %>'s profile</span>
-			<h2>Your access level:
-					<% if(user.admin == 0){ %>
-						user
-					<% } else { %>  
-						admin. <a href="/user/admin">click to go to admin panel</a>
-					<% } %>
-			</h2>
-			<i class="fas fa-sign-out-alt"></i><a href="/logout">logout</a>
+			<span id="title">Sorry, <%= user.username %> you are not an admin.</span>
 		</span>
 	</div>
 	<!-- <h1>Big Droplet Energy &#x1F4A6</h1>
