@@ -25,7 +25,8 @@ router.get('/errors', function(req, res, next) {
         password: 'space bar',
         database: 'collector'
     });
-    var data; 
+    var data;
+     
     connection.connect(function(err) {
         if (err) { console.log(err); }
         connection.query('SELECT * FROM error;', [], function (err, results) {
@@ -35,6 +36,9 @@ router.get('/errors', function(req, res, next) {
                 return;
         });
     });
+
+
+
     res.render('errors', data);
 });
 
