@@ -41,7 +41,7 @@
 			<div class="row">
 				<div class="col-sm">
 					<div class="card">
-						<h2>Errors</h2>
+						<h2>Device Use</h2>
 						<p>Lorem Ipsum is simply dummy text of the printing 
 							and typesetting industry. Lorem Ipsum has been 
 							the industry's standard dummy text ever since 
@@ -58,22 +58,47 @@
 					</div>
 				</div>
 				<div class="col-sm">
-					<canvas id="myChart" width="400" height="400"></canvas>
+					<canvas id="device" width="400" height="400"></canvas>
 				</div>
 			</div>
 		</div>		
+		<div class="container">                                            
+                        <div class="row">                                          
+                                <div class="col-sm">                               
+                                        <div class="card">                         
+                                                <h2>Browser Accessing</h2>                
+                                                <p>Lorem Ipsum is simply dummy text of the printing 
+                                                        and typesetting industry. Lorem Ipsum has been 
+                                                        the industry's standard dummy text ever since 
+                                                        the 1500s, when an unknown printer took a galley 
+                                                        of type and scrambled it to make a type specimen 
+                                                        book. It has survived not only five centuries, 
+                                                        but also the leap into electronic typesetting, 
+                                                        remaining essentially unchanged. It was 
+                                                        popularised in the 1960s with the release of  
+                                                        Letraset sheets containing Lorem Ipsum passages, 
+                                                        and more recently with desktop publishing software 
+                                                        like Aldus PageMaker including versions of Lorem Ipsum.
+                                                </p>                               
+                                        </div>                                     
+                                </div>                                             
+                                <div class="col-sm">                               
+                                        <canvas id="browser" width="400" height="400"></canvas>
+                                </div>                                             
+                        </div>                                                     
+                </div>	
 	</div>
 	<!-- <h1>Big Droplet Energy &#x1F4A6</h1>
 	<h3>Tim Ferido (tferido@ucsd.edu)</h2>
 	<h3>Sumeet Bansal (s3bansal@ucsd.edu)</h2> -->
 </body>
 <script>
-	var ctx = document.getElementById("myChart");
+	var ctx = document.getElementById("device");
 	var myChart = new Chart(ctx, {
 		type: 'pie',
 		data: {
 			datasets: [{
-				data: [1234, 349, 139, 9, 6969, 1],
+				data: [1234, 349],
 				backgroundColor: [
 					'rgba(255, 99, 132, 0.2)',
 					'rgba(54, 162, 235, 0.2)',
@@ -94,12 +119,8 @@
 			}],
 
 			labels: [
-				'ReferenceError',
-				'ServerError',
-				'ClientError',
-				'SyntaxError',
-				'YourMomError',
-				'ErrorError'
+				'Desktop',
+				'Mobile'
 			]
 		},
 		options: {
@@ -110,6 +131,46 @@
 			}
 		}
 	});
+	var ctx = document.getElementById("browser");
+        var myChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                        datasets: [{
+                                data: [234, 1349, 639, 9],
+                                backgroundColor: [
+                                        'rgba(255, 99, 132, 0.2)',
+                                        'rgba(54, 162, 235, 0.2)',
+                                        'rgba(255, 206, 86, 0.2)',
+                                        'rgba(75, 192, 192, 0.2)',
+                                        'rgba(153, 102, 255, 0.2)',
+                                        'rgba(255, 159, 64, 0.2)'
+                                ],
+                                borderColor: [
+                                        'rgba(255,99,132,1)',
+                                        'rgba(54, 162, 235, 1)',
+                                        'rgba(255, 206, 86, 1)',
+                                        'rgba(75, 192, 192, 1)',
+                                        'rgba(153, 102, 255, 1)',
+                                        'rgba(255, 159, 64, 1)'
+                                ],
+                                borderWidth: 1
+                        }],
+
+                        labels: [
+                                'Mozilla',
+                                'Chrome',
+				'Safari',
+				'Explorer
+                        ]
+                },
+                options: {
+                        startAngle: 0,
+                        animation: {
+                                animateRotate: true,
+                                animateScale: true
+                        }
+                }
+        });
 	</script>
 </html>
 
