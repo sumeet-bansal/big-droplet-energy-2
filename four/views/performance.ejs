@@ -72,11 +72,11 @@
   <script>
     var ctx = document.getElementById("line-chart");
 var myChart = new Chart(ctx, {
-    type: 'line',
+    type: 'scatter',
   data: {
     labels: [0,1000,2000,3000,4000,4000,5000,6000,7000,8000,9000,10000],
     datasets: [{ 
-        data: [6002,5004,1001,3003,3002,6002,6000,5001,7001,6003,3005,20001,2001],
+        data: [6002,5004,1001,3003,3002,6002,6000,5001,7001,6003,3005,2001,2001],
         label: "Image 1",
         borderColor: "#3e95cd",
         fill: true
@@ -87,7 +87,13 @@ var myChart = new Chart(ctx, {
     title: {
       display: true,
       text: 'World population per region (in millions)'
-    }
+    },
+    scales: {
+            xAxes: [{
+                type: 'linear',
+                position: 'bottom'
+            }]
+        }
   }
 });
   
