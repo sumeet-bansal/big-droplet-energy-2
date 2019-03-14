@@ -71,6 +71,27 @@
   </body>
   <script>
 
+var ctx3 = document.getElementById("day");                               
+        var myChart = new Chart(ctx3, {                                                     
+        type: 'line',                                                               
+        data: {                                                                          
+                labels:["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], 
+                datasets: [{                                                                   
+                        label: "Access",                                           
+                        data:[100,300,200,900,1200,1900,200],                      
+                        borderColor: "#3e95cd",                                                    
+                        fill: false                                                                 
+                }]                                                                              
+        },                                                                               
+        options: {                                                                       
+                title: {                                                                       
+                display: true,                                                               
+                text: 'Access per day'                                           
+                },                                                                             
+        }                                                                          
+        });
+
+	/*
 
 var ctx = document.getElementById("line-chart");
 var myChart = new Chart(ctx, {
@@ -112,6 +133,7 @@ var myChart = new Chart(ctx, {
         }
   }
 });
+*/
 
   </script>
 </html>
