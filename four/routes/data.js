@@ -7,17 +7,27 @@ router.get('/technographics', function(req, res, next) {
     const connection = mysql.createConnection({
         user: 'root',
         password: 'space bar',
-        database: 'collector'
+        database: 'new_schema'
     });
     var data; 
     connection.connect(function(err) {
         if (err) { console.log(err); }
-        connection.query('', [], function (err, results) {
+        connection.query('SELECT * FROM cookie;', [], function (err, results) {
                 if (err) { console.log(err); } 
-                data = results; 
+                dt = results; 
+
+		
+
+
+
+
+
+		res.render('technographics', {data: dt});
+
+
+
         });
     });
-    res.render('technographics', data);
 });
 
 router.get('/errors', function(req, res, next) {                           
@@ -74,14 +84,6 @@ router.get('/errors', function(req, res, next) {
     		} 
 
 		res.render('errors', {data: dr});
-
-
-
-		
-
-
-
-
         });                                                                        
     });                                                                                                            
 });
