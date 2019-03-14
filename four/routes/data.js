@@ -30,10 +30,10 @@ router.get('/errors', function(req, res, next) {
         if (err) { console.log(err); }                                             
         connection.query('SELECT img1 FROM random_load;', [], function (err, results) {                         
                 if (err) { console.log(err); }                                     
-                data = results;                                                    
+                data = results;         
+		res.render('errors', {data: results});
         });                                                                        
-    });                                                                            
-    res.render('errors', data);                                            
+    });                                                                                                            
 });
 
 
