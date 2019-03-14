@@ -46,9 +46,12 @@
 				<div class="col-sm">
 					<div class="card">
 						<h2>Errors</h2>
+							
+						<p id="demo"></p>
+
 						<p>
 						
-
+							
 						<%=data.typErr %>		
 						<%=data.refErr %>
 						<%=data.synErr %>
@@ -84,12 +87,18 @@
 	<h3>Sumeet Bansal (s3bansal@ucsd.edu)</h2> -->
 </body>
 <script>
+
+
+	
+
+
+
 	var ctx = document.getElementById("myChart");
 	var myChart = new Chart(ctx, {
 		type: 'pie',
 		data: {
 			datasets: [{
-				data: [1234, 349, 139, 9, 6969, 1],
+				data: [dr.refErr, 349, 139, 9, 6969, 1],
 				backgroundColor: [
 					'rgba(255, 99, 132, 0.2)',
 					'rgba(54, 162, 235, 0.2)',
@@ -111,11 +120,11 @@
 
 			labels: [
 				'ReferenceError',
-				'ServerError',
-				'ClientError',
+				'TypeError',
+				'URIError',
 				'SyntaxError',
-				'YourMomError',
-				'ErrorError'
+				'RangeError',
+				'evlError'
 			]
 		},
 		options: {
