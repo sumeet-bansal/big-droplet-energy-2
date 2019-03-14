@@ -74,7 +74,7 @@ router.get('/errors', function(req, res, next) {
     		} 
 
 	
-		res.render('errors', {data: dr});
+		res.render('errors', {data: data[1624].errorMessage});
 
 
 
