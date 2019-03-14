@@ -59,11 +59,12 @@ router.get('/errors', function(req, res, next) {
 
 
 */
+	/*
 	var type = data[1].errorMessage;                           
                         var n = type.indexOf(':');                                 
                         type = s.substring(0, n != -1 ? n : s.length);
-
-		res.render('errors', {data: type});
+*/
+		res.render('errors', {data: "HELLO"});
 
 
 
