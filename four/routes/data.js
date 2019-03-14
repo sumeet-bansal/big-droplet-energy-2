@@ -29,11 +29,17 @@ router.get('/errors', function(req, res, next) {
      
     connection.connect(function(err) {
         if (err) { console.log(err); }
-        connection.query('SELECT * FROM error;', [], function (err, results) {
-                if (err) { console.log(err); } 
-                data = results; 
-                return;
-        });
+        connection.query('SELECT img1 FROM random_load;', [], function (err, results) {
+       		if (err) {                                                 
+                                console.log(err);                                  
+                                return res.status(500).send({                      
+                                        message: 'Database read failed.'           
+                                });                                                
+                        }
+		data = results;
+		res.render('errors', data);
+			
+	}); 
     });
 
     // parse data
@@ -50,7 +56,9 @@ router.get('/errors', function(req, res, next) {
     //     console.log(type);
     // }
 
+    /*
     res.render('errors', data);
+    */
 });
 
 router.get('/performance', function(req, res, next) {

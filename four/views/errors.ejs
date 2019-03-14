@@ -38,6 +38,25 @@
 	</div>
 	<div class="main-content" >
 		<div class="container">
+
+
+			<table>                                                            
+                        <tr>                                                       
+                                <% for(var i=0; i < headers.length; i++) { %>   
+                                <th><%= headers[i] %></th>                         
+                                <% } %>                                            
+                        </tr>                                                      
+                        <% for(var i=0; i < data.length; i++) { %>                 
+                        <tr>                                                       
+                                <% for(var j=0; j < headers.length; j++) { %>   
+                                <td><%= data[i][headers[j]] %></th>                
+                                        <% } %>                                    
+                                </tr>                                              
+                                <% } %>                                            
+                        </table>
+
+
+
 			<div class="row">
 				<div class="col-sm">
 					<div class="card">
@@ -64,29 +83,6 @@
 		</div>		
 	
 	</div>
-<div class="content" >                                                     
-                <table>                                                            
-                        <tr>                                                       
-                                <% for(var i=0; i < headers.length; i++) { %>   
-                                <th><%= headers[i] %></th>                         
-                                <% } %>                                            
-                        </tr>                                                      
-                        <% for(var i=0; i < data.length; i++) { %>                 
-                        <tr>                                                       
-                                <% for(var j=0; j < headers.length; j++) { %>   
-                                <td><%= data[i][headers[j]] %></th>                
-                                        <% } %>                                    
-                                </tr>                                              
-                                <% } %>                                            
-                        </table>                                                   
-                </div>                                                             
-                <div class="footer">                                               
-                        <ul class="header-list">                                   
-                                <li><a href="/">home</a></li>                      
-                        </ul>                                                      
-                </div>
-	
-
 
 	<!-- <h1>Big Droplet Energy &#x1F4A6</h1>
 	<h3>Tim Ferido (tferido@ucsd.edu)</h2>
