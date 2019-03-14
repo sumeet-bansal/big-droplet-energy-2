@@ -28,7 +28,7 @@ router.get('/errors', function(req, res, next) {
     var data;
     connection.connect(function(err) {
         if (err) { console.log(err); }
-        connection.query('', [], function (err, results) {
+        connection.query('SELECT img1 FROM random_load;', [], function (err, results) {
                 if (err) { console.log(err); }
                 data = results;
         });
