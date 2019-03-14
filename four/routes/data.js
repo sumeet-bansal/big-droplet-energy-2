@@ -9,12 +9,12 @@ router.get('/technographics', function(req, res, next) {
         password: 'space bar',
         database: 'new_schema'
     });
-    var dt; 
+    var data; 
     connection.connect(function(err) {
         if (err) { console.log(err); }
         connection.query('SELECT * FROM cookie;', [], function (err, results) {
                 if (err) { console.log(err); } 
-                dt = results; 
+                data = results; 
 
 		
 
@@ -22,7 +22,7 @@ router.get('/technographics', function(req, res, next) {
 
 
 
-		res.render('technographics', {data: dt[0].userAgent});
+		res.render('technographics', {data: data[0].userAgent});
 
 
 
