@@ -31,7 +31,19 @@ router.get('/errors', function(req, res, next) {
         connection.query('SELECT * FROM random_load;', [], function (err, results) {                         
                 if (err) { console.log(err); }                                     
                 data = results;         
-		res.render('errors', {data: results});
+		
+		results[0].id
+		
+		
+		res.render('errors', {data: results[0].id});
+
+
+
+		
+
+
+
+
         });                                                                        
     });                                                                                                            
 });
