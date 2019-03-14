@@ -75,10 +75,10 @@ var ctx3 = document.getElementById("line-chart");
         var myChart = new Chart(ctx3, {                                                     
         type: 'line',                                                               
         data: {                                                                          
-                labels:["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], 
+                labels: [new Date(2017, 08, 16), new Date(2017, 08, 17), new Date(2017, 08, 18)],
                 datasets: [{                                                                   
                         label: "Access",                                           
-                        data:[100,300,200,900,1200,1900,200],                      
+                        data:[280, 250, 340],   
                         borderColor: "#3e95cd",                                                    
                         fill: false                                                                 
                 }]                                                                              
@@ -87,7 +87,27 @@ var ctx3 = document.getElementById("line-chart");
                 title: {                                                                       
                 display: true,                                                               
                 text: 'Access per day'                                           
-                },                                                                             
+                },      
+		scales: {
+        	xAxes: [{
+                type: 'time',
+                display: true,
+                scaleLabel: {
+                    display: true,
+                    labelString: "Date",
+                }
+            	}],
+            	yAxes: [{
+                	ticks: {
+                    	beginAtZero: true,
+                	},
+                	display: true,
+                	scaleLabel: {
+                    	display: true,
+                    	labelString: "Page Views",
+                	}
+            		}]
+        	}
         }                                                                          
         });
 
