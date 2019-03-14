@@ -41,7 +41,7 @@
 			<div class="row">
 				<div class="col-sm">
 					<div class="card">
-						<h2>Performance</h2>
+						<h2>Image 1</h2>
 						<p>Lorem Ipsum is simply dummy text of the printing 
 							and typesetting industry. Lorem Ipsum has been 
 							the industry's standard dummy text ever since 
@@ -58,16 +58,16 @@
 					</div>
 				</div>
 				<div class="col-sm">
-					<canvas id="device" width="400" height="400"></canvas>
+					<canvas id="image1" width="400" height="400"></canvas>
 				</div>
 			</div>
 		</div>		
-	<!--
+
 		<div class="container">                                            
                         <div class="row">                                          
                                 <div class="col-sm">                               
                                         <div class="card">                         
-                                                <h2>Browser Accessing</h2>                
+                                                <h2>Image 2</h2>                
                                                 <p>Lorem Ipsum is simply dummy text of the printing 
                                                         and typesetting industry. Lorem Ipsum has been 
                                                         the industry's standard dummy text ever since 
@@ -84,7 +84,7 @@
                                         </div>                                     
                                 </div>                                             
                                 <div class="col-sm">                               
-                                        <canvas id="browser" width="400" height="400"></canvas>
+                                        <canvas id="image2" width="400" height="400"></canvas>
                                 </div>                                             
                         </div>                                                     
                 </div>
@@ -93,7 +93,7 @@
                         <div class="row">                                          
                                 <div class="col-sm">                               
                                         <div class="card">                         
-                                                <h2>Months Accessed</h2>          
+                                                <h2>Image 3</h2>          
                                                 <p>Lorem Ipsum is simply dummy text of the printing 
                                                         and typesetting industry. Lorem Ipsum has been 
                                                         the industry's standard dummy text ever since 
@@ -110,7 +110,7 @@
                                         </div>                                     
                                 </div>                                             
                                 <div class="col-sm">                               
-                                        <canvas id="month" width="400" height="400"></canvas>
+                                        <canvas id="image3" width="400" height="400"></canvas>
                                 </div>                                             
                         </div>                                                     
                 </div>
@@ -120,7 +120,7 @@
                         <div class="row">
                                 <div class="col-sm">
                                         <div class="card">
-                                                <h2>Days Accessed</h2>
+                                                <h2>Random Load Total</h2>
                                                 <p>Lorem Ipsum is simply dummy text of the printing
                                                         and typesetting industry. Lorem Ipsum has been
                                                         the industry's standard dummy text ever since
@@ -137,11 +137,35 @@
                                         </div>
                                 </div>
                                 <div class="col-sm">
-                                        <canvas id="day" width="400" height="400"></canvas>
+                                        <canvas id="totalrandom" width="400" height="400"></canvas>
                                 </div>
                         </div>
                 </div>
-		-->
+		<div class="container">
+                        <div class="row">
+                                <div class="col-sm">
+                                        <div class="card">
+                                                <h2>Slow Load Total</h2>
+                                                <p>Lorem Ipsum is simply dummy text of the printing
+                                                        and typesetting industry. Lorem Ipsum has been
+                                                        the industry's standard dummy text ever since
+                                                        the 1500s, when an unknown printer took a galley
+                                                        of type and scrambled it to make a type specimen
+                                                        book. It has survived not only five centuries,
+                                                        but also the leap into electronic typesetting,
+                                                        remaining essentially unchanged. It was
+                                                        popularised in the 1960s with the release of
+                                                        Letraset sheets containing Lorem Ipsum passages,
+                                                        and more recently with desktop publishing software
+                                                        like Aldus PageMaker including versions of Lorem Ipsum.
+                                                </p>
+                                        </div>
+                                </div>
+                                <div class="col-sm">
+                                        <canvas id="totalslow" width="400" height="400"></canvas>
+                                </div>
+                        </div>
+                </div>
 
 	</div>
 
@@ -150,7 +174,7 @@
 	<h3>Sumeet Bansal (s3bansal@ucsd.edu)</h2> -->
 </body>
 <script>
-	var ctx = document.getElementById("device");
+	var ctx = document.getElementById("image1");
 	var myChart = new Chart(ctx, {
 		type: 'line',
 		data: {
@@ -169,6 +193,91 @@
 			}
 		}
 	});
+
+
+
+	var ctx = document.getElementById("image2");                               
+        var myChart = new Chart(ctx, {                                             
+                type: 'line',                                                      
+                data: {                                                            
+                        labels: [0,1000,2000,3000,4000,5000,6000,7000,8000,9000,10000],
+                        datasets: [{                                               
+                                data: [10,1000,2000,3000,2500,2300,2000,1500,500, 400, 300],
+                                borderColor: ['rgba(255,99,132,1)'],               
+                                fill:false                                         
+                        }]                                                         
+                },                                                                 
+                options: {                                                         
+                        startAngle: 0,                                             
+                        animation: {                                               
+                                animateRotate: true,                               
+                                animateScale: true                                 
+                        }                                                          
+                }                                                                  
+        });   	
+
+var ctx = document.getElementById("image3");                               
+        var myChart = new Chart(ctx, {                                             
+                type: 'line',                                                      
+                data: {                                                            
+                        labels: [0,1000,2000,3000,4000,5000,6000,7000,8000,9000,10000],
+                        datasets: [{                                               
+                                data: [10,1000,2000,3000,2500,2300,2000,1500,500, 400, 300],
+                                borderColor: ['rgba(255,99,132,1)'],               
+                                fill:false                                         
+                        }]                                                         
+                },                                                                 
+                options: {                                                         
+                        startAngle: 0,                                             
+                        animation: {                                               
+                                animateRotate: true,                               
+                                animateScale: true                                 
+                        }                                                          
+                }                                                                  
+        });   
+
+var ctx = document.getElementById("totalrandom");                               
+        var myChart = new Chart(ctx, {                                             
+                type: 'line',                                                      
+                data: {                                                            
+                        labels: [0,1000,2000,3000,4000,5000,6000,7000,8000,9000,10000],
+                        datasets: [{                                               
+                                data: [10,1000,2000,3000,2500,2300,2000,1500,500, 400, 300],
+                                borderColor: ['rgba(255,99,132,1)'],               
+                                fill:false                                         
+                        }]                                                         
+                },                                                                 
+                options: {                                                         
+                        startAngle: 0,                                             
+                        animation: {                                               
+                                animateRotate: true,                               
+                                animateScale: true                                 
+                        }                                                          
+                }                                                                  
+        });   
+
+var ctx = document.getElementById("totalslow");                               
+        var myChart = new Chart(ctx, {                                             
+                type: 'line',                                                      
+                data: {                                                            
+                        labels: [0,1000,2000,3000,4000,5000,6000,7000,8000,9000,10000],
+                        datasets: [{                                               
+                                data: [10,1000,2000,3000,2500,2300,2000,1500,500, 400, 300],
+                                borderColor: ['rgba(255,99,132,1)'],               
+                                fill:false                                         
+                        }]                                                         
+                },                                                                 
+                options: {                                                         
+                        startAngle: 0,                                             
+                        animation: {                                               
+                                animateRotate: true,                               
+                                animateScale: true                                 
+                        }                                                          
+                }                                                                  
+        });   
+
+
+
 /*
 	var ctx1 = document.getElementById("browser");
         var myChart = new Chart(ctx1, {
