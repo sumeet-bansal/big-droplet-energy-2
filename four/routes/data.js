@@ -73,8 +73,11 @@ router.get('/errors', function(req, res, next) {
 
     		} 
 
-	
-		res.render('errors', {data: data[1624].errorMessage});
+		var type = data[1624].errorMessage;                           
+                        var n = type.indexOf(':');                                 
+                        type = type.substring(0, n != -1 ? n : type.length);
+
+		res.render('errors', {data: type});
 
 
 
