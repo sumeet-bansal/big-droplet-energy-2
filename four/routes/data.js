@@ -51,7 +51,7 @@ router.get('/errors', function(req, res, next) {
 			type = type.substring(0, n != -1 ? n : type.length);
 
 			
-			if(type == "ReferenceError" || type == "Uncaught ReferenceError"){
+			if(type == "ReferenceError"){
 				dr.refErr = dr.refErr + 1;
 			}
 			else if( type == "Uncaught EvalError"){
@@ -74,7 +74,7 @@ router.get('/errors', function(req, res, next) {
     		} 
 
 	
-		res.render('errors', JSON.stringify(dr));
+		res.render('errors', {data: dr.typErr});
 
 
 
