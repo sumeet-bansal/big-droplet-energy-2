@@ -42,7 +42,9 @@ router.get('/errors', function(req, res, next) {
     			synErr: 0,                                                   
     			rngErr: 0,                                                   
     			evlErr: 0                                                    
-    		}                                                                        
+    		}                        
+
+		/*
    	 	for (var i = 0; i < data.length; i++) {                                  
    	 		var type = data[i].errorMessage;
 			var n = type.indexOf(':');	
@@ -57,7 +59,7 @@ router.get('/errors', function(req, res, next) {
 
     		} 
 
-
+*/
 	
 		res.render('errors', {data: dr.refErr});
 
