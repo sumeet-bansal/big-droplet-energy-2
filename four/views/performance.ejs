@@ -71,8 +71,8 @@
   </body>
   <script>
 
-const ctx = document.getElementById('line-chart').getContext('2d');
-const data = {
+var ctx = document.getElementById('line-chart');
+var data = {
     // Labels should be Date objects
     labels: [new Date(2017, 08, 16), new Date(2017, 08, 17), new Date(2017, 08, 18)],
     datasets: [{
@@ -84,7 +84,7 @@ const data = {
         lineTension: 0,
     }]
 }
-const options = {
+var options = {
     type: 'line',
     data: data,
     options: {
@@ -112,7 +112,7 @@ const options = {
         }
     }
 }
-const chart = new Chart(ctx, options);
+var chart = new Chart(ctx, options);
 
 
 /*
