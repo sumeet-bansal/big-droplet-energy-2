@@ -71,45 +71,22 @@
   </body>
   <script>
 
-var ctx3 = document.getElementById("line-chart");                               
-        var myChart = new Chart(ctx3, {                                                     
-        type: 'line',                                                               
-        data: {                                                                          
-                labels: [new Date(2017, 08, 16), new Date(2017, 08, 17), new Date(2017, 08, 18)],
-                datasets: [{                                                                   
-                        label: "Access",                                           
-                        data:[280, 250, 340],   
-                        borderColor: "#3e95cd",                                                    
-                        fill: false                                                                 
-                }]                                                                              
-        },                                                                               
-        options: {                                                                       
-                title: {                                                                       
-                display: true,                                                               
-                text: 'Access per day'                                           
-                },      
-		scales: {
-        	xAxes: [{
+var ctx = document.getElementById("line-chart");                               
+
+var chart = new Chart(ctx, {
+    type: 'line',
+    data: data,
+    options: {
+        scales: {
+            xAxes: [{
                 type: 'time',
-                display: true,
-                scaleLabel: {
-                    display: true,
-                    labelString: "Date",
+                time: {
+                    unit: 'month'
                 }
-            	}],
-            	yAxes: [{
-                	ticks: {
-                    	beginAtZero: true,
-                	},
-                	display: true,
-                	scaleLabel: {
-                    	display: true,
-                    	labelString: "Page Views",
-                	}
-            		}]
-        	}
-        }                                                                          
-        });
+            }]
+        }
+    }
+});
 
 	/*
 
