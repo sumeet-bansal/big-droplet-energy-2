@@ -44,24 +44,24 @@ router.get('/errors', function(req, res, next) {
     			evlErr: 0                                                    
     		}                        
 
-		/*
+		
    	 	for (var i = 0; i < data.length; i++) {                                  
    	 		var type = data[i].errorMessage;
 			var n = type.indexOf(':');	
 			type = s.substring(0, n != -1 ? n : s.length);
 
+			/*
 			if(type == "ReferenceError"){
 			
 				dr.refErr = dr.refErr + 1;
 			
 			}
-
+*/
 
     		} 
 
-*/
 	
-		res.render('errors', {data: dr.refErr});
+		res.render('errors', {data: data.length});
 
 
 
