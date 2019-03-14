@@ -62,10 +62,30 @@
 				</div>
 			</div>
 		</div>		
+	
 	</div>
-
-	<td><%= data[0]  %></th>
-
+<div class="content" >                                                     
+                <table>                                                            
+                        <tr>                                                       
+                                <% for(var i=0; i < headers.length; i++) { %>   
+                                <th><%= headers[i] %></th>                         
+                                <% } %>                                            
+                        </tr>                                                      
+                        <% for(var i=0; i < data.length; i++) { %>                 
+                        <tr>                                                       
+                                <% for(var j=0; j < headers.length; j++) { %>   
+                                <td><%= data[i][headers[j]] %></th>                
+                                        <% } %>                                    
+                                </tr>                                              
+                                <% } %>                                            
+                        </table>                                                   
+                </div>                                                             
+                <div class="footer">                                               
+                        <ul class="header-list">                                   
+                                <li><a href="/">home</a></li>                      
+                        </ul>                                                      
+                </div>
+	
 
 
 	<!-- <h1>Big Droplet Energy &#x1F4A6</h1>
