@@ -23,6 +23,8 @@
 	
 </head>
 <body>
+
+
 	<div class="header">
 		<ul class="header-list">
 			<li><a href="/">home</a></li>
@@ -38,11 +40,25 @@
 	</div>
 	<div class="main-content" >
 		<div class="container">
+
+
 			<div class="row">
 				<div class="col-sm">
 					<div class="card">
 						<h2>Errors</h2>
-						<p>Lorem Ipsum is simply dummy text of the printing 
+							
+						<p hidden id="ref"> <%=data.refErr %>  </p>
+						<p hidden id="typ"> <%=data.typErr %>  </p>
+						<p hidden id="uri"> <%=data.uriErr %>  </p>
+						<p hidden id="syn"> <%=data.synErr %>  </p>
+						<p hidden id="rng"> <%=data.rngErr %>  </p>
+						<p hidden id="evl"> <%=data.evlErr %>  </p>
+
+						<p>
+						
+							
+<!--
+							Lorem Ipsum is simply dummy text of the printing 
 							and typesetting industry. Lorem Ipsum has been 
 							the industry's standard dummy text ever since 
 							the 1500s, when an unknown printer took a galley 
@@ -54,6 +70,7 @@
 							Letraset sheets containing Lorem Ipsum passages, 
 							and more recently with desktop publishing software 
 							like Aldus PageMaker including versions of Lorem Ipsum.
+							-->
 						</p>
 					</div>
 				</div>
@@ -62,18 +79,31 @@
 				</div>
 			</div>
 		</div>		
+	
 	</div>
+
 	<!-- <h1>Big Droplet Energy &#x1F4A6</h1>
 	<h3>Tim Ferido (tferido@ucsd.edu)</h2>
 	<h3>Sumeet Bansal (s3bansal@ucsd.edu)</h2> -->
 </body>
 <script>
+
+
+	
+	var refErr = document.getElementById("ref").innerHTML;
+	var typErr = document.getElementById("typ").innerHTML;
+	var uriErr = document.getElementById("uri").innerHTML;
+	var synErr = document.getElementById("syn").innerHTML;
+	var rngErr = document.getElementById("rng").innerHTML;
+	var evlErr = document.getElementById("evl").innerHTML;
+
+
 	var ctx = document.getElementById("myChart");
 	var myChart = new Chart(ctx, {
 		type: 'pie',
 		data: {
 			datasets: [{
-				data: [1234, 349, 139, 9, 6969, 1],
+				data: [refErr, typErr, uriErr, synErr, rngErr, evlErr],
 				backgroundColor: [
 					'rgba(255, 99, 132, 0.2)',
 					'rgba(54, 162, 235, 0.2)',
@@ -95,11 +125,11 @@
 
 			labels: [
 				'ReferenceError',
-				'ServerError',
-				'ClientError',
+				'TypeError',
+				'URIError',
 				'SyntaxError',
-				'YourMomError',
-				'ErrorError'
+				'RangeError',
+				'EvalError'
 			]
 		},
 		options: {
