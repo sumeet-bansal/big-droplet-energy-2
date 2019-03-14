@@ -75,7 +75,13 @@ var ctx = document.getElementById("line-chart");
 
 var chart = new Chart(ctx, {
     type: 'line',
-    data: [200],
+    data: [{
+    x: new Date(),
+    y: 1
+}, {
+    t: new Date(),
+    y: 10
+}],
     options: {
         scales: {
             xAxes: [{
