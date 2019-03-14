@@ -40,23 +40,6 @@
 		<div class="container">
 
 
-			<table>                                                            
-                        <tr>                                                       
-                                <% for(var i=0; i < headers.length; i++) { %>   
-                                <th><%= headers[i] %></th>                         
-                                <% } %>                                            
-                        </tr>                                                      
-                        <% for(var i=0; i < data.length; i++) { %>                 
-                        <tr>                                                       
-                                <% for(var j=0; j < headers.length; j++) { %>   
-                                <td><%= data[i][headers[j]] %></th>                
-                                        <% } %>                                    
-                                </tr>                                              
-                                <% } %>                                            
-                        </table>
-
-
-
 			<div class="row">
 				<div class="col-sm">
 					<div class="card">
