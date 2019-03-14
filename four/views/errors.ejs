@@ -47,16 +47,11 @@
 					<div class="card">
 						<h2>Errors</h2>
 							
-						<p id="demo"></p>
+						<p id="demo"> <%=data.typErr %>  </p>
 
 						<p>
 						
 							
-						<%=data.typErr %>		
-						<%=data.refErr %>
-						<%=data.synErr %>
-						<%=data.rngErr %>
-						<%=data.uriErr %>
 <!--
 							Lorem Ipsum is simply dummy text of the printing 
 							and typesetting industry. Lorem Ipsum has been 
@@ -97,7 +92,7 @@
 		type: 'pie',
 		data: {
 			datasets: [{
-				data: [134, 349, 139, 9, 6969, 1],
+				data: [document.getElementById("demo").innerHTML, 349, 139, 9, 6969, 1],
 				backgroundColor: [
 					'rgba(255, 99, 132, 0.2)',
 					'rgba(54, 162, 235, 0.2)',
