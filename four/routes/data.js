@@ -2,16 +2,6 @@ var express = require('express');
 var mysql = require('mysql');
 var router = express.Router();
 
- // parse data                                                               
-                var dr = {                                                          
-                        refErr: 0,                                                       
-                        typErr: 0,                                                       
-                        uriErr: 0,                                                       
-                        synErr: 0,                                                       
-                        rngErr: 0,                                                       
-                        evlErr: 0                                                        
-                }
-
 
 router.get('/technographics', function(req, res, next) {
     const connection = mysql.createConnection({
@@ -44,7 +34,15 @@ router.get('/errors', function(req, res, next) {
                 data = results;         
 		
 		
-
+	 	// parse data                                                                  
+                var dr = {                                                          
+                        refErr: 0,                                                  
+                        typErr: 0,                                                  
+                        uriErr: 0,                                                  
+                        synErr: 0,                                                  
+                        rngErr: 0,                                                           
+                        evlErr: 0                                                   
+                } 
 
 		
    	 	for (var i = 0; i < data.length; i++) {                                  

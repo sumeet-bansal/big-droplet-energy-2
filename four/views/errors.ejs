@@ -47,7 +47,12 @@
 					<div class="card">
 						<h2>Errors</h2>
 							
-						<p id="demo"> <%=data.typErr %>  </p>
+						<p id="ref"> <%=data.refErr %>  </p>
+						<p id="typ"> <%=data.typErr %>  </p>
+						<p id="uri"> <%=data.uriErr %>  </p>
+						<p id="syn"> <%=data.synErr %>  </p>
+						<p id="rng"> <%=data.rngErr %>  </p>
+						<p id="evl"> <%=data.evlErr %>  </p>
 
 						<p>
 						
@@ -85,6 +90,12 @@
 
 
 	
+	var refErr = document.getElementById("ref").innerHTML;
+	var typErr = document.getElementById("typ").innerHTML;
+	var uriErr = document.getElementById("uri").innerHTML;
+	var synErr = document.getElementById("syn").innerHTML;
+	var rngErr = document.getElementById("rng").innerHTML;
+	var evlErr = document.getElementById("evl").innerHTML;
 
 
 	var ctx = document.getElementById("myChart");
@@ -92,7 +103,7 @@
 		type: 'pie',
 		data: {
 			datasets: [{
-				data: [document.getElementById("demo").innerHTML, 349, 139, 9, 6969, 1],
+				data: [refErr, typErr, uriErr, synErr, rngEr, evlErr],
 				backgroundColor: [
 					'rgba(255, 99, 132, 0.2)',
 					'rgba(54, 162, 235, 0.2)',
@@ -118,7 +129,7 @@
 				'URIError',
 				'SyntaxError',
 				'RangeError',
-				'evlError'
+				'EvalError'
 			]
 		},
 		options: {
