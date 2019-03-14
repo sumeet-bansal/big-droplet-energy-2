@@ -74,7 +74,7 @@ router.get('/errors', function(req, res, next) {
     		} 
 
 	
-		res.render('errors', {data: dr.typErr});
+		res.render('errors', {data: dr});
 
 
 
