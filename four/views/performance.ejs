@@ -72,71 +72,26 @@
   <script>
 
 var ctx = document.getElementById("line-chart");                               
+var myChart = new Chart(ctx, {                                                     
+        type: 'line',                                                               
+        data: {                                                                          
+                labels: ["January", "February", "March", "April", "May", "June", "July", "August", "Septemb
+                datasets: [{                                                                   
+                        label: "Access",                                        
+                        data: [1000,3000,4000,5000,3500,1000,500,600,900,1200,900,2000],
+                        borderColor: "#3e95cd",                                                    
+                        fill: false                                                                 
+                }]                                                                              
+        },                                                                               
+        options: {                                                                       
+                title: {                                                                       
+                display: true,                                                               
+                text: 'Access per month'                                        
+                },                                                                             
+        }                                                                       
+        }); 
 
-var chart = new Chart(ctx, {
-    type: 'line',
-    data: [{
-    x: new Date(),
-    y: 1
-}, {
-    t: new Date(),
-    y: 10
-}],
-    options: {
-        scales: {
-            xAxes: [{
-                type: 'time',
-                time: {
-                    unit: 'month'
-                }
-            }]
-        }
-    }
-});
 
-	/*
-
-var ctx = document.getElementById("line-chart");
-var myChart = new Chart(ctx, {
-    type: 'line',
-  data: {
-    labels: [new Date(2017, 08, 16), new Date(2017, 08, 17), new Date(2017, 08, 18)],
-    datasets: [{ 
-        data: [280, 250, 340],
-        label: "Image 1",
-        borderColor: "#3e95cd",
-        fill: false
-      }
-    ]
-  },
-  options: {
-    title: {
-      display: true,
-      text: 'World population per region (in millions)'
-    },
-    scales: {
-	xAxes: [{                                                           
-                type: 'time',                                                   
-                display: true,                                                  
-                scaleLabel: {                                                   
-                    display: true,                                              
-                    labelString: "Date",                                        
-                }                                                               
-            }],                                                                 
-            yAxes: [{                                                           
-                ticks: {                                                        
-                    beginAtZero: true,                                          
-                },                                                              
-                display: true,                                                  
-                scaleLabel: {                                                   
-                    display: true,                                              
-                    labelString: "Page Views",                                  
-                }                                                               
-            }]
-        }
-  }
-});
-*/
 
   </script>
 </html>
