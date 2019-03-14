@@ -23,7 +23,7 @@ router.get('/errors', function(req, res, next) {
     const connection = mysql.createConnection({                                    
         user: 'root',                                                              
         password: 'space bar',                                                     
-        database: 'collector'                                                      
+        database: 'new_schema'                                                      
     });                                                                            
     var data;                                                                      
     connection.connect(function(err) {                                             
