@@ -48,7 +48,7 @@ router.get('/errors', function(req, res, next) {
    	 	for (var i = 0; i < data.length; i++) {                                  
    	 		var type = data[i].errorMessage;
 			var n = type.indexOf(':');	
-			type = type.substring(0, n != -1 ? n : s.length);
+			type = type.substring(0, n != -1 ? n : type.length);
 
 			
 			if(type == "ReferenceError"){
