@@ -33,7 +33,7 @@ router.get('/errors', function(req, res, next) {
                 data = results;         
 		
 		
-/*
+
 		// parse data                                                               
     		var dr = {                                                               
     			refErr: 0,                                                   
@@ -58,13 +58,8 @@ router.get('/errors', function(req, res, next) {
     		} 
 
 
-*/
 	
-	var type = data[1].errorMessage;                           
-                        var n = type.indexOf(':');                                 
-                        type = type.substring(0, n != -1 ? n : s.length);
-
-		res.render('errors', {data: type});
+		res.render('errors', {data: dr.refErr});
 
 
 
