@@ -35,7 +35,7 @@ router.get('/errors', function(req, res, next) {
 		results[0].id
 		
 		
-		res.render('errors', {data: results[0].id});
+		res.render('errors', {data: results[0].errorMessage});
 
 
 
