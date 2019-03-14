@@ -51,17 +51,30 @@ router.get('/errors', function(req, res, next) {
 			type = type.substring(0, n != -1 ? n : type.length);
 
 			
-			if(type == "ReferenceError"){
-			
+			if(type == "ReferenceError" || type == "Uncaught ReferenceError"}){
 				dr.refErr = dr.refErr + 1;
-			
 			}
+			else if( type == "Uncaught EvalError"){
+				dr.evlErr = dr.evlErr + 1;
+			}
+			else if( type == "Uncaught RangeError"){                    
+                                dr.rngErr = dr.rngErr + 1;                         
+                        }
+			else if( type == "Uncaught SyntaxError"){
+                                dr.synErr = dr.synErr + 1;
+                        }
+			else if( type == "Uncaught TypeError"){
+                                dr.typErr = dr.typErr + 1;
+                        }
+			else if( type == "Uncaught URIError"){
+                                dr.uriErr = dr.uriErr + 1;
+                        }
 
 
     		} 
 
 	
-		res.render('errors', {data: dr.refErr});
+		res.render('errors', {data: dr});
 
 
 
