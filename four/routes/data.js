@@ -34,8 +34,33 @@ router.get('/errors', function(req, res, next) {
 		
 		results[0].id
 		
-		
-		res.render('errors', {data: results[0].errorMessage});
+
+		// parse data                                                               
+    		var dr = {                                                               
+    			refErr: 0,                                                   
+    			typErr: 0,                                                   
+    			uriErr: 0,                                                   
+    			synErr: 0,                                                   
+    			rngErr: 0,                                                   
+    			evlErr: 0                                                    
+    		}                                                                        
+   	 	for (var i = 0; i < data.length; i++) {                                  
+   	 		var type = data[i].errorMessagei;
+			var n = type.indexOf(':');	
+			type = s.substring(0, n != -1 ? n : s.length);
+
+			if(type == "ReferenceError"){
+			
+				dr.refErr++;
+			
+			}
+
+
+    		} 
+
+
+
+		res.render('errors', {data: dr.refErr});
 
 
 
