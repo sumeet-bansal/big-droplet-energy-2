@@ -81,7 +81,7 @@ router.get('/technographics', function(req, res, next) {
 			
 		if( time != null ){
 
-			var date = new Date(time);
+			var date = new Date(parseInt(time));
 			var datemonth = date.getMonth();
 
 			timestamp = datemonth;
