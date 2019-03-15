@@ -20,7 +20,7 @@ async function printPdf(p){
     // set cookies to navigate as user
     const page2 = await browser.newPage();
     await page2.setCookie(...cookies);
-    await page2.goto(url+'/pdf/'+p, {waitUntil:'networkidle0'});
+    await page2.goto(url+'/data/'+p, {waitUntil:'networkidle0'});
 
     await page2.pdf({path: p + '.pdf', format: 'A4'});
     await browser.close();
