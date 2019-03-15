@@ -112,7 +112,7 @@ router.get('/technographics', function(req, res, next) {
                                 break;
 			}
 		}
-		res.render('technographics', {data: dr, month: mnt});
+		res.render('technographics', {data: dr, month: [1,2,3,4,5,6,7,8,9,10,11,12]});
         });
     });
 });
