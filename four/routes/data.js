@@ -24,8 +24,11 @@ router.get('/technographics', function(req, res, next) {
                         safari: 0,                                                  
                         opera: 0,
 			explorer: 0,
-			other: 0
-                } 		
+			other: 0,
+			desktop: 0, 
+			mobile: 0,
+	
+		} 		
 
 		 //int loc = 0;
 		 for (var i = 0; i < data.length; i++) {
@@ -62,6 +65,13 @@ router.get('/technographics', function(req, res, next) {
 				else{
 					dr.other += 1;
 				}
+
+				if(browser.indexOf("Mobile") >= 0){
+					dr.mobile += 1;
+				}else{
+					dr.desktop += 1;
+				}
+
 			}
 
 

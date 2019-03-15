@@ -41,7 +41,7 @@
 			<div class="row">
 				<div class="col-sm">
 					<div class="card">
-					<h2>Device Use</h2>
+					<h2>Browser Access</h2>
 					
 
 				
@@ -53,9 +53,6 @@
                                                 <p hidden id="opera"> <%=data.opera %>  </p>
                                                 <p hidden id="explorer"> <%=data.explorer %>  </p>
                                                 <p hidden id="other"> <%=data.other %>  </p>
-				
-				
-				
 				
 							<p>Lorem Ipsum is simply dummy text of the printing 
 							and typesetting industry. Lorem Ipsum has been 
@@ -74,7 +71,7 @@
 					</div>
 				</div>
 				<div class="col-sm">
-					<canvas id="device" width="400" height="400"></canvas>
+					<canvas id="browser" width="400" height="400"></canvas>
 				</div>
 			</div>
 		</div>		
@@ -83,7 +80,11 @@
                         <div class="row">                                          
                                 <div class="col-sm">                               
                                         <div class="card">                         
-                                                <h2>Browser Accessing</h2>                
+                                                <h2>Device Use</h2>
+
+						<p hidden id="mobile"> <%=data.mobile %>  </p>
+                                                <p hidden id="desktop"> <%=data.desktop %>  </p>
+
                                                 <p>Lorem Ipsum is simply dummy text of the printing 
                                                         and typesetting industry. Lorem Ipsum has been 
                                                         the industry's standard dummy text ever since 
@@ -100,7 +101,7 @@
                                         </div>                                     
                                 </div>                                             
                                 <div class="col-sm">                               
-                                        <canvas id="browser" width="400" height="400"></canvas>
+                                        <canvas id="device" width="400" height="400"></canvas>
                                 </div>                                             
                         </div>                                                     
                 </div>
@@ -176,7 +177,7 @@
 	var other = document.getElementById("other").innerHTML;
 
 
-	var ctx = document.getElementById("device");
+	var ctx = document.getElementById("browser");
 	var myChart = new Chart(ctx, {
 		type: 'pie',
 		data: {
@@ -225,36 +226,29 @@
 		}
 	});
 
-	var ctx1 = document.getElementById("browser");
+	var mobile = document.getElementById("mobile").innerHTML;
+	var desktop = document.getElementById("desktop").innerHTML;    
+
+	var ctx1 = document.getElementById("device");
         var myChart = new Chart(ctx1, {
                 type: 'pie',
                 data: {
                         datasets: [{
-                                data: [234, 1349, 639, 9],
+                                data: [mobile, desktop],
                                 backgroundColor: [
                                         'rgba(255, 99, 132, 0.2)',
-                                        'rgba(54, 162, 235, 0.2)',
-                                        'rgba(255, 206, 86, 0.2)',
-                                        'rgba(75, 192, 192, 0.2)',
-                                        'rgba(153, 102, 255, 0.2)',
-                                        'rgba(255, 159, 64, 0.2)'
+                                        'rgba(54, 162, 235, 0.2)'
                                 ],
                                 borderColor: [
                                         'rgba(255,99,132,1)',
-                                        'rgba(54, 162, 235, 1)',
-                                        'rgba(255, 206, 86, 1)',
-                                        'rgba(75, 192, 192, 1)',
-                                        'rgba(153, 102, 255, 1)',
-                                        'rgba(255, 159, 64, 1)'
+                                        'rgba(54, 162, 235, 1)'
                                 ],
                                 borderWidth: 1
                         }],
 
                         labels: [
-                                'Mozilla',
-                                'Chrome',
-				'Safari',
-				'Explorer'
+                                'Mobile',
+                                'Desktop'
                         ]
                 },
                 options: {
