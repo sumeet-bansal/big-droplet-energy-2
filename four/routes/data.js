@@ -34,8 +34,8 @@ router.get('/technographics', function(req, res, next) {
 
 			var browser = data[i].userAgent;
 		
-			if( browser.indexOf('Firefox') >= 0 && browser.indexOf('Seamonkey') < 0){
-				dr.firefox += 1;
+			if( browser.includes('Firefox') && browser.includes('Seamonkey')){
+				dr.firefox = dr.firefox + 1;
 			}
 /*
 			else if ( browser.indexOf('Seamonkey') >= 0 ){
