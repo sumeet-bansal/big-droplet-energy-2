@@ -195,11 +195,11 @@ router.get('/performance', function(req, res, next) {
         image1data: {
             countlist: []
         }
-    };                                                                      
+    };          
+    var emptylist = [0,0,0,0,0,0,0];
     connection.connect(function(err) {                                             
         if (err) { console.log(err); }   
         
-        var emptylist = [0,0,0,0,0,0,0];
         
         //img 1 load time count < 1000
         connection.query('SELECT img1 FROM random_load WHERE img1 < 1000', function (err, results) {                         
@@ -246,7 +246,7 @@ router.get('/performance', function(req, res, next) {
 
     //parse data
     data.image1data.countlist = emptylist;
-    
+
     res.render('performance',{ data: data });
 });
 
