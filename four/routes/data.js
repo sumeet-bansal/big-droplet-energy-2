@@ -196,12 +196,45 @@ router.get('/performance', function(req, res, next) {
         if (err) { console.log(err); }   
         
         //img 1 load time 
-        connection.query('SELECT img1, img2, img3 FROM random_load', function (err, results) {                         
+        connection.query('SELECT * FROM random_load', function (err, results) {                         
             if (err) { console.log(err); }                        
+            data = results;
+            console.log(results);
             
-            console.log(results);     
+            var dr = {
+                image1data: {
+                    countlist: [0,0,0,0,0,0,0]
+                }
+            }
+
+            for (var i = 0; i < data.length; i++) {
+                var x = data[i].img1;
+                switch (x) {
+                    case (x < 1000):
+                        dr.image1data.countlist[0]++;
+                        break;
+                    case (x >= 1000 && x < 2000):
+                        dr.image1data.countlist[1]++;
+                        break;
+                    case (x >= 2000 && x < 3000):
+                        dr.image1data.countlist[2]++;
+                        break;
+                    case (x >= 3000 && x < 4000):
+                        dr.image1data.countlist[3]++;
+                        break;
+                    case (x >= 4000 && x < 5000):
+                        dr.image1data.countlist[4]++;
+                        break;
+                    case (x >= 5000 && x < 6000):
+                        dr.image1data.countlist[5]++;
+                        break;
+                    case (x >= 6000 && x < 7000):
+                        dr.image1data.countlist[6]++;
+                        break;
+                }
+            }
             
-            res.render('performance',{ data: data });
+            res.render('performance',{ data: dr });
         });      
     });  
 });
