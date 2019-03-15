@@ -216,25 +216,25 @@ router.get('/performance', function(req, res, next) {
                 var x = data[i].img1;
                 switch (x) {
                     case (x < 1000):
-                        dr.image1data.img10k++;
+                        dr.image1data.img10k = dr.image1data.img10k + 1;
                         break;
                     case (x >= 1000 && x < 2000):
-                        dr.image1data.img11k++;
+                        dr.image1data.img11k = dr.image1data.img11k + 1;
                         break;
                     case (x >= 2000 && x < 3000):
-                        dr.image1data.img12k++;
+                        dr.image1data.img12k = dr.image1data.img12k + 1;
                         break;
                     case (x >= 3000 && x < 4000):
-                        dr.image1data.img13k++;
+                        dr.image1data.img13k = dr.image1data.img13k + 1;
                         break;
                     case (x >= 4000 && x < 5000):
-                        dr.image1data.img14k++;
+                        dr.image1data.img14k = dr.image1data.img14k + 1;
                         break;
                     case (x >= 5000 && x < 6000):
-                        dr.image1data.img15k++;
+                        dr.image1data.img15k = dr.image1data.img15k + 1;
                         break;
                     case (x >= 6000 && x < 7000):
-                        dr.image1data.img16k++;
+                        dr.image1data.img16k = dr.image1data.img16k + 1;
                         break;
                 }
             }
