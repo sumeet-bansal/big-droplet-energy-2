@@ -255,13 +255,15 @@ router.get('/performance', function(req, res, next) {
             console.log(results.length);       
 
         }); 
+
+        data.image1data.countlist = emptylist;
+        console.log(data.image1data.countlist,emptylist);
+    
+        res.render('performance',{ data: data });
     });  
 
     //parse data
-    data.image1data.countlist = emptylist;
-    console.log(data.image1data.countlist,emptylist);
-
-    res.render('performance',{ data: data });
+   
 });
 
 module.exports = router;
