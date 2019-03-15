@@ -5,7 +5,7 @@ var router = express.Router();
 async function printPdf(p){
   const browser = await puppeteer.launch({args: ['--enable-features=NetworkService', '--no-sandbox', '--disable-setuid-sandbox', '--ignore-certificate-errors']});
   const page = await browser.newPage();
-  var url = 'https://134.209.48.201:5002/data/' + p;
+  var url = 'http://134.209.48.201:5002/data/' + p;
   try {
     await page.goto(url, {waitUntil: 'networkidle0'});
   } catch (err) {
