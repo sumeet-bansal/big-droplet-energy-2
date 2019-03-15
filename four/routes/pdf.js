@@ -15,3 +15,5 @@ router.get('/:page', function(req, res, next){
     printPdf(page);
     return;
 });
+
+module.exports = router;
