@@ -2,6 +2,7 @@ var express = require('express');
 var mysql = require('mysql');
 var router = express.Router();
 
+
 router.get('/technographics', function(req, res, next) {
     const connection = mysql.createConnection({
         user: 'root',
