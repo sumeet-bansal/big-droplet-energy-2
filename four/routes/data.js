@@ -46,8 +46,6 @@ router.get('/technographics', function(req, res, next) {
 			December: 0
 		}
 
-		var months = [0,0,0,0,0,0,0,0,0,0,0,0];
-
 		 //int loc = 0;
 		 for (var i = 0; i < data.length; i++) {
 
