@@ -34,9 +34,9 @@ router.get('/:page', function(req, res, next){
     } catch(err) {
         console.log(err);
     }
-    res.download(__dirname + page + '.pdf');
+    res.download(__dirname +'/'+ page + '.pdf');
     try {
-        fs.unlinkSync(__dirname + page + '.pdf');
+        fs.unlinkSync(__dirname +'/'+ page + '.pdf');
     } catch (err) {
         console.error(err);
     }
