@@ -31,31 +31,23 @@ router.get('/technographics', function(req, res, next) {
 
 		 for (var i = 0; i < data.length; i++) {
                         var browser = data[i].userAgent;
-                        var n = browser.indexOf(':');
-                        browser = browser.substring(0, n != -1 ? n : browser.length);
-
 		
-			if( browser.indexOf('Firefox') >= 0 &&
-			    browser.indexOf('Seamonkey') < 0){
+			if( browser.indexOf('Firefox') >= 0 && browser.indexOf('Seamonkey') < 0){
 				dr.firefox += 1;
 			}
 			else if ( browser.indexOf('Seamonkey') >= 0 ){
 				dr.seamonkey += 1;
 			}
-			else if( browser.indexOf('Chrome') >= 0 &&              
-                            browser.indexOf('Chromium') < 0){              
+			else if( browser.indexOf('Chrome') >= 0 && browser.indexOf('Chromium') < 0){              
                                 dr.chrome += 1;                                
                         }
 			else if (browser.indexOf('Chromium')>= 0){
 				dr.chromium += 1;
 			}
-			else if (browser.indexOf('Safari') >= 0 &&
-			         browser.indexOf('Chrome') < 0 &&
-				 browser.indexOf('Chromium') < 0){
+			else if (browser.indexOf('Safari') >= 0 && browser.indexOf('Chrome') < 0 && browser.indexOf('Chromium') < 0){
 				dr.safari += 1;
 			}
-			else if (browser.indexOf('OPR') >= 0 ||
-			         browser.indexOf('Opera') >= 0){
+			else if (browser.indexOf('OPR') >= 0 || browser.indexOf('Opera') >= 0){
 				dr.opera += 1;
 			}
 			else if (browser.indexOf('MSIE') >= 0 ){
