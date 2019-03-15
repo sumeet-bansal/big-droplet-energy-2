@@ -82,32 +82,8 @@ router.get('/technographics', function(req, res, next) {
 			var date = new Date(time);
 			var datemonth = date.getMonth();
 
-			switch(datemonth){
-			
-				case 0: months.January+=1;
-				break;
-				case 1: months.February+=1;
-                                break;
-				case 2:months.March+=1;
-                                break;
-				case 3:months.April+=1;
-                                break;
-				case 4:months.May+=1;
-                                break;
-				case 5:months.June+=1;
-                                break;
-				case 6:months.July+=1;
-                                break;
-				case 7:months.August+=1;
-                                break;
-				case 8:months.September+=1;
-                                break;
-				case 9:months.October+=1;
-				break;
-				case 10:months.November+=1;
-                                break;
-				case 11:months.December+=1;
-                                break;
+			if(datemonth==2){
+				months.March+=1; 
 			}
 		}
 
