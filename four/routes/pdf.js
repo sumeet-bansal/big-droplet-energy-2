@@ -3,7 +3,7 @@ const fs = require('fs');
 var express = require('express');
 var router = express.Router();
   
-function printPdf(p){
+async function printPdf(p){
     const browser = await puppeteer.launch({args: ['--enable-features=NetworkService', '--no-sandbox', '--disable-setuid-sandbox', '--ignore-certificate-errors']});
     const page = await browser.newPage();
     var url = 'http://134.209.48.201:5002';
