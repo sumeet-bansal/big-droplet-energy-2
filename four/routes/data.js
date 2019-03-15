@@ -79,7 +79,7 @@ router.get('/technographics', function(req, res, next) {
 
 			var time = data[i].timestamp;
 			
-		if( time != null ){
+		if( time != null && time != "" ){
 
 			timestamp = time;
 
