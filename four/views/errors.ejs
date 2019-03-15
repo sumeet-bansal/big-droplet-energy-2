@@ -47,8 +47,6 @@
 					<div class="card">
 						<h2>Errors</h2>
 						
-						<p id="test"></p>
-
 						<p hidden id="ref"> <%=data.refErr %>  </p>
 						<p hidden id="typ"> <%=data.typErr %>  </p>
 						<p hidden id="uri"> <%=data.uriErr %>  </p>
@@ -77,7 +75,39 @@
 				</div>
 			</div>
 		</div>		
-	
+
+		<div class="container">                                            
+                                                                                   
+                                                                                   
+                        <div class="row">                                          
+                                <div class="col-sm">                               
+                                        <div class="card">                         
+                                                <h2>Errors Occurrence</h2>                    
+                                                                                   
+                                                <p id="test"></p>                  
+                                                                                   
+                                                <p>                                
+                                                        Lorem Ipsum is simply dummy text of the print
+                                                        and typesetting industry. Lorem Ipsum has bee
+                                                        the industry's standard dummy text ever since
+                                                        the 1500s, when an unknown printer took a gal
+                                                        of type and scrambled it to make a type speci
+                                                        book. It has survived not only five centuries
+                                                        but also the leap into electronic typesetting
+                                                        remaining essentially unchanged. It was 
+                                                        popularised in the 1960s with the release of 
+                                                        Letraset sheets containing Lorem Ipsum passag
+                                                        and more recently with desktop publishing sof
+                                                        like Aldus PageMaker including versions of Lo
+                                                </p>                               
+                                        </div>                                     
+                                </div>                                             
+                                <div class="col-sm">                               
+                                        <canvas id="occurr" width="400" height="400"></canvas>
+                                </div>                                             
+                        </div>                                                     
+                </div>
+
 	</div>
 
 	<!-- <h1>Big Droplet Energy &#x1F4A6</h1>
@@ -140,6 +170,116 @@
 			}
 		}
 	});
+
+	var timeFormat = 'MM/DD/YYYY HH:mm';
+		function newDate(days) {
+			return moment().add(days, 'd').toDate();
+		}
+		function newDateString(days) {
+			return moment().add(days, 'd').format(timeFormat);
+		}
+
+	var color = Chart.helpers.color;
+
+
+	var ctx = document.getElementById("occurr");                           
+        var myChart = new Chart(ctx, {                                          
+        
+		type: 'line',
+			data: {
+				labels: [ // Date Objects
+					newDate(0),
+					newDate(1),
+					newDate(2),
+					newDate(3),
+					newDate(4),
+					newDate(5),
+					newDate(6)
+				],
+				datasets: [{
+					label: 'My First dataset',
+					backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
+					borderColor: window.chartColors.red,
+					fill: false,
+					data: [
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor()
+					],
+				}, {
+					label: 'My Second dataset',
+					backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
+					borderColor: window.chartColors.blue,
+					fill: false,
+					data: [
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor()
+					],
+				}, {
+					label: 'Dataset with point data',
+					backgroundColor: color(window.chartColors.green).alpha(0.5).rgbString(),
+					borderColor: window.chartColors.green,
+					fill: false,
+					data: [{
+						x: newDateString(0),
+						y: randomScalingFactor()
+					}, {
+						x: newDateString(5),
+						y: randomScalingFactor()
+					}, {
+						x: newDateString(7),
+						y: randomScalingFactor()
+					}, {
+						x: newDateString(15),
+						y: randomScalingFactor()
+					}],
+				}]
+			},
+			options: {
+				title: {
+					text: 'Chart.js Time Scale'
+				},
+				scales: {
+					xAxes: [{
+						type: 'time',
+						time: {
+							parser: timeFormat,
+							// round: 'day'
+							tooltipFormat: 'll HH:mm'
+						},
+						scaleLabel: {
+							display: true,
+							labelString: 'Date'
+						}
+					}],
+					yAxes: [{
+						scaleLabel: {
+							display: true,
+							labelString: 'value'
+						}
+					}]
+				},
+			}
+	});
+
+
+
+
+
+
+
+
+
+
 	</script>
 </html>
 
