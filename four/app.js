@@ -70,7 +70,7 @@ var isauth = function(req, res, next) {
 app.use('/', isauth, require('./routes/index'));
 app.use('/data', isauth, require('./routes/data'));
 app.use('/user', isauth, require('./routes/user'));
-app.use('/pdf', isauth, require('./routes/pdf'));
+// app.use('/pdf', isauth, require('./routes/pdf'));
 
 // useradmin CRUD
 app.use('/deleteuser', isadmin, require('./routes/deleteuser'));
