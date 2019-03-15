@@ -125,9 +125,6 @@
 						<p hidden id="nov"> <%=month.November %>  </p>
 						<p hidden id="dec"> <%=month.December %>  </p>
 
-						<p> <%=time %>  </p>
-
-
 						<p>Lorem Ipsum is simply dummy text of the printing 
                                                         and typesetting industry. Lorem Ipsum has been 
                                                         the industry's standard dummy text ever since 
@@ -155,7 +152,18 @@
                                 <div class="col-sm">
                                         <div class="card">
                                                 <h2>Days Accessed</h2>
-                                                <p>Lorem Ipsum is simply dummy text of the printing
+                                                
+						<p hidden id="mon"> <%=day.Monday %>  </p>
+                                                <p hidden id="tue"> <%=day.Tuesday %>  </p>
+                                                <p hidden id="wed"> <%=day.Wednesday %>  </p>
+                                                <p hidden id="thu"> <%=day.Thursday %>  </p>
+                                                <p hidden id="fri"> <%=day.Friday %>  </p>
+                                                <p hidden id="sat"> <%=day.Saturday %>  </p>
+                                                <p hidden id="sun"> <%=day.Sunday %>  </p>
+
+						
+						
+						<p>Lorem Ipsum is simply dummy text of the printing
                                                         and typesetting industry. Lorem Ipsum has been
                                                         the industry's standard dummy text ever since
                                                         the 1500s, when an unknown printer took a galley
@@ -310,6 +318,15 @@
   	}                         
 	});	
 
+	var mon = document.getElementById("mon").innerHTML;
+	var tue = document.getElementById("tue").innerHTML;
+	var wed = document.getElementById("wed").innerHTML;
+	var thu = document.getElementById("thu").innerHTML;
+	var fri = document.getElementById("fri").innerHTML;
+	var sat = document.getElementById("sat").innerHTML;
+	var sun = document.getElementById("sun").innerHTML;
+	
+
 	var ctx3 = document.getElementById("day");                               
         var myChart = new Chart(ctx3, {                                                     
         type: 'line',                                                               
@@ -317,7 +334,7 @@
                 labels:["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], 
                 datasets: [{                                                                   
                         label: "Access",                                           
-                        data:[100,300,200,900,1200,1900,200],
+                        data:[mon,tue,wed,thu,fri,sat,sun],
                         borderColor: "#3e95cd",                                                    
                         fill: false                                                                 
                 }]                                                                              
