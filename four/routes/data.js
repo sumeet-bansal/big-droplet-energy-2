@@ -37,7 +37,7 @@ router.get('/technographics', function(req, res, next) {
 			
 				
 			
-				if( browser.indexOf("Firefox") >= 0 && browser.includes('Seamonkey')){
+				if( browser.indexOf("Firefox") >= 0 && !browser.includes('Seamonkey')){
 					dr.firefox = dr.firefox + 1;
 				}
 	
