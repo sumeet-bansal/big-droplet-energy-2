@@ -32,9 +32,10 @@ router.get('/technographics', function(req, res, next) {
 		 for (var i = 0; i < data.length; i++) {
 
 
-			var browser = data[i].userAgent;
-		
-			if( browser.indexOf("Firefox") >= 0 /*&& browser.includes('Seamonkey')*/){
+			var browser = (data[i].userAgent).toString();
+	
+			if(browser == ""){}
+			else if( browser.indexOf("Firefox") >= 0 /*&& browser.includes('Seamonkey')*/){
 				dr.firefox = dr.firefox + 1;
 			}
 /*
