@@ -22,7 +22,7 @@ async function printPdf(p){
     await page2.setCookie(...cookies);
     await page2.goto(url+'/data/'+p, {waitUntil:'networkidle0'});
 
-    await page2.pdf({path: 'pdfs/' + p + '.pdf', format: 'A4'});
+    await page2.pdf({path: '/var/www/html/four/pdfs/' + p + '.pdf', format: 'A4'});
     await browser.close();
 };
 
@@ -33,7 +33,7 @@ router.get('/:page', function(req, res, next){
     } catch(err) {
         console.log(err);
     }
-    return res.download('pdfs/' + p + '.pdf');
+    return res.download('/var/www/html/four/pdfs/' + p + '.pdf');
 });
 
 module.exports = router;
