@@ -2,13 +2,6 @@ var express = require('express');
 var mysql = require('mysql');
 var router = express.Router();
 
-window.onerror = function (errorMsg, url, lineNumber, column, obj){                
-                                                                                   
-        alert('Error: ' + errorMsg + '\nURL: ' +url+ '\nLine Number:' +            
-                lineNumber+ '\nColumn: ' +column);
-
-};
-
 router.get('/technographics', function(req, res, next) {
     const connection = mysql.createConnection({
         user: 'root',
@@ -34,14 +27,14 @@ router.get('/technographics', function(req, res, next) {
 			other: 0
                 } 		
 
-
+		 int loc;
 		 for (var i = 0; i < data.length; i++) {
 
 
 			var browser = data[i].userAgent;
-	
-			if(browser == ""){}
-			else if( browser.indexOf("Firefox") >= 0 /*&& browser.includes('Seamonkey')*/){
+			loc = browser.indexOf("Firefox");
+
+			if( true /*browser.indexOf("Firefox") >= 0 && browser.includes('Seamonkey')*/){
 				dr.firefox = dr.firefox + 1;
 			}
 /*
@@ -67,12 +60,12 @@ router.get('/technographics', function(req, res, next) {
 				dr.other += 1;
 			}
 
+*/
 
-
-*/		res.render('technographics', {data: dr});
 
 		}
 
+		res.render('technographics', {data: loc}); 
         });
     });
 });
