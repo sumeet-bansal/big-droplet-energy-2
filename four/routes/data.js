@@ -61,10 +61,9 @@ router.get('/technographics', function(req, res, next) {
 			}
 			else{
 				dr.other += 1;
-			}
+			}*/
 			}
 
-*/
 
 
 		}
