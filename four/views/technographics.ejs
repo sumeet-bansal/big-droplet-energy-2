@@ -111,7 +111,10 @@
                                 <div class="col-sm">                               
                                         <div class="card">                         
                                                 <h2>Months Accessed</h2>          
-                                                <p>Lorem Ipsum is simply dummy text of the printing 
+                                                
+						<p hidden id="month"> <%=month %>  </p>
+						
+						<p>Lorem Ipsum is simply dummy text of the printing 
                                                         and typesetting industry. Lorem Ipsum has been 
                                                         the industry's standard dummy text ever since 
                                                         the 1500s, when an unknown printer took a galley 
@@ -260,6 +263,7 @@
                 }
         });
 
+	var month = document.getElementById("month").innerHTML;
 
 	var ctx2 = document.getElementById("month");                               
 	var myChart = new Chart(ctx2, {                                                     
@@ -268,7 +272,7 @@
     		labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October","November", "December"],
     		datasets: [{                                                                   
         		label: "Access",
-			data: [1000,3000,4000,5000,3500,1000,500,600,900,1200,900,2000],
+			data: month,
         		borderColor: "#3e95cd",                                                    
         		fill: false                                                                 
       		}]                                                                              

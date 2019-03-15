@@ -29,56 +29,52 @@ router.get('/technographics', function(req, res, next) {
 			mobile: 0,
 	
 		} 		
+		
+		var months = [0,0,0,0,0,0,0,0,0,0,0,0];
 
 		 //int loc = 0;
 		 for (var i = 0; i < data.length; i++) {
 
-
 			var browser = data[i].userAgent;
-			
-			if(browser != null){				
-			
-				
-			
+			if(browser != null){							
 				if( browser.indexOf("Firefox") >= 0 && !browser.includes('Seamonkey')){
 					dr.firefox = dr.firefox + 1;
-				}
-	
-				else if ( browser.indexOf('Seamonkey') >= 0 ){
+				}else if ( browser.indexOf('Seamonkey') >= 0 ){
 					dr.seamonkey += 1;
-				}
-				else if( browser.indexOf('Chrome') >= 0 && browser.indexOf('Chromium') < 0){              
+				}else if( browser.indexOf('Chrome') >= 0 && browser.indexOf('Chromium') < 0){              
        	                         	dr.chrome += 1;                                
-       	                 	}
-				else if (browser.indexOf('Chromium')>= 0){
+       	                 	}else if (browser.indexOf('Chromium')>= 0){
 					dr.chromium += 1;
-				}
-				else if (browser.indexOf('Safari') >= 0 && browser.indexOf('Chrome') < 0 && browser.indexOf('Chromium') < 0){
+				}else if (browser.indexOf('Safari') >= 0 && browser.indexOf('Chrome') < 0 && browser.indexOf('Chromium') < 0){
 					dr.safari += 1;
-				}
-				else if (browser.indexOf('OPR') >= 0 || browser.indexOf('Opera') >= 0){
+				}else if (browser.indexOf('OPR') >= 0 || browser.indexOf('Opera') >= 0){
 					dr.opera += 1;
-				}
-				else if (browser.indexOf('MSIE') >= 0 ){
+				}else if (browser.indexOf('MSIE') >= 0 ){
 					dr.explorer += 1;
-				}
-				else{
+				}else{
 					dr.other += 1;
 				}
-
 				if(browser.indexOf("Mobile") >= 0){
 					dr.mobile += 1;
 				}else{
 					dr.desktop += 1;
 				}
-
 			}
 
+			var time = data[i].timestamp;
+			var date = new Date(time);
+			var datemonth = date.getMonth();
 
+		
+			for( var m = 0; m < 12; m++ ){
+				if(datemonth == m){
+					months[m] +=1;	
+				}
+			}
 
 		}
 
-		res.render('technographics', {data: dr}); 
+		res.render('technographics', {data: dr, month: months}); 
         });
     });
 });
