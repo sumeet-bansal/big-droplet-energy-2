@@ -28,7 +28,7 @@ router.get('/technographics', function(req, res, next) {
 			other: 0
                 } 		
 
-
+/*
 		 for (var i = 0; i < data.length; i++) {
                         var browser = data[i].userAgent;
 		
@@ -59,7 +59,7 @@ router.get('/technographics', function(req, res, next) {
 
 
 
-		res.render('technographics', {data: dr});
+*/		res.render('technographics', {data: dr});
 
 		}
 
