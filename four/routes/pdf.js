@@ -22,7 +22,7 @@ async function printPdf(p){
     await page2.setCookie(...cookies);
     await page2.goto(url+'/data/'+p, {waitUntil:'networkidle0'});
 
-    await page2.pdf({path: '/var/www/html/four/pdfs/' + p + '.pdf', format: 'A4'});
+    await page2.pdf({path: p + '.pdf', format: 'A4'});
     await browser.close();
 };
 
