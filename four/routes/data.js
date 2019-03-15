@@ -199,7 +199,6 @@ router.get('/performance', function(req, res, next) {
         connection.query('SELECT * FROM random_load', function (err, results) {                         
             if (err) { console.log(err); }                        
             data = results;
-            console.log(results);
             
             var dr = {
                 image1data: {
@@ -208,6 +207,7 @@ router.get('/performance', function(req, res, next) {
             }
 
             for (var i = 0; i < data.length; i++) {
+                console.log(x);
                 var x = data[i].img1;
                 switch (x) {
                     case (x < 1000):
