@@ -32,7 +32,7 @@ router.get('/technographics', function(req, res, next) {
 
 
 			var browser = data[i].userAgent;
-			//loc = browser.indexOf("Firefox");
+			int loc = browser.indexOf("Firefox");
 
 			if( true /*browser.indexOf("Firefox") >= 0 && browser.includes('Seamonkey')*/){
 				dr.firefox = dr.firefox + 1;
