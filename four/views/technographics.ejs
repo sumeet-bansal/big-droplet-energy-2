@@ -43,26 +43,10 @@
 					<div class="card">
 					<h2>Device Use</h2>
 					
-					<p> <%=data %>  </p>
 
-					
-						<p id="firefox"> <%=data.firefox %>  </p>
-						<p id="seamonkey"> <%=data.seamonkey %>  </p>
-						<p id="chrome"> <%=data.chrome %>  </p>
-						<p id="chromium"> <%=data.chromium %>  </p>
-						<p id="safari"> <%=data.safari %>  </p>
-						<p id="opera"> <%=data.opera %>  </p>
-						<p id="explorer"> <%=data.explorer %>  </p>
-						<p id="other"> <%=data.other %>  </p>
-
-
-
-<!--
-				
-				
 				
 						<p hidden id="firefox"> <%=data.firefox %>  </p>
-                                                <p hidden id="seamonkey"> <%=data.seamonkey %>  </p
+                                                <p hidden id="seamonkey"> <%=data.seamonkey %>  </p>
                                                 <p hidden id="chrome"> <%=data.chrome %>  </p>
                                                 <p hidden id="chromium"> <%=data.chromium %>  </p>
                                                 <p hidden id="safari"> <%=data.safari %>  </p>
@@ -86,7 +70,6 @@
 							and more recently with desktop publishing software 
 							like Aldus PageMaker including versions of Lorem Ipsum.
 						</p>
-					-->
 
 					</div>
 				</div>
@@ -182,12 +165,23 @@
 	<h3>Sumeet Bansal (s3bansal@ucsd.edu)</h2> -->
 </body>
 <script>
+
+	var firefox = document.getElementById("firefox").innerHTML;
+	var seamonkey = document.getElementById("seamonkey").innerHTML;
+	var chrome = document.getElementById("chrome").innerHTML;
+	var chromium = document.getElementById("chromium").innerHTML;
+	var safari = document.getElementById("safari").innerHTML;
+	var opera = document.getElementById("opera").innerHTML;
+	var explorer = document.getElementById("explorer").innerHTML;
+	var other = document.getElementById("other").innerHTML;
+
+
 	var ctx = document.getElementById("device");
 	var myChart = new Chart(ctx, {
 		type: 'pie',
 		data: {
 			datasets: [{
-				data: [1234, 349],
+				data: [firefox, seamonkey, chrome, chromium, safari, opera, explorer, other],
 				backgroundColor: [
 					'rgba(255, 99, 132, 0.2)',
 					'rgba(54, 162, 235, 0.2)',
@@ -208,8 +202,14 @@
 			}],
 
 			labels: [
-				'Desktop',
-				'Mobile'
+				'Firefox',
+				'Seamonkey',
+				'Chrome',
+				'Chromium',
+				'Safari',
+				'Opera',
+				'Explorer',
+				'Other'
 			]
 		},
 		options: {
