@@ -47,8 +47,13 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm">
-					<div class="card">
-						<h2>Image 1</h2>
+					<div class="card">               
+
+                                                <h2>Image 1</h2>
+                                                
+                                                <% for (var i=0; i < data.image1data.countlist.length; i++) { %>
+                                                        <p hidden id="img1load<%=i%>"> <%=data.image1data.countlist[i] %>  </p>
+                                                <% } %>
 						<p>Lorem Ipsum is simply dummy text of the printing 
 							and typesetting industry. Lorem Ipsum has been 
 							the industry's standard dummy text ever since 
@@ -181,15 +186,21 @@
 	<h3>Sumeet Bansal (s3bansal@ucsd.edu)</h2> -->
 </body>
 <script>
-	var ctx = document.getElementById("image1");
+        var ctx = document.getElementById("image1");
+        var cl = [];
+        for (var i = 0; i < 7; i++) {
+                cl.push(document.getElementById("img1load"+i.toString()));
+        }
 	var myChart = new Chart(ctx, {
 		type: 'bar',
 		data: {
-			labels: [0,1000,2000,3000,4000,5000,6000,7000,8000,9000,10000],
+			labels: ['< 1000','< 2000','< 3000', '< 4000', '< 5000', '< 6000', '< 7000'],
 			datasets: [{
-				data: [10,1000,2000,3000,2500,2300,2000,1500,500, 400, 300],
+				data: [cl[0],cl[1],cl[2],cl[3],cl[4],cl[5],cl[6],cl[7]],
 				borderColor: ['rgba(255,99,132,1)'],
-				fill:false
+                                fill:false,
+                                xAxisID: 'load times',
+                                yAxisID: 'count'
 			}]
 		},
 		options: {

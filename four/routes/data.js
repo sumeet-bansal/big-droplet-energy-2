@@ -186,7 +186,65 @@ router.get('/errors', function(req, res, next) {
 
 
 router.get('/performance', function(req, res, next) {
-    res.render('performance');
+    const connection = mysql.createConnection({                                    
+        user: 'root',                                                              
+        password: 'space bar',                                                     
+        database: 'new_schema'                                                      
+    });                                                                            
+    var data = {
+        image1data: {
+            countlist: [0,0,0,0,0,0,0]
+        }
+    };                                                                      
+    connection.connect(function(err) {                                             
+        if (err) { console.log(err); }    
+        
+        //img 1 load time count < 1000
+        connection.query('select img1 from random_load where img1 < 1000;', [], function (err, results) {                         
+            if (err) { console.log(err); }                                     
+            data.image1data.countlist[0] = results.length;         
+        });      
+        
+        //img 1 load time count < 2000
+        connection.query('select img1 from random_load where img1 >= 1000 and img1 < 2000;', [], function (err, results) {                         
+            if (err) { console.log(err); }                                     
+            data.image1data.countlist[1] = results.length;         
+        });  
+
+        //img 1 load time count < 3000
+        connection.query('select img1 from random_load where img1 >= 2000 and img1 < 3000;', [], function (err, results) {                         
+            if (err) { console.log(err); }                                     
+            data.image1data.countlist[2] = results.length;         
+        }); 
+
+        //img 1 load time count < 4000
+        connection.query('select img1 from random_load where img1 >= 3000 and img1 < 4000;', [], function (err, results) {                         
+            if (err) { console.log(err); }                                     
+            data.image1data.countlist[3] = results.length;         
+        }); 
+
+        //img 1 load time count < 5000
+        connection.query('select img1 from random_load where img1 >= 4000 and img1 < 5000;', [], function (err, results) {                         
+            if (err) { console.log(err); }                                     
+            data.image1data.countlist[4] = results.length;         
+        }); 
+
+        //img 1 load time count < 6000
+        connection.query('select img1 from random_load where img1 >= 5000 and img1 < 6000;', [], function (err, results) {                         
+            if (err) { console.log(err); }                                     
+            data.image1data.countlist[5] = results.length;         
+        }); 
+
+        //img 1 load time count < 7000
+        connection.query('select img1 from random_load where img1 >= 6000 and img1 < 7000;', [], function (err, results) {                         
+            if (err) { console.log(err); }                                     
+            data.image1data.countlist[6] = results.length;         
+        }); 
+    });  
+
+    //parse data
+
+    res.render('performance',{data:data});
 });
 
 module.exports = router;
