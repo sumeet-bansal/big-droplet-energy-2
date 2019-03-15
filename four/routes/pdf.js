@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer');
+const fs = require('fs');
 var express = require('express');
 var router = express.Router();
   
@@ -33,7 +34,13 @@ router.get('/:page', function(req, res, next){
     } catch(err) {
         console.log(err);
     }
-    return res.download(page + '.pdf');
+    res.download(page + '.pdf');
+    try {
+        fs.unlinkSync(page + '.pdf');
+    } catch (err) {
+        console.error(err);
+    }
+    return;
 });
 
 module.exports = router;
