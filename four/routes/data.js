@@ -31,12 +31,13 @@ router.get('/technographics', function(req, res, next) {
 
 		 for (var i = 0; i < data.length; i++) {
 
-/*
+
 			var browser = data[i].userAgent;
 		
 			if( browser.indexOf('Firefox') >= 0 && browser.indexOf('Seamonkey') < 0){
 				dr.firefox += 1;
 			}
+/*
 			else if ( browser.indexOf('Seamonkey') >= 0 ){
 				dr.seamonkey += 1;
 			}
