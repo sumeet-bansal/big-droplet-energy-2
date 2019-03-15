@@ -79,8 +79,6 @@ router.get('/technographics', function(req, res, next) {
 			var date = new Date(time);
 			var datemonth = date.getMonth();
 
-			mnt[datemonth]+=1; 
-			
 			switch(datemonth){
 			
 				case 0: months.January+=1;
