@@ -208,7 +208,7 @@ router.get('/performance', function(req, res, next) {
         //img 1 load time count < 2000
         connection.query('select img1 from random_load where img1 >= ? and img1 < ?;', [1000,2000], function (err, results) {                         
             if (err) { console.log(err); }   
-            console.log(results);             
+            console.log(results.length);             
             data.image1data.countlist[1] = results.length;         
         });  
 
