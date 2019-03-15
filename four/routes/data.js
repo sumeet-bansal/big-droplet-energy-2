@@ -66,7 +66,7 @@ router.get('/technographics', function(req, res, next) {
 
 		}
 
-		res.render('technographics', {data: ((data[0].userAgent).toString()).indexOf(';')}); 
+		res.render('technographics', {data: (data[0].userAgent) == ""}); 
         });
     });
 });
