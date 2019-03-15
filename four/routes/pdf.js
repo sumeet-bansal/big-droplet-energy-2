@@ -12,7 +12,11 @@ async function printPdf(p){
 };
 
 router.get('/:page', function(req, res, next){
-    printPdf(page);
+    try {
+        printPdf(page);
+    } catch(err) {
+        console.log(err);
+    }
     return res.send(page+' pdf generated!');
 });
 
