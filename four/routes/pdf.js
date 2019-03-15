@@ -12,6 +12,7 @@ async function printPdf(p){
 };
 
 router.get('/:page', function(req, res, next){
+    let page = req.params.page;
     try {
         printPdf(page);
     } catch(err) {
