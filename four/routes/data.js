@@ -238,6 +238,8 @@ router.get('/performance', function(req, res, next) {
                         break;
                 }
             }
+
+            console.log(dr);
             
             res.render('performance',{ data: dr });
         });      
