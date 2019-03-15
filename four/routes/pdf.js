@@ -13,7 +13,7 @@ async function printPdf(p){
 
 router.get('/:page', function(req, res, next){
     printPdf(page);
-    return;
+    return res.send(page+' pdf generated!');
 });
 
 module.exports = router;
