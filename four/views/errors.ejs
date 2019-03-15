@@ -86,7 +86,7 @@
 </body>
 <script>
 
-	var refErr = document.getElementById("test").innerHTML = "<%=test %>";
+	document.getElementById("test").innerHTML = JSON.parse("[" + "<%=test %>" + "]");
    	
 	var refErr = document.getElementById("ref").innerHTML;
 	var typErr = document.getElementById("typ").innerHTML;
