@@ -46,7 +46,9 @@
 				<div class="col-sm">
 					<div class="card">
 						<h2>Errors</h2>
-							
+						
+						<p id="test"></p>
+
 						<p hidden id="ref"> <%=data.refErr %>  </p>
 						<p hidden id="typ"> <%=data.typErr %>  </p>
 						<p hidden id="uri"> <%=data.uriErr %>  </p>
@@ -84,7 +86,7 @@
 </body>
 <script>
 
-
+	var refErr = document.getElementById("test").innerHTML = "HELLO";
 	
 	var refErr = document.getElementById("ref").innerHTML;
 	var typErr = document.getElementById("typ").innerHTML;
