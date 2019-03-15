@@ -61,7 +61,7 @@ router.get('/technographics', function(req, res, next) {
 
 */		res.render('technographics', {data: dr});
 
-		}
+//		}
 
         });
     });
