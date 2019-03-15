@@ -200,14 +200,14 @@ router.get('/performance', function(req, res, next) {
         if (err) { console.log(err); }    
         
         //img 1 load time count < 1000
-        connection.query('select img1 from random_load where img1 < 1000;', [], function (err, results) {                         
+        connection.query('SELECT img1 FROM random_load WHERE img1 < ?', [1000], function (err, results) {                         
             if (err) { console.log(err); }                        
             console.log(results);             
             data.image1data.countlist[0] = results.length;         
         });      
         
         //img 1 load time count < 2000
-        connection.query('select img1 from random_load where img1 >= 1000 and img1 < 2000;', [], function (err, results) {                         
+        connection.query('select img1 from random_load where img1 >= ? and img1 < ?;', [1000,2000], function (err, results) {                         
             if (err) { console.log(err); }                                     
             data.image1data.countlist[1] = results.length;         
         });  
