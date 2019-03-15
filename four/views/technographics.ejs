@@ -112,8 +112,22 @@
                                         <div class="card">                         
                                                 <h2>Months Accessed</h2>          
                                                 
-						<p id="mnt"> <%=month %>  </p>
-						
+						<p hidden id="jan"> <%=months.January %>  </p>
+						<p hidden id="feb"> <%=months.February %>  </p>
+						<p hidden id="mar"> <%=months.March %>  </p>
+						<p hidden id="apr"> <%=months.April %>  </p>
+						<p hidden id="may"> <%=months.May %>  </p>
+						<p hidden id="jun"> <%=months.June %>  </p>
+						<p hidden id="jul"> <%=months.July %>  </p>
+						<p hidden id="aug"> <%=months.August %>  </p>
+						<p hidden id="sep"> <%=months.September %>  </p>
+						<p hidden id="oct"> <%=months.October %>  </p>
+						<p hidden id="nov"> <%=months.November %>  </p>
+						<p hidden id="dec"> <%=months.December %>  </p>
+
+
+
+
 						<p>Lorem Ipsum is simply dummy text of the printing 
                                                         and typesetting industry. Lorem Ipsum has been 
                                                         the industry's standard dummy text ever since 
@@ -263,7 +277,24 @@
                 }
         });
 
-	var mnt = document.getElementById("mnt").innerHTML;
+	var jan = document.getElementById("jan").innerHTML;
+	var feb = document.getElementById("feb").innerHTML;
+	var mar = document.getElementById("mar").innerHTML;  
+	var apr = document.getElementById("apr").innerHTML;
+	var may = document.getElementById("may").innerHTML;
+	var jun = document.getElementById("jun").innerHTML;
+	var jul = document.getElementById("jul").innerHTML;
+	var aug = document.getElementById("aug").innerHTML;
+	var sep = document.getElementById("sep").innerHTML;
+	var oct = document.getElementById("oct").innerHTML;
+	var nov = document.getElementById("nov").innerHTML;
+	var dec = document.getElementById("dec").innerHTML;
+
+
+
+
+
+
 
 	var ctx2 = document.getElementById("month");                               
 	var myChart = new Chart(ctx2, {                                                     
@@ -272,7 +303,7 @@
     		labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October","November", "December"],
     		datasets: [{                                                                   
         		label: "Access",
-			data: [mnt[1],mnt[3],mnt[5],mnt[7],mnt[9],mnt[11],mnt[13],mnt[15],mnt[17],mnt[19],mnt[21],mnt[23]],//[mnth, 2,3,4,5,6,7,8,9,10,11,12],
+			data: [jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec], 
         		borderColor: "#3e95cd",                                                    
         		fill: false                                                                 
       		}]                                                                              
