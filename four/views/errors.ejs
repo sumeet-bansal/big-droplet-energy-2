@@ -181,50 +181,24 @@
 
 
 	var ctx = document.getElementById("occurr");                           
-        var myChart = new Chart(ctx, {                                          
-        
-		type: 'line',
-			data: {
-				labels: [ // Date Objects
-					newDate(0)
-				],
-				datasets: [{
-					label: 'My First dataset',
-					backgroundColor: 'rgba(255,99,132,0.2)',
-					borderColor: 'rgba(255,99,132,1)',
-					fill: false,
-					data: [
-						randomScalingFactor(),
-					],
-				}
-			},
-			options: {
-				title: {
-					text: 'Chart.js Time Scale'
-				},
-				scales: {
-					xAxes: [{
-						type: 'time',
-						time: {
-							parser: timeFormat,
-							// round: 'day'
-							tooltipFormat: 'll HH:mm'
-						},
-						scaleLabel: {
-							display: true,
-							labelString: 'Date'
-						}
-					}],
-					yAxes: [{
-						scaleLabel: {
-							display: true,
-							labelString: 'value'
-						}
-					}]
-				},
-			}
-	});
-
+	var myChart = new Chart(ctx, {                                             
+                type: 'line',                                                      
+                data: {                                                            
+                        labels: [0,1000,2000,3000,4000,5000,6000,7000,8000,9000,10000],
+                        datasets: [{                                               
+                                data: [10,1000,2000,3000,2500,2300,2000,1500,500, 400, 300],
+                                borderColor: ['rgba(255,99,132,1)'],               
+                                fill:false                                         
+                        }]                                                         
+                },                                                                 
+                options: {                                                         
+                        startAngle: 0,                                             
+                        animation: {                                               
+                                animateRotate: true,                               
+                                animateScale: true                                 
+                        }                                                          
+                }                                                                  
+        });
 
 
 
