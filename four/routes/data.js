@@ -27,7 +27,7 @@ router.get('/technographics', function(req, res, next) {
 			other: 0
                 } 		
 
-		 int loc = 0;
+		 //int loc = 0;
 		 for (var i = 0; i < data.length; i++) {
 
 
@@ -65,7 +65,7 @@ router.get('/technographics', function(req, res, next) {
 
 		}
 
-		res.render('technographics', {data: loc}); 
+		res.render('technographics', {data: dr}); 
         });
     });
 });
