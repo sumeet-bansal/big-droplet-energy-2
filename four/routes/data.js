@@ -204,49 +204,62 @@ router.get('/performance', function(req, res, next) {
         //img 1 load time count < 1000
         connection.query('SELECT img1 FROM random_load WHERE img1 < 1000', function (err, results) {                         
             if (err) { console.log(err); }                        
-            emptylist[0] = results.length;         
+            emptylist[0] = results.length;  
+            console.log(results.length);       
         });      
         
         //img 1 load time count < 2000
         connection.query('SELECT img1 FROM random_load WHERE img1 >= ? and img1 < ?;', [1000,2000], function (err, results) {                         
             if (err) { console.log(err); }   
-            emptylist[1] = results.length;         
+            emptylist[1] = results.length;  
+            console.log(results.length);       
+
         });  
 
         //img 1 load time count < 3000
         connection.query('SELECT img1 FROM random_load WHERE img1 >= ? and img1 < ?;', [2000,3000], function (err, results) {                         
             if (err) { console.log(err); }                                     
-            emptylist[2] = results.length;         
+            emptylist[2] = results.length;     
+            console.log(results.length);       
+
         }); 
 
         //img 1 load time count < 4000
         connection.query('SELECT img1 FROM random_load WHERE img1 >= ? and img1 < ?;', [3000,4000], function (err, results) {                         
             if (err) { console.log(err); }                                     
-            emptylist[3] = results.length;         
+            emptylist[3] = results.length;    
+            console.log(results.length);       
+
         }); 
 
         //img 1 load time count < 5000
         connection.query('SELECT img1 FROM random_load WHERE img1 >= ? and img1 < ?;', [4000,5000], function (err, results) {                         
             if (err) { console.log(err); }                                     
-            emptylist[4] = results.length;         
+            emptylist[4] = results.length;     
+            console.log(results.length);       
+
         }); 
 
         //img 1 load time count < 6000
         connection.query('SELECT img1 FROM random_load WHERE img1 >= ? and img1 < ?;', [5000,6000], function (err, results) {                         
             if (err) { console.log(err); }                                     
-            emptylist[5] = results.length;         
+            emptylist[5] = results.length;    
+            console.log(results.length);       
+
         }); 
 
         //img 1 load time count < 7000
         connection.query('SELECT img1 FROM random_load WHERE img1 >= ? and img1 < ?;', [6000,7000], function (err, results) {                         
             if (err) { console.log(err); }                                     
-            emptylist[6] = results.length;         
+            emptylist[6] = results.length;   
+            console.log(results.length);       
+
         }); 
     });  
 
     //parse data
     data.image1data.countlist = emptylist;
-    console.log(data.image1data.countlist);
+    console.log(data.image1data.countlist,emptylist);
 
     res.render('performance',{ data: data });
 });
