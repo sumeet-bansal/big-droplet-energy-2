@@ -30,6 +30,22 @@ router.get('/technographics', function(req, res, next) {
 	
 		} 		
 		
+		var months = {
+		
+			January: 0,
+			February: 0, 
+			March: 0, 
+			April: 0, 
+			May: 0, 
+			June: 0, 
+			July: 0, 
+			August: 0, 
+			September: 0, 
+			October: 0, 
+			November: 0, 
+			December: 0
+		}
+
 		var months = [0,0,0,0,0,0,0,0,0,0,0,0];
 
 		 //int loc = 0;
@@ -65,15 +81,34 @@ router.get('/technographics', function(req, res, next) {
 			var date = new Date(time);
 			var datemonth = date.getMonth();
 
-		
-			for( var m = 0; m < 12; m++ ){
-				if(datemonth == m){
-					months[m] +=1;	
-				}
+			switch(datemonth){
+			
+				case 0: months.January+=1;
+				break;
+				case 1: months.February+=1;
+                                break;
+				case 2:months.March+=1;
+                                break;
+				case 3:months.April+=1;
+                                break;
+				case 4:months.May+=1;
+                                break;
+				case 5:months.June+=1;
+                                break;
+				case 6:months.July+=1;
+                                break;
+				case 7:months.August+=1;
+                                break;
+				case 8:months.September+=1;
+                                break;
+				case 9:months.October+=1;
+				break;
+				case 10:months.November+=1;
+                                break;
+				case 11:months.December+=1;
+                                break;
 			}
-
 		}
-
 		res.render('technographics', {data: dr, month: months}); 
         });
     });
