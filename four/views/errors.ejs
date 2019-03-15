@@ -220,16 +220,23 @@
       borderWidth: 1                 	 
 			}]                                                         
                 }
-		/*
-		,                                                                 
+		                                                                 
                 options: {                                                         
-                        startAngle: 0,                                             
-                        animation: {                                               
-                                animateRotate: true,                               
-                                animateScale: true                                 
-                        }                                                          
-                } 
-		*/
+                	scales: {
+					xAxes: [{
+						type: 'time',
+						time: {
+							parser: timeFormat,
+							// round: 'day'
+							tooltipFormat: 'll HH:mm'
+						},
+						scaleLabel: {
+							display: true,
+							labelString: 'Date'
+						}
+					}]
+				}	
+		} 
         });
 
 
