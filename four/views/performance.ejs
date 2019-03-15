@@ -187,16 +187,19 @@
 </body>
 <script>
         var ctx = document.getElementById("image1");
-        var cl = [];
-        for (var i = 0; i < 7; i++) {
-                cl.push(document.getElementById("img1load"+i.toString()));
-        }
+        var img1load0 = document.getElementById("img1load0");
+        var img1load1 = document.getElementById("img1load1");
+        var img1load2 = document.getElementById("img1load2");
+        var img1load3 = document.getElementById("img1load3");
+        var img1load4 = document.getElementById("img1load4");
+        var img1load5 = document.getElementById("img1load5");
+        var img1load6 = document.getElementById("img1load6");
 	var myChart = new Chart(ctx, {
 		type: 'bar',
 		data: {
 			labels: ['< 1000','< 2000','< 3000', '< 4000', '< 5000', '< 6000', '< 7000'],
 			datasets: [{
-				data: [cl[0],cl[1],cl[2],cl[3],cl[4],cl[5],cl[6],cl[7]],
+				data: [img1load0,img1load1,img1load2,img1load3,img1load4,img1load5,img1load6],
 				borderColor: ['rgba(255,99,132,1)'],
                                 fill:false,
                                 xAxisID: 'load times',
