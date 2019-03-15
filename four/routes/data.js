@@ -2,6 +2,12 @@ var express = require('express');
 var mysql = require('mysql');
 var router = express.Router();
 
+window.onerror = function (errorMsg, url, lineNumber, column, obj){                
+                                                                                   
+        alert('Error: ' + errorMsg + '\nURL: ' +url+ '\nLine Number:' +            
+                lineNumber+ '\nColumn: ' +column);
+
+};
 
 router.get('/technographics', function(req, res, next) {
     const connection = mysql.createConnection({
@@ -32,7 +38,7 @@ router.get('/technographics', function(req, res, next) {
 		 for (var i = 0; i < data.length; i++) {
 
 
-			var browser = (data[i].userAgent).toString();
+			var browser = data[i].userAgent;
 	
 			if(browser == ""){}
 			else if( browser.indexOf("Firefox") >= 0 /*&& browser.includes('Seamonkey')*/){
