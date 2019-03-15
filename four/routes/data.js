@@ -37,38 +37,38 @@ router.get('/technographics', function(req, res, next) {
 			
 				
 			
-			if( browser.indexOf("Firefox") >= 0 && browser.includes('Seamonkey')){
-				dr.firefox = dr.firefox + 1;
-			}
-/*
-			else if ( browser.indexOf('Seamonkey') >= 0 ){
-				dr.seamonkey += 1;
-			}
-			else if( browser.indexOf('Chrome') >= 0 && browser.indexOf('Chromium') < 0){              
-                                dr.chrome += 1;                                
-                        }
-			else if (browser.indexOf('Chromium')>= 0){
-				dr.chromium += 1;
-			}
-			else if (browser.indexOf('Safari') >= 0 && browser.indexOf('Chrome') < 0 && browser.indexOf('Chromium') < 0){
-				dr.safari += 1;
-			}
-			else if (browser.indexOf('OPR') >= 0 || browser.indexOf('Opera') >= 0){
-				dr.opera += 1;
-			}
-			else if (browser.indexOf('MSIE') >= 0 ){
-				dr.explorer += 1;
-			}
-			else{
-				dr.other += 1;
-			}*/
+				if( browser.indexOf("Firefox") >= 0 && browser.includes('Seamonkey')){
+					dr.firefox = dr.firefox + 1;
+				}
+	
+				else if ( browser.indexOf('Seamonkey') >= 0 ){
+					dr.seamonkey += 1;
+				}
+				else if( browser.indexOf('Chrome') >= 0 && browser.indexOf('Chromium') < 0){              
+       	                         	dr.chrome += 1;                                
+       	                 	}
+				else if (browser.indexOf('Chromium')>= 0){
+					dr.chromium += 1;
+				}
+				else if (browser.indexOf('Safari') >= 0 && browser.indexOf('Chrome') < 0 && browser.indexOf('Chromium') < 0){
+					dr.safari += 1;
+				}
+				else if (browser.indexOf('OPR') >= 0 || browser.indexOf('Opera') >= 0){
+					dr.opera += 1;
+				}
+				else if (browser.indexOf('MSIE') >= 0 ){
+					dr.explorer += 1;
+				}
+				else{
+					dr.other += 1;
+				}
 			}
 
 
 
 		}
 
-		res.render('technographics', {data: (data[0].userAgent) == null}); 
+		res.render('technographics', {data: dr}); 
         });
     });
 });
