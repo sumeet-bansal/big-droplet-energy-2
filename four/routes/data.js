@@ -76,6 +76,9 @@ router.get('/technographics', function(req, res, next) {
 			}
 
 			var time = data[i].timestamp;
+			
+		if( time != null ){
+
 			var date = new Date(time);
 			var datemonth = date.getMonth();
 
@@ -106,6 +109,8 @@ router.get('/technographics', function(req, res, next) {
 				case 11:months.December+=1;
                                 break;
 			}
+		}
+
 		}
 		res.render('technographics', {data: dr, month: months});
         });
