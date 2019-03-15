@@ -95,29 +95,29 @@ router.get('/technographics', function(req, res, next) {
 			var dateday = date.getDay();
 			
 			switch(datemonth){
-			case 0:months.January+=1;
-			case 1:months.February+=1;
-			case 2:months.March+=1;
-			case 3:months.April+=1;
-			case 4:months.May+=1;
-			case 5:months.June+=1;
-			case 6:months.July+=1;
-			case 7:months.August+=1;
-			case 8:months.September+=1;
-			case 9:months.October+=1;
-			case 10:months.November+=1;
-			case 11:months.December+=1;
+			case 0:months.January+=1;break;
+			case 1:months.February+=1;break;
+			case 2:months.March+=1;break;
+			case 3:months.April+=1;break;
+			case 4:months.May+=1;break;
+			case 5:months.June+=1;break;
+			case 6:months.July+=1;break;
+			case 7:months.August+=1;break;
+			case 8:months.September+=1;break;
+			case 9:months.October+=1;break;
+			case 10:months.November+=1;break;
+			case 11:months.December+=1;break;
 			
 			}
 		
 			switch(dateday){
-			case 0:days.Monday+=1;                                  
-                        case 1:days.Tuesday+=1;                                 
-                        case 2:days.Wednesday+=1;                                    
-                        case 3:days.Thursday+=1;                                    
-                        case 4:days.Friday+=1;                                      
-                        case 5:days.Saturday+=1;                                     
-                        case 6:days.Sunday+=1;
+			case 0:days.Monday+=1;break;                       
+                        case 1:days.Tuesday+=1;break;                           
+                        case 2:days.Wednesday+=1;break;                                    
+                        case 3:days.Thursday+=1;break;                                    
+                        case 4:days.Friday+=1;break;                                      
+                        case 5:days.Saturday+=1;break;                                     
+                        case 6:days.Sunday+=1;break;
 			}
 		
 		}
