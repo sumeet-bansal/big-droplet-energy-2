@@ -178,7 +178,7 @@ router.get('/errors', function(req, res, next) {
                                 dr.uriErr = dr.uriErr + 1;
                         }
     		} 
-		res.render('errors', {data: dr});
+		res.render('errors', {data: dr, test:[1,2,3,4]});
         });                                                                        
     });                                                                                                            
 });
