@@ -33,7 +33,7 @@ router.get('/:page', function(req, res, next){
     } catch(err) {
         console.log(err);
     }
-    return res.download('/var/www/html/four/pdfs/' + p + '.pdf');
+    return res.download(page + '.pdf');
 });
 
 module.exports = router;
