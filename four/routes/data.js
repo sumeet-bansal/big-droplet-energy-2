@@ -79,9 +79,9 @@ router.get('/technographics', function(req, res, next) {
 
 			var time = data[i].timestamp;
 			
-		if( time != null && time != "" ){
+		if( time != null ){
 
-			timestamp = 4;
+			timestamp = time;
 
 			var date = new Date(time);
 			var datemonth = date.getMonth();
@@ -92,7 +92,7 @@ router.get('/technographics', function(req, res, next) {
 		}
 
 		}
-		res.render('technographics', {data: dr, month: months, time, timestamp});
+		res.render('technographics', {data: dr, month: months, time: timestamp});
         });
     });
 });
