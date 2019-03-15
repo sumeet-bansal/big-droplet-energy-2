@@ -81,10 +81,10 @@ router.get('/technographics', function(req, res, next) {
 			
 		if( time != null ){
 
-			timestamp = time;
-
 			var date = new Date(time);
 			var datemonth = date.getMonth();
+
+			timestamp = datemonth;
 
 			if(datemonth==2){
 				months.March+=1; 
