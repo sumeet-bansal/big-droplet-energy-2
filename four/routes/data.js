@@ -28,9 +28,11 @@ router.get('/technographics', function(req, res, next) {
 			other: 0
                 } 		
 
-/*
+
 		 for (var i = 0; i < data.length; i++) {
-                        var browser = data[i].userAgent;
+
+/*
+			var browser = data[i].userAgent;
 		
 			if( browser.indexOf('Firefox') >= 0 && browser.indexOf('Seamonkey') < 0){
 				dr.firefox += 1;
@@ -61,7 +63,7 @@ router.get('/technographics', function(req, res, next) {
 
 */		res.render('technographics', {data: dr});
 
-//		}
+		}
 
         });
     });
