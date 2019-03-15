@@ -176,34 +176,38 @@
         
 	
 		title:{
-        text: "Simple Date-Time Chart"
-    },
-    axisX:{
-        title: "timeline",
-        gridThickness: 2
-    },
-    axisY: {
-        title: "Downloads"
-    },
-    data: [
-    {        
-        type: "area",
-        dataPoints: [//array
-        { x: new Date(2012, 01, 1), y: 26},
-        { x: new Date(2012, 01, 3), y: 38},
-        { x: new Date(2012, 01, 5), y: 43},
-        { x: new Date(2012, 01, 7), y: 29},
-        { x: new Date(2012, 01, 11), y: 41},
-        { x: new Date(2012, 01, 13), y: 54},
-        { x: new Date(2012, 01, 20), y: 66},
-        { x: new Date(2012, 01, 21), y: 60},
-        { x: new Date(2012, 01, 25), y: 53},
-        { x: new Date(2012, 01, 27), y: 60}
-
-        ]
+        		text: "Simple Date-Time Chart"
+    		},
+    		axisX:{
+        		title: "timeline",
+        		gridThickness: 2
+    		},
+    		axisY: {
+        		title: "Downloads"
+    		},
+		data: [
+     {        
+      type: "area",
+      xValueType: "dateTime",
+      dataPoints: [                  
+              { x: 1088620200000, y :71},
+              { x: 1104517800000, y : 55 },
+              { x: 1112293800000, y:  50 },
+              { x: 1136053800000, y : 65 },
+              { x: 1157049000000, y : 95 },
+              { x: 1162319400000, y : 68 },
+              { x: 1180636200000, y : 28 },
+              { x: 1193855400000, y : 34 },
+              { x: 1209580200000, y : 14 },
+              { x: 1230748200000, y : 34 },
+              { x: 1241116200000, y : 44 },
+              { x: 1262284200000, y : 84 },
+              { x: 1272652200000, y : 4  },
+              { x: 1291141800000, y : 44 },
+              { x: 1304188200000, y : 11 }
+      ]
     }
-    ]
-	
+    ]	
 	
 	
 	});
