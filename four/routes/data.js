@@ -46,6 +46,9 @@ router.get('/technographics', function(req, res, next) {
 			December: 0
 		}
 
+
+		var mnt = [1,2,3,4,5,6,7,8,9,10,11,12];
+		
 		 //int loc = 0;
 		 for (var i = 0; i < data.length; i++) {
 
@@ -107,7 +110,7 @@ router.get('/technographics', function(req, res, next) {
                                 break;
 			}
 		}
-		res.render('technographics', {data: dr, month: months}); 
+		res.render('technographics', {data: dr, month: mnt}); 
         });
     });
 });
