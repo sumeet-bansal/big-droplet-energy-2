@@ -361,7 +361,7 @@ router.get('/performance', function(req, res, next) {
                     dr.imagedatas.img9k = dr.imagedatas.img9k + 1;                
                 }
 
-            	}
+            	});
 
             	console.log(dr);
             
