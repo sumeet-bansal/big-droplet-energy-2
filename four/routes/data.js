@@ -340,7 +340,7 @@ router.get('/performance', function(req, res, next) {
 
 
 		
-		connection.query('SELECT * FROM slow', function (err, results) {
+		connection.query('SELECT * FROM slow_loads', function (err, results) {
                         if (err) { console.log(err); }
                 data = results;
 
