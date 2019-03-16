@@ -209,7 +209,17 @@ router.get('/performance', function(req, res, next) {
                     img14k: 0,
                     img15k: 0,
                     img16k: 0,
+                },
+		image2data: {
+                    img0k: 0,
+                    img1k: 0,
+                    img2k: 0,
+                    img3k: 0,
+                    img4k: 0,
+                    img5k: 0,
+                    img6k: 0,
                 }
+
             }
 
             for (var i = 0; i < data.length; i++) {
