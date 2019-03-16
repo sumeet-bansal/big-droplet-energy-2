@@ -236,7 +236,10 @@ router.get('/performance', function(req, res, next) {
                     img4k: 0,                                                      
                     img5k: 0,                                                      
                     img6k: 0,                                                      
-                }	
+            	    img7k: 0, 
+		    img8k: 0,
+		    img9k: 0
+	    	}	
             }
 
             for (var i = 0; i < data.length; i++) {
@@ -308,7 +311,13 @@ router.get('/performance', function(req, res, next) {
                     dr.imagedata.img5k = dr.imagedata.img5k + 1;              
                 } if (t >= 6000 && t < 7000) {                                  
                     dr.imagedata.img6k = dr.imagedata.img6k + 1;              
-                }
+                } if (t >= 7000 && t < 8000) {                                     
+                    dr.imagedata.img7k = dr.imagedata.img7k + 1;                   
+                } if (t >= 8000 && t < 9000) {                                     
+                    dr.imagedata.img8k = dr.imagedata.img8k + 1;                   
+                } if (t >= 9000 && t < 10000) {                                     
+                    dr.imagedata.img9k = dr.imagedata.img9k + 1;                   
+                } 
 
 
             }

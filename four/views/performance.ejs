@@ -328,16 +328,19 @@
         var imgload4 = parseInt("<%=data.imagedata.img4k %>");
         var imgload5 = parseInt("<%=data.imagedata.img5k %>");
         var imgload6 = parseInt("<%=data.imagedata.img6k %>");
+	var imgload7 = parseInt("<%=data.imagedata.img7k %>");
+        var imgload8 = parseInt("<%=data.imagedata.img8k %>");
+        var imgload9 = parseInt("<%=data.imagedata.img9k %>");
 
         var ctx = document.getElementById("totalrandom");
 
         var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-                labels: ['< 1000','< 2000','< 3000', '< 4000', '< 5000', '< 6000', '< 7000'],
+                labels: ['< 1000','< 2000','< 3000', '< 4000', '< 5000', '< 6000', '< 7000', '< 8000', '< 9000', '< 10000'],
                 datasets: [{
                         label: "Load Time",
-                        data: [imgload0,imgload1,imgload2,imgload3,imgload4,imgload5,imgload6],
+                        data: [imgload0,imgload1,imgload2,imgload3,imgload4,imgload5,imgload6,imgload7,imgload8,imgload9,],
                         borderColor: "#3e95cd",
                         fill: false,
                         xAxis: 'load times',
