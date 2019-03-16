@@ -192,7 +192,30 @@
 </body>
 <script>
         var ctx = document.getElementById("image1");
-        var img1load0 = parseInt(document.getElementById("img1load0").innerText);
+        
+	var myChart = new Chart(ctx, {                                                     
+        type: 'line',                                                               
+        data: {                                                                          
+                labels: ["January", "February", "March", "April"],
+                datasets: [{                                                                   
+                        label: "Access",                                           
+                        data: [1,2,3,4], 
+                        borderColor: "#3e95cd",                                                    
+                        fill: false                                                                 
+                }]                                                                              
+        },                                                                               
+        options: {                                                                       
+                title: {                                                                       
+                display: true,                                                               
+                text: 'Access per month'                                           
+                },                                                                             
+        }                                                                          
+        });
+
+
+	
+	/*
+	var img1load0 = parseInt(document.getElementById("img1load0").innerText);
         var img1load1 = parseInt(document.getElementById("img1load1").innerText);
         var img1load2 = parseInt(document.getElementById("img1load2").innerText);
         var img1load3 = parseInt(document.getElementById("img1load3").innerText);
@@ -221,7 +244,9 @@
                 },
         	}
         	});
-		/*,
+
+//
+
 		options: {
                         scales: {
                                 xAxes: [{
