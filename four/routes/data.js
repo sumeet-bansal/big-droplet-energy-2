@@ -192,65 +192,64 @@ router.get('/performance', function(req, res, next) {
         database: 'new_schema'                                                      
     });                                                                            
     
-    
+    var dr = {                                                              
+                image1data: {                                                   
+                    img10k: 0,                                                  
+                    img11k: 0,                                                  
+                    img12k: 0,                                                  
+                    img13k: 0,                                                  
+                    img14k: 0,                                                  
+                    img15k: 0,                                                  
+                    img16k: 0,                                                  
+                },                                                              
+                image2data: {                                                   
+                    img0k: 0,                                                   
+                    img1k: 0,                                                   
+                    img2k: 0,                                                   
+                    img3k: 0,                                                   
+                    img4k: 0,                                                   
+                    img5k: 0,                                                   
+                    img6k: 0,                                                   
+                },                                                              
+                image3data: {                                                   
+                    img0k: 0,                                                   
+                    img1k: 0,                                                   
+                    img2k: 0,                                                   
+                    img3k: 0,                                                   
+                    img4k: 0,                                                   
+                    img5k: 0,                                                   
+                    img6k: 0,                                                   
+                },                                                              
+                imagedata: {                                                    
+                    img0k: 0,                                                   
+                    img1k: 0,                                                   
+                    img2k: 0,                                                   
+                    img3k: 0,                                                   
+                    img4k: 0,                                                   
+                    img5k: 0,                                                   
+                    img6k: 0,                                                   
+                    img7k: 0,                                                   
+                    img8k: 0,                                                   
+                    img9k: 0                                                    
+                },                                                              
+                imagedatas: {                                                   
+                    img0k: 10,                                                  
+                    img1k: 0,                                                   
+                    img2k: 0,                                                   
+                    img3k: 0,                                                   
+                    img4k: 0,                                                   
+                    img5k: 0,                                                   
+                    img6k: 0,                                                   
+                    img7k: 0,                                                   
+                    img8k: 0,                                                   
+                    img9k: 0                                                    
+                }                                                               
+            } 
     
     var data;
     connection.connect(function(err) {                                             
         if (err) { console.log(err); }   
    
-   	var dr = {                                                                     
-                image1data: {                                                      
-                    img10k: 0,                                                     
-                    img11k: 0,                                                     
-                    img12k: 0,                                                     
-                    img13k: 0,                                                     
-                    img14k: 0,                                                     
-                    img15k: 0,                                                     
-                    img16k: 0,                                                     
-                },                                                                 
-                image2data: {                                                      
-                    img0k: 0,                                                      
-                    img1k: 0,                                                      
-                    img2k: 0,                                                      
-                    img3k: 0,                                                      
-                    img4k: 0,                                                      
-                    img5k: 0,                                                      
-                    img6k: 0,                                                      
-                },                                                                 
-                image3data: {                                                      
-                    img0k: 0,                                                      
-                    img1k: 0,                                                      
-                    img2k: 0,                                                      
-                    img3k: 0,                                                      
-                    img4k: 0,                                                      
-                    img5k: 0,                                                      
-                    img6k: 0,                                                      
-                },                                                                 
-                imagedata: {                                                       
-                    img0k: 0,                                                      
-                    img1k: 0,                                                      
-                    img2k: 0,                                                      
-                    img3k: 0,                                                      
-                    img4k: 0,                                                      
-                    img5k: 0,                                                      
-                    img6k: 0,                                                      
-                    img7k: 0,                                                      
-                    img8k: 0,                                                      
-                    img9k: 0                                                       
-                },                                                                 
-                imagedatas: {                                                      
-                    img0k: 10,                                                      
-                    img1k: 0,                                                      
-                    img2k: 0,                                                      
-                    img3k: 0,                                                      
-                    img4k: 0,                                                      
-                    img5k: 0,                                                      
-                    img6k: 0,                                                      
-                    img7k: 0,                                                      
-                    img8k: 0,                                                      
-                    img9k: 0                                                       
-                }                                                                  
-            }
         //img 1 load time 
         connection.query('SELECT * FROM random_load', function (err, results) {                         
             if (err) { console.log(err); }                        
@@ -381,6 +380,44 @@ router.get('/performance', function(req, res, next) {
 
 		res.render('performance',{ data: dr });
 	});
+    }); 
+
+
+	connection.connect(function(err) {                                          
+        if (err) { console.log(err); }
+
+	connection.query('SELECT * FROM slow_load', function (err, results) {
+                        if (err) { console.log(err); }                             
+                data = results;                                                    
+                                                                                   
+                for( var i=0; i < data.length; i++){                               
+                                                                                   
+                var s = data[i].total;                                             
+                if (s < 1000){                                                     
+                    dr.imagedatas.img0k = dr.imagedatas.img0k + 1;                 
+                } if (s >= 1000 && s < 2000) {                                     
+                    dr.imagedatas.img1k = dr.imagedatas.img1k + 1;                 
+                } if (s >= 2000 && s < 3000) {                                     
+                    dr.imagedatas.img2k = dr.imagedatas.img2k + 1;                 
+                } if (s >= 3000 && s < 4000) {                                     
+                    dr.imagedatas.img3k = dr.imagedatas.img3k + 1;                 
+                } if (s >= 4000 && s < 5000) {                                     
+                    dr.imagedatas.img4k = dr.imagedatas.img4k + 1;                 
+                } if (s >= 5000 && s < 6000) {                                     
+                    dr.imagedatas.img5k = dr.imagedatas.img5k + 1;                 
+                } if (s >= 6000 && s < 7000) {                                     
+                    dr.imagedatas.img6k = dr.imagedatas.img6k + 1;                 
+                } if (s >= 7000 && s < 8000) {                                     
+                    dr.imagedatas.img7k = dr.imagedatas.img7k + 1;                 
+                } if (s >= 8000 && s < 9000) {                                     
+                    dr.imagedatas.img8k = dr.imagedatas.img8k + 1;                 
+                } if (s >= 9000 && s < 10000) {                                    
+                    dr.imagedatas.img9k = dr.imagedatas.img9k + 1;                 
+                }                                                                  
+                }                                                                  
+                                                                                   
+                });
+	});
 /*
 		connection.query('SELECT * FROM slow_load', function (err, results) { 
             		if (err) { console.log(err); }                                      
@@ -415,8 +452,7 @@ router.get('/performance', function(req, res, next) {
             	});
 */
             
-            //res.render('performance',{ data: dr });
-    });  
+            res.render('performance',{ data: dr });
 });
 
 module.exports = router;
