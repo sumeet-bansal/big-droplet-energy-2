@@ -239,7 +239,7 @@ router.get('/performance', function(req, res, next) {
                     img9k: 0                                                       
                 },                                                                 
                 imagedatas: {                                                      
-                    img0k: 0,                                                      
+                    img0k: 10,                                                      
                     img1k: 0,                                                      
                     img2k: 0,                                                      
                     img3k: 0,                                                      
