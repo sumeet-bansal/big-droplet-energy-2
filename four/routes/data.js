@@ -40,32 +40,9 @@ router.get('/technographics', function(req, res, next) {
 	
 		} 		
 		
-		var months = {
-		
-			January: 0,
-			February: 0, 
-			March: 0, 
-			April: 0, 
-			May: 0, 
-			June: 0, 
-			July: 0, 
-			August: 0, 
-			September: 0, 
-			October: 0, 
-			November: 0, 
-			December: 0
-		}
-
-		var days = {
-		
-			Monday: 0,
-			Tuesday: 0, 
-			Wednesday: 0, 
-			Thursday: 0, 
-			Friday: 0, 
-			Saturday: 0, 
-			Sunday: 0
-		}
+		let months = new Array(12).fill(0);
+		let days = new Array(7).fill(0);
+        let hours = new Array(24).fill(0);
 
 		 //int loc = 0;
 		 for (var i = 0; i < data.length; i++) {
@@ -98,42 +75,15 @@ router.get('/technographics', function(req, res, next) {
 
 			var time = data[i].timestamp;
 			
-		if( time != null ){
-
+		if (time != null) {
 			var date = new Date(parseInt(time));
-			var datemonth = date.getMonth();
-			var dateday = date.getDay();
-			
-			switch(datemonth){
-			case 0:months.January+=1;break;
-			case 1:months.February+=1;break;
-			case 2:months.March+=1;break;
-			case 3:months.April+=1;break;
-			case 4:months.May+=1;break;
-			case 5:months.June+=1;break;
-			case 6:months.July+=1;break;
-			case 7:months.August+=1;break;
-			case 8:months.September+=1;break;
-			case 9:months.October+=1;break;
-			case 10:months.November+=1;break;
-			case 11:months.December+=1;break;
-			
-			}
-		
-			switch(dateday){
-			case 0:days.Monday+=1;break;                       
-                        case 1:days.Tuesday+=1;break;                           
-                        case 2:days.Wednesday+=1;break;                                    
-                        case 3:days.Thursday+=1;break;                                    
-                        case 4:days.Friday+=1;break;                                      
-                        case 5:days.Saturday+=1;break;                                     
-                        case 6:days.Sunday+=1;break;
-			}
-		
+            months[date.getMonth()] += 1;
+            days[date.getDay()] += 1;
+            hours[date.getHours()] += 1;
 		}
 
 		}
-		res.render('technographics', {data: dr, month: months, day: days});
+		res.render('technographics', {data: dr, month: months, day: days, hours: hours});
         });
     });
 });
@@ -187,7 +137,18 @@ router.get('/errors', function(req, res, next) {
 			else if( type == "Uncaught URIError"){
                                 dr.uriErr = dr.uriErr + 1;
                         }
-    		} 
+    		}
+
+        let err_times = {};
+        for (let i = 0; i < data.length; i++) {                               
+            let type = data[i].errorMessage;
+            let n = type.indexOf(':');  
+            type = type.substring(0, n != -1 ? n : type.length);
+            if (!(type in err_times)) {
+                err_times[type] = []
+            }
+            err_times[type].push(data[i].timestamp);
+        } 
 		res.render('errors', {data: dr, test:[1,2,3,4]});
         });                                                                        
     });                                                                                                            
