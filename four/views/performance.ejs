@@ -199,13 +199,15 @@
         var img1load4 = parseInt(document.getElementById("img1load4").innerText);
         var img1load5 = parseInt(document.getElementById("img1load5").innerText);
         var img1load6 = parseInt(document.getElementById("img1load6").innerText);
+
+
 	var myChart = new Chart(ctx, {
 		type: 'bar',
 		data: {
 			labels: ['< 1000','< 2000','< 3000', '< 4000', '< 5000', '< 6000', '< 7000'],
 			datasets: [{
 				data: [img1load0,img1load1,img1load2,img1load3,img1load4,img1load5,img1load6],
-				borderColor: ['rgba(255,99,132,1)'],
+				borderColor: 'rgba(255,99,132,1)',
                                 fill:false,
                                 xAxisID: 'load times',
                                 yAxisID: 'count'
@@ -227,7 +229,7 @@
 	});
 
 
-
+/*
 	var ctx = document.getElementById("image2");                               
         var myChart = new Chart(ctx, {                                             
                 type: 'line',                                                      
