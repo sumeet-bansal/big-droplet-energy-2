@@ -152,9 +152,10 @@
                                         <div class="card">
                                                 <h2>Slow Load Per Browser</h2>
                                                 <p>
-                                                This shows the total load time for a page with 
-                                                various large images. The x axis is in load time
-                                                range and the y axis is the average load time. 
+                                                This shows the average load time per browser for
+                                                a page with various large images. The x axis is 
+                                                in load time range and the y axis is the average 
+                                                load time. 
                                                 </p>
                                         </div>
                                 </div>
@@ -388,16 +389,9 @@
 
 
 
-	// var browload = parseInt("<%=data.imagedatas.img0k %>");                  
-        // var imgload1s = parseInt("<%=data.imagedatas.img1k %>");                  
-        // var imgload2s = parseInt("<%=data.imagedatas.img2k %>");                  
-        // var imgload3s = parseInt("<%=data.imagedatas.img3k %>");                  
-        // var imgload4s = parseInt("<%=data.imagedatas.img4k %>");                  
-        // var imgload5s = parseInt("<%=data.imagedatas.img5k %>");                  
-        // var imgload6s = parseInt("<%=data.imagedatas.img6k %>");                  
-        // var imgload7s = parseInt("<%=data.imagedatas.img7k %>");                  
-        // var imgload8s = parseInt("<%=data.imagedatas.img8k %>");                  
-        // var imgload9s = parseInt("<%=data.imagedatas.img9k %>");                  
+	var safariavg = parseInt("<%=data.browserslow.safariavg %>");                  
+        var chromeavg = parseInt("<%=data.browserslow.chromeavg %>");                  
+        var firefoxavg = parseInt("<%=data.browserslow.firefoxavg %>");                  
                                                                                 
         var browserSlowCtx = document.getElementById("browserslow");                       
                                                                                 
@@ -407,7 +401,7 @@
                 labels: ['safari','opera','explorer','other',],
                 datasets: [{                                                    
                         label: "Load Time",                                     
-                        data: [1123, 2323, 9999, 5552],
+                        data: [safariavg, chromeavg, firefoxavg],
                         borderColor: 'rgba(255, 99, 132, 1)',
 			backgroundColor: 'rgba(255, 99, 132, 0.7)',
                         fill: false,                                            

@@ -3,6 +3,15 @@ var mysql = require('mysql');
 var router = express.Router();
 
 
+function calcAvg (arr) {
+    var sum = 0;
+    for (var i = 0; i < arr.length; i++) {
+        sum += arr[i];
+    }
+    return (sum/arr.length);
+}
+
+
 router.get('/technographics', function(req, res, next) {
     const connection = mysql.createConnection({
         user: 'root',
@@ -203,6 +212,9 @@ router.get('/performance', function(req, res, next) {
     var d7 = 0;
     var d8 = 0;
     var d9 = 0;
+    var chr = [];
+    var saf = [];
+    var fir = [];
 
     var data;                                                                      
     connection0.connect(function(err) {                                             
@@ -214,33 +226,58 @@ router.get('/performance', function(req, res, next) {
             if (err) { console.log(err); }                                         
             data = results;
 
-		for( var i=0; i < data.length; i++){                               
-                                                                                   
+            for( var i=0; i < data.length; i++){                               
                 var s = data[i].total;                                          
                 if (s < 1000){                                                  
                     d0+=1;
                 } if (s >= 1000 && s < 2000) {                                  
                     d1+=1;
-		} if (s >= 2000 && s < 3000) {                                  
-                    d2+=1;
-		} if (s >= 3000 && s < 4000) {                                  
-                    d3+=1;
-		} if (s >= 4000 && s < 5000) {                                  
-                    d4+=1;
-		} if (s >= 5000 && s < 6000) {                                  
-                    d5+=1;
-		} if (s >= 6000 && s < 7000) {                                  
-                    d6+=1;
-		} if (s >= 7000 && s < 8000) {                                  
-                    d7+=1;
-		} if (s >= 8000 && s < 9000) {                                  
-                    d8+=1;
-		} if (s >= 9000 && s < 10000) {                                 
-                    d9+=1;
-		}                                                                  
+                } if (s >= 2000 && s < 3000) {                                  
+                            d2+=1;
+                } if (s >= 3000 && s < 4000) {                                  
+                            d3+=1;
+                } if (s >= 4000 && s < 5000) {                                  
+                            d4+=1;
+                } if (s >= 5000 && s < 6000) {                                  
+                            d5+=1;
+                } if (s >= 6000 && s < 7000) {                                  
+                            d6+=1;
+                } if (s >= 7000 && s < 8000) {                                  
+                            d7+=1;
+                } if (s >= 8000 && s < 9000) {                                  
+                            d8+=1;
+                } if (s >= 9000 && s < 10000) {                                 
+                            d9+=1;
+                }    
+                
+
+
+            }
+        });
+
+
+
+        connection0.query('select userAgent, total from cookie c, slow_load s where c.id = cookie', function (err, results) {     
+            if (err) { console.log(err); }                                         
+            data = results;
+
+
+            for (var i = 0; i < data.length; i++) {
+                var x = data[i].userAgent;
+                if (x.includes("Safari") && !x.includes("Chrome")){
+                    saf.push(data[i].total);
                 }
-	    	
-	});
+                if (x.includes("Chrome")) {
+                    chr.push(data[i].total);
+                }
+                if (x.includes("Firefox")) {
+                    fir.push(data[i].total);
+                }
+            }
+
+
+        });
+
     });
 
 
@@ -313,7 +350,12 @@ router.get('/performance', function(req, res, next) {
                     img7k: d7,                                                      
                     img8k: d8,                                                   
                     img9k: d9                                                    
-                }                                                               
+                },
+                browserslow: {
+                    safariavg: calcAvg(saf),
+                    chromeavg: calcAvg(chr), 
+                    firefoxavg: calcAvg(fir)
+                }                                                       
             } 
 
 
