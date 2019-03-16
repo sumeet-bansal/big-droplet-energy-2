@@ -257,6 +257,9 @@ router.get('/performance', function(req, res, next) {
             if (err) { console.log(err); }                        
             data = results;
         
+		
+	for (var i=0; i < data.length; i++){
+
 		var x = data[i].img1; 
                 if (x < 1000){
                     dr.image1data.img10k = dr.image1data.img10k + 1;
@@ -333,11 +336,15 @@ router.get('/performance', function(req, res, next) {
                     dr.imagedata.img9k = dr.imagedata.img9k + 1;                   
                 } 
 
+		}
+	});
 
 		connection.query('SELECT * FROM slow_load', function (err, results) { 
             		if (err) { console.log(err); }                                      
-
+		data = results;
 			
+		for( var i=0; i < data.length; i++){
+
 		var s = data[i].total;                                          
                 if (s < 1000){                                                  
                     dr.imagedatas.img0k = dr.imagedatas.img0k + 1;                
@@ -360,13 +367,13 @@ router.get('/performance', function(req, res, next) {
                 } if (s >= 9000 && s < 10000) {                                 
                     dr.imagedatas.img9k = dr.imagedatas.img9k + 1;                
                 }
+		}
 
             	});
 
             	console.log(dr);
             
             res.render('performance',{ data: dr });
-        });      
     });  
 });
 
