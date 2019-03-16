@@ -201,11 +201,11 @@ router.get('/performance', function(req, res, next) {
                                                                                    
                                                                                    
         //img 1 load time                                                          
-        connection0.query('SELECT * FROM random_load', function (err, results) {     
+        connection0.query('SELECT * FROM slow_load', function (err, results) {     
             if (err) { console.log(err); }                                         
             data = results;
 	    
-	    d1 = 10;
+	    d1 = 23;
 	});
     });
 
