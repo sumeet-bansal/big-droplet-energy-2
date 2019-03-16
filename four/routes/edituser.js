@@ -6,7 +6,7 @@ router.post('/', function(req, res, next) {
     const connection = mysql.createConnection({
         user: 'root',
         password: 'space bar',
-        database: 'collector'
+        database: 'new_schema'
     });
     let user = {
         id: req.user.id,
@@ -19,7 +19,7 @@ router.post('/', function(req, res, next) {
         connection.connect(function(err) {
             if (err) { console.log(err); }
             connection.query(
-                'UPDATE Users SET username = ?, password = ?, admin = ? WHERE id = ?;'
+                'UPDATE users SET username = ?, password = ?, admin = ? WHERE id = ?;'
                 , [req.body.username, req.body.password, req.body.admin, req.body.id], function (err, results, fields) {
                 if (err) { console.log(err); } 
                 return;

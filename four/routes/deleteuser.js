@@ -6,7 +6,7 @@ router.post('/', function(req, res, next) {
     const connection = mysql.createConnection({
         user: 'root',
         password: 'space bar',
-        database: 'collector'
+        database: 'new_schema'
     });
     let user = {
         id: req.user.id,
@@ -18,7 +18,7 @@ router.post('/', function(req, res, next) {
     if (req.user.admin) {
         connection.connect(function(err) {
             if (err) { console.log(err); }
-            connection.query('DELETE FROM Users WHERE id = ?;', [req.body.id], function (err, results, fields) {
+            connection.query('DELETE FROM users WHERE id = ?;', [req.body.id], function (err, results, fields) {
                 if (err) { console.log(err); } 
                 return;
             });

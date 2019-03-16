@@ -18,7 +18,7 @@ router.get('/admin', function(req, res, next) {
     const connection = mysql.createConnection({
         user: 'root',
         password: 'space bar',
-        database: 'collector'
+        database: 'new_schema'
     });
     let user = {
         id: req.user.id,
@@ -29,7 +29,7 @@ router.get('/admin', function(req, res, next) {
     if (req.user.admin) {
         connection.connect(function(err) {
             if (err) { console.log(err); }
-            connection.query('SELECT * FROM Users;', function (err, results, fields) {
+            connection.query('SELECT * FROM users;', function (err, results, fields) {
                 if (err) { console.log(err); } 
                 res.render('useradmin', {
                     user: user,

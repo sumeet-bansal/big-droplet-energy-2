@@ -6,7 +6,7 @@ router.post('/', function(req, res, next) {
     const connection = mysql.createConnection({
         user: 'root',
         password: 'space bar',
-        database: 'collector'
+        database: 'new_schema'
     });
     let user = {
         id: req.user.id,
