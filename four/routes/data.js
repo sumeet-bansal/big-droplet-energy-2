@@ -193,7 +193,16 @@ router.get('/performance', function(req, res, next) {
         database: 'new_schema'                                                      
     });                                                                            
         
+    var d0 = 0;
     var d1 = 0;
+    var d2 = 0;
+    var d3 = 0;
+    var d4 = 0;
+    var d5 = 0;
+    var d6 = 0;
+    var d7 = 0;
+    var d8 = 0;
+    var d9 = 0;
 
     var data;                                                                      
     connection0.connect(function(err) {                                             
@@ -204,8 +213,33 @@ router.get('/performance', function(req, res, next) {
         connection0.query('SELECT * FROM slow_load', function (err, results) {     
             if (err) { console.log(err); }                                         
             data = results;
-	    
-	    d1 = 23;
+
+		for( var i=0; i < data.length; i++){                               
+                                                                                   
+                var s = data[i].total;                                          
+                if (s < 1000){                                                  
+                    d0+=1;
+                } if (s >= 1000 && s < 2000) {                                  
+                    d1+=1;
+		} if (s >= 2000 && s < 3000) {                                  
+                    d2+=1;
+		} if (s >= 3000 && s < 4000) {                                  
+                    d3+=1;
+		} if (s >= 4000 && s < 5000) {                                  
+                    d4+=1;
+		} if (s >= 5000 && s < 6000) {                                  
+                    d5+=1;
+		} if (s >= 6000 && s < 7000) {                                  
+                    d6+=1;
+		} if (s >= 7000 && s < 8000) {                                  
+                    d7+=1;
+		} if (s >= 8000 && s < 9000) {                                  
+                    d8+=1;
+		} if (s >= 9000 && s < 10000) {                                 
+                    d9+=1;
+		}                                                                  
+                }
+	    	
 	});
     });
 
@@ -269,16 +303,16 @@ router.get('/performance', function(req, res, next) {
                     img9k: 0                                                       
                 },                                                                 
                 imagedatas: {                                                      
-                    img0k: d1,                                                     
-                    img1k: 0,                                                      
-                    img2k: 0,                                                      
-                    img3k: 0,                                                      
-                    img4k: 0,                                                      
-                    img5k: 0,                                                      
-                    img6k: 0,                                                      
-                    img7k: 0,                                                      
-                    img8k: 0,                                                   
-                    img9k: 0                                                    
+                    img0k: d0,                                                     
+                    img1k: d1,                                                      
+                    img2k: d2,                                                      
+                    img3k: d3,                                                      
+                    img4k: d4,                                                      
+                    img5k: d5,                                                      
+                    img6k: d6,                                                      
+                    img7k: d7,                                                      
+                    img8k: d8,                                                   
+                    img9k: d9                                                    
                 }                                                               
             } 
 
