@@ -186,6 +186,31 @@ router.get('/errors', function(req, res, next) {
 
 
 router.get('/performance', function(req, res, next) {
+    
+    const connection0 = mysql.createConnection({                                    
+        user: 'root',                                                              
+        password: 'space bar',                                                     
+        database: 'new_schema'                                                      
+    });                                                                            
+        
+    var d1 = 0;
+
+    var data;                                                                      
+    connection0.connect(function(err) {                                             
+        if (err) { console.log(err); }                                             
+                                                                                   
+                                                                                   
+        //img 1 load time                                                          
+        connection0.query('SELECT * FROM random_load', function (err, results) {     
+            if (err) { console.log(err); }                                         
+            data = results;
+	    
+	    d1 = 10;
+	});
+    });
+
+
+    
     const connection = mysql.createConnection({                                    
         user: 'root',                                                              
         password: 'space bar',                                                     
@@ -244,7 +269,7 @@ router.get('/performance', function(req, res, next) {
                     img9k: 0                                                       
                 },                                                                 
                 imagedatas: {                                                      
-                    img0k: 10,                                                     
+                    img0k: d1,                                                     
                     img1k: 0,                                                      
                     img2k: 0,                                                      
                     img3k: 0,                                                      
