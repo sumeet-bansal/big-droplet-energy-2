@@ -231,7 +231,8 @@ router.get('/performance', function(req, res, next) {
                     img7k: 0,
                     img8k: 0,
                     img9k: 0
-                },
+                }
+		/*,
                 imagedatas: {
                     img0k: 0,
                     img1k: 0,
@@ -243,7 +244,7 @@ router.get('/performance', function(req, res, next) {
                     img7k: 0,
                     img8k: 0,
                     img9k: 0
-                }
+                }*/
             }
     
     
