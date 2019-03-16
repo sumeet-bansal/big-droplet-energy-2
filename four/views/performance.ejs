@@ -192,6 +192,8 @@
 </body>
 <script>
         
+	/*
+	
 	var img1load0 = parseInt(document.getElementById("img1load0").innerText);
 	var img1load1 = parseInt(document.getElementById("img1load1").innerText);
         var img1load2 = parseInt(document.getElementById("img1load2").innerText);
@@ -222,12 +224,6 @@
                 },
 		scales: {
                                 xAxes: [{
-                                /*
-				scaleLabel: {
-        				display: true,
-        				labelString: 'load times'
-      			`		},
-				*/
 				barPercentage: 0.5,
                                 barThickness: 6,
                                 maxBarThickness: 8,
@@ -241,8 +237,10 @@
         });
 
 
+	*/
+
+	var ctx = document.getElementById("image1");    
 	
-	/*
 	var img1load0 = parseInt(document.getElementById("img1load0").innerText);
         var img1load1 = parseInt(document.getElementById("img1load1").innerText);
         var img1load2 = parseInt(document.getElementById("img1load2").innerText);
@@ -253,28 +251,19 @@
 
 
 	var myChart = new Chart(ctx, {
-		type: 'line',
+		type: 'bar',
 		data: {
-			labels: ['1000','2000','3000', '4000', '5000', '6000', '7000'],
+			labels: ['< 1000','< 2000','< 3000', '< 4000', '< 5000', '< 6000', '< 7000'],
 			datasets: [{
 				label: "Load Time"
-				data: [1,2,3,4,5,6,7],//img1load0,img1load1,img1load2,img1load3,img1load4,img1load5,img1load6],
+				data: [img1load0,img1load1,img1load2,img1load3,img1load4,img1load5,img1load6],
 				borderColor: '#3e95cd',
                                 fill:false,
                                 //xAxisID: 'load times',
                                 //yAxisID: 'count'
                         }]
 		}
-		options: {
-                title: {
-                display: true,
-                text: 'Access per month'
-                },
-        	}
-        	});
-
-//
-
+		
 		options: {
                         scales: {
                                 xAxes: [{
@@ -289,7 +278,6 @@
                         }
 		}
 	});
-	*/
 
 /*
 	var ctx = document.getElementById("image2");                               
