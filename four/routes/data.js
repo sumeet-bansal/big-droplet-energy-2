@@ -90,6 +90,24 @@ res.render('technographics', {data: dr, month: months, day: days, hours: hours})
 });
 
 router.get('/errors', function(req, res, next) {
+	let accesses = null;
+	const conn = mysql.createConnection({
+		user: 'root',
+		password: 'space bar',
+		database: 'new_schema'
+	});
+	conn.connect(err => {
+		if (err) {
+			console.log(err);
+		}
+		conn.query('SELECT timestamp, count FROM cookie', (error, results, fields) => {
+			conn.end();
+			if (error) {
+				console.log(error);
+			}
+			accesses = results;
+		});
+	});
 	const connection = mysql.createConnection({
 		user: 'root',
 		password: 'space bar',
@@ -128,6 +146,7 @@ router.get('/errors', function(req, res, next) {
 				}
 			}
 
+			// groups timestamps by error
 			let err_times = {};
 			for (let i = 0; i < data.length; i++) {
 				let type = data[i].errorMessage;
@@ -140,11 +159,13 @@ router.get('/errors', function(req, res, next) {
 					err_times[type].push(data[i].timestamp);
 				}
 			}
+
+			// aggregates timestamps per error into how many 1 day ago, 2 days ago, ..., a week ago
+			let now = new Date();
 			for (type in err_times) {
 				let type_timestamps = err_times[type];
 				let type_date_counts = new Array(7).fill(0);
 				for (tts in type_timestamps) {
-					let now = new Date();
 					let prev = new Date(parseInt(type_timestamps[tts]));
 					let diff = new moment.duration(now - prev);
 					let diff_days = Math.abs(Math.round(diff.asDays()));
@@ -154,10 +175,22 @@ router.get('/errors', function(req, res, next) {
 				}
 				err_times[type] = type_date_counts;
 			}
-			console.log(err_times);
+
+			// aggregates general accesses into how many (same as above block)
+			let access_date_counts = new Array(7).fill(0);
+			for (row in accesses) {
+				let prev = new Date(parseInt(accesses[row].timestamp));
+				let diff = new moment.duration(now - prev);
+				let diff_days = Math.abs(Math.round(diff.asDays()));
+				if (diff_days < 7) {
+					access_date_counts[diff_days] += accesses[row].count;
+				}
+			}
+
 			res.render('errors', {
 				data: dr,
-				err_times: err_times
+				err_times: err_times,
+				acc_times: access_date_counts
 			});
 		});
 	});
