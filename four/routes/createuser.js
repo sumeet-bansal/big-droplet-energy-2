@@ -18,7 +18,7 @@ router.post('/', function(req, res, next) {
         connection.connect(function(err) {
             if (err) { console.log(err); }
             connection.query(
-                'INSERT INTO Users (username, password, admin) VALUES (?,?,?);'
+                'INSERT INTO users (username, password, admin) VALUES (?,?,?);'
                 , [req.body.username, req.body.password, req.body.admin], function (err, results, fields) {
                 if (err) { console.log(err); } 
                 return;
