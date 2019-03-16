@@ -239,6 +239,29 @@ router.get('/performance', function(req, res, next) {
                 } if (x >= 6000 && x < 7000) {
                     dr.image1data.img16k = dr.image1data.img16k + 1;
                 }
+
+		var y = data[i].img2;
+		if (y < 1000){                                                     
+                    dr.image2data.img0k = dr.image2data.img0k + 1;               
+                } if (y >= 1000 && y < 2000) {                                     
+                    dr.image2data.img1k = dr.image2data.img1k + 1;               
+                } if (y >= 2000 && y < 3000) {                                     
+                    dr.image2data.img2k = dr.image2data.img2k + 1;               
+                } if (y >= 3000 && y < 4000) {                                     
+                    dr.image2data.img3k = dr.image2data.img3k + 1;               
+                } if (y >= 4000 && y < 5000) {                                    
+                    dr.image2data.img4k = dr.image2data.img4k + 1;               
+                } if (y >= 5000 && y < 6000) {                                     
+                    dr.image2data.img5k = dr.image2data.img5k + 1;               
+                } if (y >= 6000 && y < 7000) {                                     
+                    dr.image2data.img6k = dr.image2data.img6k + 1;               
+                } 
+	
+
+
+
+
+
             }
 
             console.log(dr);
