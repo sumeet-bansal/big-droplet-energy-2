@@ -279,7 +279,50 @@
         }                                                                          
         }); 
 
-	
+	var img3load0 = parseInt("<%=data.image3data.img0k %>");                
+        var img3load1 = parseInt("<%=data.image3data.img1k %>");                
+        var img3load2 = parseInt("<%=data.image3data.img2k %>");                
+        var img3load3 = parseInt("<%=data.image3data.img3k %>");                
+        var img3load4 = parseInt("<%=data.image3data.img4k %>");                
+        var img3load5 = parseInt("<%=data.image3data.img5k %>");                
+        var img3load6 = parseInt("<%=data.image3data.img6k %>");                
+                                                                                
+        var ctx = document.getElementById("image3");                            
+                                                                                
+        var myChart = new Chart(ctx, {                                                     
+        type: 'bar',                                                               
+        data: {                                                                          
+                labels: ['< 1000','< 2000','< 3000', '< 4000', '< 5000', '< 6000', '< 7000'],
+                datasets: [{                                                                   
+                        label: "Load Time",                                           
+                        data: [img3load0,img3load1,img3load2,img3load3,img3load4,img3load5,img3load6],
+                        borderColor: "#3e95cd",                                                    
+                        fill: false,                                            
+                        xAxis: 'load times',                                    
+                        yAxis: 'count'                                          
+                }]                                                                              
+        },                                                                               
+        options: {                                                                       
+                title: {                                                                       
+                display: true,                                                               
+                text: 'Access per month'                                           
+                },                                                              
+                scales: {                                                       
+                                xAxes: [{                                       
+                                barPercentage: 0.5,                             
+                                barThickness: 6,                                
+                                maxBarThickness: 8,                             
+                                minBarLength: 2,                                
+                                gridLines: {                                    
+                                        offsetGridLines: true                   
+                                }                                               
+                                }]                                              
+                }                                                               
+        }                                                                          
+        }); 
+
+
+
 /*
 	var ctx = document.getElementById("image1");    
 	
