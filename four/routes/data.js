@@ -249,7 +249,63 @@ router.get('/performance', function(req, res, next) {
     var data;
     connection.connect(function(err) {                                             
         if (err) { console.log(err); }   
-   
+
+
+	var dr = {                                                                  
+                image1data: {                                                   
+                    img10k: 0,                                                  
+                    img11k: 0,                                                  
+                    img12k: 0,                                                  
+                    img13k: 0,                                                  
+                    img14k: 0,                                                  
+                    img15k: 0,                                                     
+                    img16k: 0,                                                     
+                },                                                                 
+                image2data: {                                                      
+                    img0k: 0,                                                      
+                    img1k: 0,                                                      
+                    img2k: 0,                                                      
+                    img3k: 0,                                                      
+                    img4k: 0,                                                      
+                    img5k: 0,                                                      
+                    img6k: 0,                                                      
+                },                                                                 
+                image3data: {                                                      
+                    img0k: 0,                                                      
+                    img1k: 0,                                                      
+                    img2k: 0,                                                      
+                    img3k: 0,                                                      
+                    img4k: 0,                                                      
+                    img5k: 0,                                                      
+                    img6k: 0,                                                      
+                },                                                                 
+                imagedata: {                                                       
+                    img0k: 0,                                                      
+                    img1k: 0,                                                      
+                    img2k: 0,                                                      
+                    img3k: 0,                                                      
+                    img4k: 0,                                                      
+                    img5k: 0,                                                      
+                    img6k: 0,                                                      
+                    img7k: 0,                                                      
+                    img8k: 0,                                                      
+                    img9k: 0                                                       
+                }
+		/*,                                                                 
+                imagedatas: {                                                      
+                    img0k: 10,                                                     
+                    img1k: 0,                                                      
+                    img2k: 0,                                                      
+                    img3k: 0,                                                      
+                    img4k: 0,                                                   
+                    img5k: 0,                                                   
+                    img6k: 0,                                                   
+                    img7k: 0,                                                   
+                    img8k: 0,                                                   
+                    img9k: 0                                                    
+                } */                                                              
+            }  
+
         //img 1 load time 
         connection.query('SELECT * FROM random_load', function (err, results) {                         
             if (err) { console.log(err); }                        
@@ -378,11 +434,11 @@ router.get('/performance', function(req, res, next) {
 
 
 
-		res.render('performance',{ data: dr });
 	});
     }); 
 
 
+/*
 	connection.connect(function(err) {                                          
         if (err) { console.log(err); }
 
@@ -418,6 +474,7 @@ router.get('/performance', function(req, res, next) {
                                                                                    
                 });
 	});
+	*/
 /*
 		connection.query('SELECT * FROM slow_load', function (err, results) { 
             		if (err) { console.log(err); }                                      
