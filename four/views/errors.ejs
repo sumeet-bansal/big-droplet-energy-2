@@ -10,17 +10,17 @@
 
 	<!-- bootstrap -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-	 crossorigin="anonymous"></script>
+	crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-	 crossorigin="anonymous"></script>
+	crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-	 crossorigin="anonymous">
+	crossorigin="anonymous">
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-	 crossorigin="anonymous"></script>
+	crossorigin="anonymous"></script>
 
 	<!-- chart.js -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
-	
+
 </head>
 <body>
 
@@ -53,26 +53,19 @@
 				<div class="col-sm">
 					<div class="card">
 						<h2>Errors</h2>
-						
-						<p hidden id="ref"> <%=data.refErr %>  </p>
-						<p hidden id="typ"> <%=data.typErr %>  </p>
-						<p hidden id="uri"> <%=data.uriErr %>  </p>
-						<p hidden id="syn"> <%=data.synErr %>  </p>
-						<p hidden id="rng"> <%=data.rngErr %>  </p>
-						<p hidden id="evl"> <%=data.evlErr %>  </p>
 
 						<p>
-							Lorem Ipsum is simply dummy text of the printing 
-							and typesetting industry. Lorem Ipsum has been 
-							the industry's standard dummy text ever since 
-							the 1500s, when an unknown printer took a galley 
-							of type and scrambled it to make a type specimen 
-							book. It has survived not only five centuries, 
-							but also the leap into electronic typesetting, 
-							remaining essentially unchanged. It was 
-							popularised in the 1960s with the release of 
-							Letraset sheets containing Lorem Ipsum passages, 
-							and more recently with desktop publishing software 
+							Lorem Ipsum is simply dummy text of the printing
+							and typesetting industry. Lorem Ipsum has been
+							the industry's standard dummy text ever since
+							the 1500s, when an unknown printer took a galley
+							of type and scrambled it to make a type specimen
+							book. It has survived not only five centuries,
+							but also the leap into electronic typesetting,
+							remaining essentially unchanged. It was
+							popularised in the 1960s with the release of
+							Letraset sheets containing Lorem Ipsum passages,
+							and more recently with desktop publishing software
 							like Aldus PageMaker including versions of Lorem Ipsum.
 						</p>
 					</div>
@@ -81,151 +74,138 @@
 					<canvas id="myChart" width="400" height="400"></canvas>
 				</div>
 			</div>
-		</div>		
+		</div>
 
-		<div class="container">                                            
-                                                                                   
-                                                                                   
-                        <div class="row">                                          
-                                <div class="col-sm">                               
-                                        <div class="card">                         
-                                                <h2>Errors Occurrence</h2>                    
-                                                                                   
-                                                <p id="test"></p>                  
-                                                                                   
-                                                <p>                                
-                                                        Lorem Ipsum is simply dummy text of the print
-                                                        and typesetting industry. Lorem Ipsum has bee
-                                                        the industry's standard dummy text ever since
-                                                        the 1500s, when an unknown printer took a gal
-                                                        of type and scrambled it to make a type speci
-                                                        book. It has survived not only five centuries
-                                                        but also the leap into electronic typesetting
-                                                        remaining essentially unchanged. It was 
-                                                        popularised in the 1960s with the release of 
-                                                        Letraset sheets containing Lorem Ipsum passag
-                                                        and more recently with desktop publishing sof
-                                                        like Aldus PageMaker including versions of Lo
-                                                </p>                               
-                                        </div>                                     
-                                </div>                                             
-                                <div class="col-sm">                               
-                                        <canvas id="occurr" width="400" height="400"></canvas>
-                                </div>                                             
-                        </div>                                                     
-                </div>
+		<div class="container">
+
+
+			<div class="row">
+				<div class="col-sm">
+					<div class="card">
+						<h2>Errors Occurrence</h2>
+						<p>
+							Lorem Ipsum is simply dummy text of the print
+							and typesetting industry. Lorem Ipsum has bee
+							the industry's standard dummy text ever since
+							the 1500s, when an unknown printer took a gal
+							of type and scrambled it to make a type speci
+							book. It has survived not only five centuries
+							but also the leap into electronic typesetting
+							remaining essentially unchanged. It was
+							popularised in the 1960s with the release of
+							Letraset sheets containing Lorem Ipsum passag
+							and more recently with desktop publishing sof
+							like Aldus PageMaker including versions of Lo
+						</p>
+					</div>
+				</div>
+				<div class="col-sm">
+					<canvas id="occurr" width="400" height="400"></canvas>
+				</div>
+			</div>
+		</div>
 
 	</div>
 
 	<!-- <h1>Big Droplet Energy &#x1F4A6</h1>
 	<h3>Tim Ferido (tferido@ucsd.edu)</h2>
-	<h3>Sumeet Bansal (s3bansal@ucsd.edu)</h2> -->
-</body>
-<script>
+		<h3>Sumeet Bansal (s3bansal@ucsd.edu)</h2> -->
+		</body>
+		<script>
 
-	var arr = JSON.parse("[" + "<%=test %>" + "]");
+			var ctx = document.getElementById("myChart");
+			var myChart = new Chart(ctx, {
+				type: 'pie',
+				data: {
+					datasets: [{
+						data: [<%= data.refErr %>, <%= data.typErr %>, <%= data.uriErr %>, <%= data.synErr %>, <%= data.rngErr %>, <%= data.evlErr %>],
+						backgroundColor: [
+						'rgba(255, 99, 132, 0.2)',
+						'rgba(54, 162, 235, 0.2)',
+						'rgba(255, 206, 86, 0.2)',
+						'rgba(75, 192, 192, 0.2)',
+						'rgba(153, 102, 255, 0.2)',
+						'rgba(255, 159, 64, 0.2)'
+						],
+						borderColor: [
+						'rgba(255,99,132,1)',
+						'rgba(54, 162, 235, 1)',
+						'rgba(255, 206, 86, 1)',
+						'rgba(75, 192, 192, 1)',
+						'rgba(153, 102, 255, 1)',
+						'rgba(255, 159, 64, 1)'
+						],
+						borderWidth: 1
+					}],
 
-	document.getElementById("test").innerHTML = arr[0];
-	var refErr = document.getElementById("ref").innerHTML;
-	var typErr = document.getElementById("typ").innerHTML;
-	var uriErr = document.getElementById("uri").innerHTML;
-	var synErr = document.getElementById("syn").innerHTML;
-	var rngErr = document.getElementById("rng").innerHTML;
-	var evlErr = document.getElementById("evl").innerHTML;
+					labels: [
+					'ReferenceError',
+					'TypeError',
+					'URIError',
+					'SyntaxError',
+					'RangeError',
+					'EvalError'
+					]
+				},
+				options: {
+					startAngle: 0,
+					animation: {
+						animateRotate: true,
+						animateScale: true
+					}
+				}
+			});
 
-
-	var ctx = document.getElementById("myChart");
-	var myChart = new Chart(ctx, {
-		type: 'pie',
-		data: {
-			datasets: [{
-				data: [refErr, typErr, uriErr, synErr, rngErr, evlErr],
-				backgroundColor: [
-					'rgba(255, 99, 132, 0.2)',
-					'rgba(54, 162, 235, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 159, 64, 0.2)'
-				],
-				borderColor: [
-					'rgba(255,99,132,1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(153, 102, 255, 1)',
-					'rgba(255, 159, 64, 1)'
-				],
-				borderWidth: 1
-			}],
-
-			labels: [
-				'ReferenceError',
-				'TypeError',
-				'URIError',
-				'SyntaxError',
-				'RangeError',
-				'EvalError'
-			]
-		},
-		options: {
-			startAngle: 0,
-			animation: {
-				animateRotate: true,
-				animateScale: true
-			}
-		}
-	});
-
-	var ctx = document.getElementById("occurr");                           
-	var myChart = new Chart(ctx, {                                             
-        
-	
-		title:{
-        		text: "Simple Date-Time Chart"
-    		},
-    		axisX:{
-        		title: "timeline",
-        		gridThickness: 2
-    		},
-    		axisY: {
-        		title: "Downloads"
-    		},
-		data: [
-     {        
-      type: "area",
-      xValueType: "dateTime",
-      dataPoints: [                  
-              { x: 1088620200000, y :71},
-              { x: 1104517800000, y : 55 },
-              { x: 1112293800000, y:  50 },
-              { x: 1136053800000, y : 65 },
-              { x: 1157049000000, y : 95 },
-              { x: 1162319400000, y : 68 },
-              { x: 1180636200000, y : 28 },
-              { x: 1193855400000, y : 34 },
-              { x: 1209580200000, y : 14 },
-              { x: 1230748200000, y : 34 },
-              { x: 1241116200000, y : 44 },
-              { x: 1262284200000, y : 84 },
-              { x: 1272652200000, y : 4  },
-              { x: 1291141800000, y : 44 },
-              { x: 1304188200000, y : 11 }
-      ]
-    }
-    ]	
-	
-	
-	});
+			var ctx2 = document.getElementById("occurr");
+			var myChart2 = new Chart(ctx2, {
+				type: 'line',
+				data: {
+					labels: Array.apply(null, {length: 7}).map(Number.call, Number),
+					datasets: [{
+						label: 'ReferenceError',
+						fill: false,
+						data: [<%= err_times['Uncaught ReferenceError'] %>],
+						borderColor: "rgba(255,99,132,1)",
+					}, {
+						label: 'EvalError',
+						fill: false,
+						data: [<%= err_times['Uncaught EvalError'] %>],
+						borderColor: "rgba(54, 162, 235, 1)",
+					}, {
+						label: 'RangeError',
+						fill: false,
+						data: [<%= err_times['Uncaught RangeError'] %>],
+						borderColor: "rgba(255, 206, 86, 1)",
+					}, {
+						label: 'SyntaxError',
+						fill: false,
+						data: [<%= err_times['Uncaught SyntaxError'] %>],
+						borderColor: "rgba(75, 192, 192, 1)",
+					}, {
+						label: 'TypeError',
+						fill: false,
+						data: [<%= err_times['Uncaught TypeError'] %>],
+						borderColor: "rgba(153, 102, 255, 1)",
+					}, {
+						label: 'URIError',
+						fill: false,
+						data: [<%= err_times['Uncaught URIError'] %>],
+						borderColor: "rgba(255, 159, 64, 1)",
+					}]
+				},
+				options: {
+					title: {
+						display: true,
+						text: 'error Occurrences'
+					},
+				}
+			});
 
 
 
 
 
 
-
-
-
-	</script>
-</html>
+		</script>
+		</html>
 
