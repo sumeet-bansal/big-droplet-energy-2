@@ -191,7 +191,10 @@
 	<h3>Sumeet Bansal (s3bansal@ucsd.edu)</h2> -->
 </body>
 <script>
-        var ctx = document.getElementById("image1");
+        
+	var img1load0 = parseInt(document.getElementById("img1load0").innerText);
+	
+	var ctx = document.getElementById("image1");
         
 	var myChart = new Chart(ctx, {                                                     
         type: 'bar',                                                               
@@ -199,7 +202,7 @@
                 labels: ['< 1000','< 2000','< 3000', '< 4000', '< 5000', '< 6000', '< 7000'],
                 datasets: [{                                                                   
                         label: "Access",                                           
-                        data: [1,2,3,4,5,6,7], 
+                        data: [img1load0,2,3,4,5,6,7], 
                         borderColor: "#3e95cd",                                                    
                         fill: false                                                                 
                 }]                                                                              
