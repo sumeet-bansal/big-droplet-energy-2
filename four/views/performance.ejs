@@ -319,7 +319,49 @@
                                 }]                                              
                 }                                                               
         }                                                                          
-        }); 
+        });
+
+	var imgload0 = parseInt("<%=data.imagedata.img0k %>");
+        var imgload1 = parseInt("<%=data.imagedata.img1k %>");
+        var imgload2 = parseInt("<%=data.imagedata.img2k %>");
+        var imgload3 = parseInt("<%=data.imagedata.img3k %>");
+        var imgload4 = parseInt("<%=data.imagedata.img4k %>");
+        var imgload5 = parseInt("<%=data.imagedata.img5k %>");
+        var imgload6 = parseInt("<%=data.imagedata.img6k %>");
+
+        var ctx = document.getElementById("image3");
+
+        var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+                labels: ['< 1000','< 2000','< 3000', '< 4000', '< 5000', '< 6000', '< 7000'],
+                datasets: [{
+                        label: "Load Time",
+                        data: [imgload0,imeload1,imgload2,imgload3,imgload4,imgload5,imgload6],
+                        borderColor: "#3e95cd",
+                        fill: false,
+                        xAxis: 'load times',
+                        yAxis: 'count'
+                }]
+        },
+        options: {
+                title: {
+                display: true,
+                text: 'Access per month'
+                },
+                scales: {
+                                xAxes: [{
+                                barPercentage: 0.5,
+                                barThickness: 6,
+                                maxBarThickness: 8,
+                                minBarLength: 2,
+                                gridLines: {
+                                        offsetGridLines: true
+                                }
+                                }]
+                }
+        }
+        });
 
 
 

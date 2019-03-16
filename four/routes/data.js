@@ -228,7 +228,15 @@ router.get('/performance', function(req, res, next) {
                     img5k: 0,                                                      
                     img6k: 0,                                                      
                 },                                                                 
-
+		imagedata: {                                                      
+                    img0k: 0,                                                      
+                    img1k: 0,                                                      
+                    img2k: 0,                                                      
+                    img3k: 0,                                                      
+                    img4k: 0,                                                      
+                    img5k: 0,                                                      
+                    img6k: 0,                                                      
+                }	
             }
 
             for (var i = 0; i < data.length; i++) {
@@ -282,7 +290,27 @@ router.get('/performance', function(req, res, next) {
                     dr.image3data.img5k = dr.image3data.img5k + 1;              
                 } if (z >= 6000 && z < 7000) {                                  
                     dr.image3data.img6k = dr.image3data.img6k + 1;              
-                } 
+                }
+
+		
+		var t = data[i].total;                                           
+                if (t < 1000){                                                  
+                    dr.imagedata.img0k = dr.imagedata.img0k + 1;              
+                } if (t >= 1000 && t < 2000) {                                  
+                    dr.imagedata.img1k = dr.imagedata.img1k + 1;              
+                } if (t >= 2000 && t < 3000) {                                  
+                    dr.imagedata.img2k = dr.imagedata.img2k + 1;              
+                } if (t >= 3000 && t < 4000) {                                  
+                    dr.imagedata.img3k = dr.imagedata.img3k + 1;              
+                } if (t >= 4000 && t < 5000) {                                  
+                    dr.imagedata.img4k = dr.imagedata.img4k + 1;              
+                } if (t >= 5000 && t < 6000) {                                  
+                    dr.imagedata.img5k = dr.imagedata.img5k + 1;              
+                } if (t >= 6000 && t < 7000) {                                  
+                    dr.imagedata.img6k = dr.imagedata.img6k + 1;              
+                }
+
+
             }
 
             console.log(dr);
