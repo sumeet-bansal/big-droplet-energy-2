@@ -258,7 +258,7 @@ router.get('/performance', function(req, res, next) {
             data = results;
         
 		
-	for (var i=0; i < data.length; i++){
+		for (var i = 0; i < data.length; i++) {
 
 		var x = data[i].img1; 
                 if (x < 1000){
@@ -338,7 +338,7 @@ router.get('/performance', function(req, res, next) {
 
 		}
 	});
-
+/*
 		connection.query('SELECT * FROM slow_load', function (err, results) { 
             		if (err) { console.log(err); }                                      
 		data = results;
@@ -370,7 +370,7 @@ router.get('/performance', function(req, res, next) {
 		}
 
             	});
-
+*/
             	console.log(dr);
             
             res.render('performance',{ data: dr });
