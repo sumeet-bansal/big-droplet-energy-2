@@ -202,17 +202,25 @@
 
 
 	var myChart = new Chart(ctx, {
-		type: 'bar',
+		type: 'line',
 		data: {
 			labels: ['< 1000','< 2000','< 3000', '< 4000', '< 5000', '< 6000', '< 7000'],
 			datasets: [{
+				label: "Load Time"
 				data: [1,2,3,4,5,6,7],//img1load0,img1load1,img1load2,img1load3,img1load4,img1load5,img1load6],
-				borderColor: 'rgba(255,99,132,1)',
+				borderColor: '#3e95cd',
                                 fill:false,
-                                xAxisID: 'load times',
-                                yAxisID: 'count'
+                                //xAxisID: 'load times',
+                                //yAxisID: 'count'
                         }]
 		}
+		options: {
+                title: {
+                display: true,
+                text: 'Access per month'
+                },
+        	}
+        	});
 		/*,
 		options: {
                         scales: {
@@ -226,9 +234,9 @@
                                 }
                                 }]
                         }
-		}*/
+		}
 	});
-
+	*/
 
 /*
 	var ctx = document.getElementById("image2");                               
