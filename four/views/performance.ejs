@@ -10,17 +10,17 @@
 
 	<!-- bootstrap -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-	 crossorigin="anonymous"></script>
+	crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-	 crossorigin="anonymous"></script>
+	crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-	 crossorigin="anonymous">
+	crossorigin="anonymous">
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-	 crossorigin="anonymous"></script>
+	crossorigin="anonymous"></script>
 
 	<!-- chart.js -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
-	
+
 </head>
 <body>
 	<div class="header">
@@ -37,182 +37,161 @@
 		</ul>
 	</div>
 	<div class="main-content" >
-                <div class="container">
-                        <div class="row">
-                                <div class="col-sm">
-                                        <a href="/pdf/performance" target="_blank" class="btn btn-primary">Download PDF!</a>
-                                </div>
-                        </div>
-                </div>
 		<div class="container">
 			<div class="row">
 				<div class="col-sm">
-					<div class="card">               
+					<a href="/pdf/performance" target="_blank" class="btn btn-primary">Download PDF!</a>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm">
+					<div class="card">
 
-                                                <h2>Image 1</h2>
-                                                
-                                                <p hidden id="img1load0"> <%=data.image1data.img10k %>  </p>
-                                                <p hidden id="img1load1"> <%=data.image1data.img11k %>  </p>
-                                                <p hidden id="img1load2"> <%=data.image1data.img12k %>  </p>
-                                                <p hidden id="img1load3"> <%=data.image1data.img13k %>  </p>
-                                                <p hidden id="img1load4"> <%=data.image1data.img14k %>  </p>
-                                                <p hidden id="img1load5"> <%=data.image1data.img15k %>  </p>
-                                                <p hidden id="img1load6"> <%=data.image1data.img16k %>  </p>
-                                                
-                                                <p>
-                                                This shows the load times for the image on our test site.
-                                                The x axis shows the time ranges in milliseconds, and 
-                                                the y axis shows the amount of times the image was loaded
-                                                at that speed.
-                                                </p>
+						<h2>Image 1</h2>
+						<p>
+							This shows the load times for the image on our test site.
+							The x axis shows the time ranges in milliseconds, and
+							the y axis shows the amount of times the image was loaded
+							at that speed.
+						</p>
 					</div>
 				</div>
 				<div class="col-sm">
 					<canvas id="image1" width="400" height="400"></canvas>
 				</div>
 			</div>
-		</div>		
+		</div>
 
-		<div class="container">                                            
-                        <div class="row">                                          
-                                <div class="col-sm">                               
-                                        <div class="card">                         
-                                                <h2>Image 2</h2>                
-                                                <p>This shows the load times for the image on our test site.
-                                                The x axis shows the time ranges in milliseconds, and 
-                                                the y axis shows the amount of times the image was loaded
-                                                at that speed.
-                                                </p>                               
-                                        </div>                                     
-                                </div>                                             
-                                <div class="col-sm">                               
-                                        <canvas id="image2" width="400" height="400"></canvas>
-                                </div>                                             
-                        </div>                                                     
-                </div>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm">
+					<div class="card">
+						<h2>Image 2</h2>
+						<p>This shows the load times for the image on our test site.
+							The x axis shows the time ranges in milliseconds, and
+							the y axis shows the amount of times the image was loaded
+							at that speed.
+						</p>
+					</div>
+				</div>
+				<div class="col-sm">
+					<canvas id="image2" width="400" height="400"></canvas>
+				</div>
+			</div>
+		</div>
 
-		<div class="container">                                            
-                        <div class="row">                                          
-                                <div class="col-sm">                               
-                                        <div class="card">                         
-                                                <h2>Image 3</h2>          
-                                                <p>This shows the load times for the image on our test site.
-                                                The x axis shows the time ranges in milliseconds, and 
-                                                the y axis shows the amount of times the image was loaded
-                                                at that speed.
-                                                </p>                               
-                                        </div>                                     
-                                </div>                                             
-                                <div class="col-sm">                               
-                                        <canvas id="image3" width="400" height="400"></canvas>
-                                </div>                                             
-                        </div>                                                     
-                </div>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm">
+					<div class="card">
+						<h2>Image 3</h2>
+						<p>This shows the load times for the image on our test site.
+							The x axis shows the time ranges in milliseconds, and
+							the y axis shows the amount of times the image was loaded
+							at that speed.
+						</p>
+					</div>
+				</div>
+				<div class="col-sm">
+					<canvas id="image3" width="400" height="400"></canvas>
+				</div>
+			</div>
+		</div>
 
 
 		<div class="container">
-                        <div class="row">
-                                <div class="col-sm">
-                                        <div class="card">
-                                                <h2>Random Load Total</h2>
-                                                <p>
-                                                This shows the total load time for a page that loads
-                                                three images at random speeds. The total time is the 
-                                                longest time of the three images.
-                                                </p>
-                                        </div>
-                                </div>
-                                <div class="col-sm">
-                                        <canvas id="totalrandom" width="400" height="400"></canvas>
-                                </div>
-                        </div>
-                </div>
+			<div class="row">
+				<div class="col-sm">
+					<div class="card">
+						<h2>Random Load Total</h2>
+						<p>
+							This shows the total load time for a page that loads
+							three images at random speeds. The total time is the
+							longest time of the three images.
+						</p>
+					</div>
+				</div>
+				<div class="col-sm">
+					<canvas id="totalrandom" width="400" height="400"></canvas>
+				</div>
+			</div>
+		</div>
 		<div class="container">
-                        <div class="row">
-                                <div class="col-sm">
-                                        <div class="card">
-                                                <h2>Slow Load Total</h2>
-                                                <p>
-                                                This shows the total load time for a page with 
-                                                various large images. The x axis is in load time
-                                                range and the y axis is in occurrences. 
-                                                </p>
-                                        </div>
-                                </div>
-                                <div class="col-sm">
-                                        <canvas id="totalslow" width="400" height="400"></canvas>
-                                </div>
-                        </div>
-                </div>
+			<div class="row">
+				<div class="col-sm">
+					<div class="card">
+						<h2>Slow Load Total</h2>
+						<p>
+							This shows the total load time for a page with
+							various large images. The x axis is in load time
+							range and the y axis is in occurrences.
+						</p>
+					</div>
+				</div>
+				<div class="col-sm">
+					<canvas id="totalslow" width="400" height="400"></canvas>
+				</div>
+			</div>
+		</div>
 
 
-                <div class="container">
-                        <div class="row">
-                                <div class="col-sm">
-                                        <div class="card">
-                                                <h2>Slow Load Per Browser</h2>
-                                                <p>
-                                                This shows the average load time per browser for
-                                                a page with various large images. The x axis is 
-                                                in load time range and the y axis is the average 
-                                                load time. 
-                                                </p>
-                                        </div>
-                                </div>
-                                <div class="col-sm">
-                                        <canvas id="browserslow" width="400" height="400"></canvas>
-                                </div>
-                        </div>
-                </div>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm">
+					<div class="card">
+						<h2>Slow Load Per Browser</h2>
+						<p>
+							This shows the average load time per browser for
+							a page with various large images. The x axis is
+							in load time range and the y axis is the average
+							load time.
+						</p>
+					</div>
+				</div>
+				<div class="col-sm">
+					<canvas id="browserslow" width="400" height="400"></canvas>
+				</div>
+			</div>
+		</div>
 
 	</div>
 
 </body>
 <script>
-        
-		
-	var img1load0 = parseInt(document.getElementById("img1load0").innerText);
-	var img1load1 = parseInt(document.getElementById("img1load1").innerText);
-        var img1load2 = parseInt(document.getElementById("img1load2").innerText);
-        var img1load3 = parseInt(document.getElementById("img1load3").innerText);
-        var img1load4 = parseInt(document.getElementById("img1load4").innerText);
-        var img1load5 = parseInt(document.getElementById("img1load5").innerText);
-        var img1load6 = parseInt(document.getElementById("img1load6").innerText);
 
 	var ctx = document.getElementById("image1");
-        
-	var myChart = new Chart(ctx, {                                                     
-        type: 'bar',                                                               
-        data: {                                                                          
-                labels: ['< 1000','< 2000','< 3000', '< 4000', '< 5000', '< 6000', '< 7000'],
-                datasets: [{                                                                   
-                        label: "Load Time",                                           
-                        data: [img1load0,img1load1,img1load2,img1load3,img1load4,img1load5,img1load6],
-                        borderColor: 'rgba(255, 159, 64, 1)',                                                    
-			backgroundColor: 'rgba(255, 159, 64, 0.7)',
-                        fill: false,      
-                }]                                                                              
-        },                                                                               
-        options: {                                                                       
-                title: {                                                                       
-                display: true,                                                               
-                text: 'Image 1 (ms per count)'                                           
-                },
-		scales: {
-                                xAxes: [{
-				barPercentage: 0.5,
-                                barThickness: 6,
-                                maxBarThickness: 8,
-                                minBarLength: 2,
-                                gridLines: {
-                                        offsetGridLines: true
-                                }
-                                }]
-                }
-        }                                                                          
-        });
-
-
+	var myChart = new Chart(ctx, {
+		type: 'bar',
+		data: {
+			labels: ['<1000', '<2000', '<3000', '<4000', '<5000', '<6000', '<7000', '<8000', '<9000', '9000+'],
+			datasets: [{
+				label: "Load Time",
+				data: [<%= img_loads[0] %>],
+				borderColor: 'rgba(255, 159, 64, 1)',
+				backgroundColor: 'rgba(255, 159, 64, 0.7)',
+				fill: false,
+			}]
+		},
+		options: {
+			title: {
+				display: true,
+				text: 'Image 1 (ms per count)'
+			},
+			scales: {
+				xAxes: [{
+					barPercentage: 0.5,
+					barThickness: 6,
+					maxBarThickness: 8,
+					minBarLength: 2,
+					gridLines: {
+						offsetGridLines: true
+					}
+				}]
+			}
+		}
+	});
 
 	var img2load0 = parseInt("<%=data.image2data.img0k %>");
 	var img2load1 = parseInt("<%=data.image2data.img1k %>");
@@ -221,211 +200,211 @@
 	var img2load4 = parseInt("<%=data.image2data.img4k %>");
 	var img2load5 = parseInt("<%=data.image2data.img5k %>");
 	var img2load6 = parseInt("<%=data.image2data.img6k %>");
-                                                                                
-        var ctx = document.getElementById("image2");                            
-                                                                                
-        var myChart = new Chart(ctx, {                                                     
-        type: 'bar',                                                               
-        data: {                                                                          
-                labels: ['< 1000','< 2000','< 3000', '< 4000', '< 5000', '< 6000', '< 7000'],
-                datasets: [{                                                                   
-                        label: "Load Time",                                           
-                        data: [img2load0,img2load1,img2load2,img2load3,img2load4,img2load5,img2load6],
-                        borderColor: 'rgba(75, 192, 192, 1)',
-			backgroundColor: 'rgba(75, 192, 192, 0.7)',
-                        fill: false,                                            
-                }]                                                                              
-        },                                                                               
-        options: {                                                                       
-                title: {                                                                       
-                display: true,                                                               
-                text: 'Image 2 (ms per count)'                                           
-                },                                                              
-                scales: {                                                       
-                                xAxes: [{                                       
-                                barPercentage: 0.5,                             
-                                barThickness: 6,                                
-                                maxBarThickness: 8,                             
-                                minBarLength: 2,                                
-                                gridLines: {                                    
-                                        offsetGridLines: true                   
-                                }                                               
-                                }]                                              
-                }                                                               
-        }                                                                          
-        }); 
 
-	var img3load0 = parseInt("<%=data.image3data.img0k %>");                
-        var img3load1 = parseInt("<%=data.image3data.img1k %>");                
-        var img3load2 = parseInt("<%=data.image3data.img2k %>");                
-        var img3load3 = parseInt("<%=data.image3data.img3k %>");                
-        var img3load4 = parseInt("<%=data.image3data.img4k %>");                
-        var img3load5 = parseInt("<%=data.image3data.img5k %>");                
-        var img3load6 = parseInt("<%=data.image3data.img6k %>");                
-                                                                                
-        var ctx = document.getElementById("image3");                            
-                                                                                
-        var myChart = new Chart(ctx, {                                                     
-        type: 'bar',                                                               
-        data: {                                                                          
-                labels: ['< 1000','< 2000','< 3000', '< 4000', '< 5000', '< 6000', '< 7000'],
-                datasets: [{                                                                   
-                        label: "Load Time",                                           
-                        data: [img3load0,img3load1,img3load2,img3load3,img3load4,img3load5,img3load6],
-                        borderColor: 'rgba(255, 206, 86, 1)',
-			backgroundColor: 'rgba(255, 206, 86, 0.7)',
-                        fill: false,                                            
-                }]                                                                              
-        },                                                                               
-        options: {                                                                       
-                title: {                                                                       
-                display: true,                                                               
-                text: 'Image 3 (ms per count)'                                           
-                },                                                              
-                scales: {                                                       
-                                xAxes: [{                                       
-                                barPercentage: 0.5,                             
-                                barThickness: 6,                                
-                                maxBarThickness: 8,                             
-                                minBarLength: 2,                                
-                                gridLines: {                                    
-                                        offsetGridLines: true                   
-                                }                                               
-                                }]                                              
-                }                                                               
-        }                                                                          
-        });
+	var ctx = document.getElementById("image2");
+
+	var myChart = new Chart(ctx, {
+		type: 'bar',
+		data: {
+			labels: ['< 1000','< 2000','< 3000', '< 4000', '< 5000', '< 6000', '< 7000'],
+			datasets: [{
+				label: "Load Time",
+				data: [img2load0,img2load1,img2load2,img2load3,img2load4,img2load5,img2load6],
+				borderColor: 'rgba(75, 192, 192, 1)',
+				backgroundColor: 'rgba(75, 192, 192, 0.7)',
+				fill: false,
+			}]
+		},
+		options: {
+			title: {
+				display: true,
+				text: 'Image 2 (ms per count)'
+			},
+			scales: {
+				xAxes: [{
+					barPercentage: 0.5,
+					barThickness: 6,
+					maxBarThickness: 8,
+					minBarLength: 2,
+					gridLines: {
+						offsetGridLines: true
+					}
+				}]
+			}
+		}
+	});
+
+	var img3load0 = parseInt("<%=data.image3data.img0k %>");
+	var img3load1 = parseInt("<%=data.image3data.img1k %>");
+	var img3load2 = parseInt("<%=data.image3data.img2k %>");
+	var img3load3 = parseInt("<%=data.image3data.img3k %>");
+	var img3load4 = parseInt("<%=data.image3data.img4k %>");
+	var img3load5 = parseInt("<%=data.image3data.img5k %>");
+	var img3load6 = parseInt("<%=data.image3data.img6k %>");
+
+	var ctx = document.getElementById("image3");
+
+	var myChart = new Chart(ctx, {
+		type: 'bar',
+		data: {
+			labels: ['< 1000','< 2000','< 3000', '< 4000', '< 5000', '< 6000', '< 7000'],
+			datasets: [{
+				label: "Load Time",
+				data: [img3load0,img3load1,img3load2,img3load3,img3load4,img3load5,img3load6],
+				borderColor: 'rgba(255, 206, 86, 1)',
+				backgroundColor: 'rgba(255, 206, 86, 0.7)',
+				fill: false,
+			}]
+		},
+		options: {
+			title: {
+				display: true,
+				text: 'Image 3 (ms per count)'
+			},
+			scales: {
+				xAxes: [{
+					barPercentage: 0.5,
+					barThickness: 6,
+					maxBarThickness: 8,
+					minBarLength: 2,
+					gridLines: {
+						offsetGridLines: true
+					}
+				}]
+			}
+		}
+	});
 
 	var imgload0 = parseInt("<%=data.imagedata.img0k %>");
-        var imgload1 = parseInt("<%=data.imagedata.img1k %>");
-        var imgload2 = parseInt("<%=data.imagedata.img2k %>");
-        var imgload3 = parseInt("<%=data.imagedata.img3k %>");
-        var imgload4 = parseInt("<%=data.imagedata.img4k %>");
-        var imgload5 = parseInt("<%=data.imagedata.img5k %>");
-        var imgload6 = parseInt("<%=data.imagedata.img6k %>");
+	var imgload1 = parseInt("<%=data.imagedata.img1k %>");
+	var imgload2 = parseInt("<%=data.imagedata.img2k %>");
+	var imgload3 = parseInt("<%=data.imagedata.img3k %>");
+	var imgload4 = parseInt("<%=data.imagedata.img4k %>");
+	var imgload5 = parseInt("<%=data.imagedata.img5k %>");
+	var imgload6 = parseInt("<%=data.imagedata.img6k %>");
 	var imgload7 = parseInt("<%=data.imagedata.img7k %>");
-        var imgload8 = parseInt("<%=data.imagedata.img8k %>");
-        var imgload9 = parseInt("<%=data.imagedata.img9k %>");
+	var imgload8 = parseInt("<%=data.imagedata.img8k %>");
+	var imgload9 = parseInt("<%=data.imagedata.img9k %>");
 
-        var ctx = document.getElementById("totalrandom");
+	var ctx = document.getElementById("totalrandom");
 
-        var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-                labels: ['< 1000','< 2000','< 3000', '< 4000', '< 5000', '< 6000', '< 7000', '< 8000', '< 9000', '< 10000'],
-                datasets: [{
-                        label: "Load Time",
-                        data: [imgload0,imgload1,imgload2,imgload3,imgload4,imgload5,imgload6,imgload7,imgload8,imgload9,],
-                        borderColor: 'rgba(54, 162, 235, 1)',
-			backgroundColor: 'rgba(54, 162, 235, 0.7)',
-                        fill: false,
-                }]
-        },
-        options: {
-                title: {
-                display: true,
-                text: 'Random load (ms per count)'
-                },
-                scales: {
-                                xAxes: [{
-                                barPercentage: 0.5,
-                                barThickness: 6,
-                                maxBarThickness: 8,
-                                minBarLength: 2,
-                                gridLines: {
-                                        offsetGridLines: true
-                                }
-                                }]
-                }
-        }
-        });
-
-
-
-	var imgload0s = parseInt("<%=data.imagedatas.img0k %>");                  
-        var imgload1s = parseInt("<%=data.imagedatas.img1k %>");                  
-        var imgload2s = parseInt("<%=data.imagedatas.img2k %>");                  
-        var imgload3s = parseInt("<%=data.imagedatas.img3k %>");                  
-        var imgload4s = parseInt("<%=data.imagedatas.img4k %>");                  
-        var imgload5s = parseInt("<%=data.imagedatas.img5k %>");                  
-        var imgload6s = parseInt("<%=data.imagedatas.img6k %>");                  
-        var imgload7s = parseInt("<%=data.imagedatas.img7k %>");                  
-        var imgload8s = parseInt("<%=data.imagedatas.img8k %>");                  
-        var imgload9s = parseInt("<%=data.imagedatas.img9k %>");                  
-                                                                                
-        var ctx = document.getElementById("totalslow");                       
-                                                                                
-        var myChart = new Chart(ctx, {                                          
-        type: 'bar',                                                            
-        data: {                                                                 
-                labels: ['< 1000','< 2000','< 3000', '< 4000', '< 5000', '< 6000', '< 7000', '< 8000', '< 9000', '< 10000'],
-                datasets: [{                                                    
-                        label: "Load Time",                                     
-                        data: [imgload0s,imgload1s,imgload2s,imgload3s,imgload4s,imgload5s,imgload6s,imgload7s,imgload8s,imgload9s],
-                        borderColor: 'rgba(255, 99, 132, 1)',
-			backgroundColor: 'rgba(255, 99, 132, 0.7)',
-                        fill: false,                                            
-                }]                                                              
-        },                                                                      
-        options: {                                                              
-                title: {                                                        
-                display: true,                                                  
-                text: 'Slow load (ms per count)'                                        
-                },                                                              
-                scales: {                                                       
-                                xAxes: [{                                       
-                                barPercentage: 0.5,                             
-                                barThickness: 6,                                
-                                maxBarThickness: 8,                             
-                                minBarLength: 2,                                
-                                gridLines: {                                    
-                                        offsetGridLines: true                   
-                                }                                               
-                                }]                                              
-                }                                                               
-        }                                                                       
-        });
+	var myChart = new Chart(ctx, {
+		type: 'bar',
+		data: {
+			labels: ['< 1000','< 2000','< 3000', '< 4000', '< 5000', '< 6000', '< 7000', '< 8000', '< 9000', '< 10000'],
+			datasets: [{
+				label: "Load Time",
+				data: [imgload0,imgload1,imgload2,imgload3,imgload4,imgload5,imgload6,imgload7,imgload8,imgload9,],
+				borderColor: 'rgba(54, 162, 235, 1)',
+				backgroundColor: 'rgba(54, 162, 235, 0.7)',
+				fill: false,
+			}]
+		},
+		options: {
+			title: {
+				display: true,
+				text: 'Random load (ms per count)'
+			},
+			scales: {
+				xAxes: [{
+					barPercentage: 0.5,
+					barThickness: 6,
+					maxBarThickness: 8,
+					minBarLength: 2,
+					gridLines: {
+						offsetGridLines: true
+					}
+				}]
+			}
+		}
+	});
 
 
 
+	var imgload0s = parseInt("<%=data.imagedatas.img0k %>");
+	var imgload1s = parseInt("<%=data.imagedatas.img1k %>");
+	var imgload2s = parseInt("<%=data.imagedatas.img2k %>");
+	var imgload3s = parseInt("<%=data.imagedatas.img3k %>");
+	var imgload4s = parseInt("<%=data.imagedatas.img4k %>");
+	var imgload5s = parseInt("<%=data.imagedatas.img5k %>");
+	var imgload6s = parseInt("<%=data.imagedatas.img6k %>");
+	var imgload7s = parseInt("<%=data.imagedatas.img7k %>");
+	var imgload8s = parseInt("<%=data.imagedatas.img8k %>");
+	var imgload9s = parseInt("<%=data.imagedatas.img9k %>");
 
-	var safariavg = parseInt("<%=data.browserslow.safariavg %>");                  
-        var chromeavg = parseInt("<%=data.browserslow.chromeavg %>");                  
-        var firefoxavg = parseInt("<%=data.browserslow.firefoxavg %>");                  
-                                                                                
-        var browserSlowCtx = document.getElementById("browserslow");                       
-                                                                                
-        var myChart = new Chart(browserSlowCtx, {                                          
-        type: 'bar',                                                            
-        data: {                                                                 
-                labels: ['safari','chrome','firefox'],
-                datasets: [{                                                    
-                        label: "Load Time",                                     
-                        data: [safariavg, chromeavg, firefoxavg],
-                        borderColor: 'rgba(255, 99, 132, 1)',
-			backgroundColor: 'rgba(255, 99, 132, 0.7)',
-                        fill: false,                                            
-                }]                                                              
-        },                                                                      
-        options: {                                                              
-                title: {                                                        
-                display: true,                                                  
-                text: 'Slow load (ms per count)'                                        
-                },                                                              
-                scales: {                                                       
-                                xAxes: [{                                       
-                                barPercentage: 0.5,                             
-                                barThickness: 6,                                
-                                maxBarThickness: 8,                             
-                                minBarLength: 2,                                
-                                gridLines: {                                    
-                                        offsetGridLines: true                   
-                                }                                               
-                                }]                                              
-                }                                                               
-        }                                                                       
-        });
+	var ctx = document.getElementById("totalslow");
 
-	</script>
+	var myChart = new Chart(ctx, {
+		type: 'bar',
+		data: {
+			labels: ['< 1000','< 2000','< 3000', '< 4000', '< 5000', '< 6000', '< 7000', '< 8000', '< 9000', '< 10000'],
+			datasets: [{
+				label: "Load Time",
+				data: [imgload0s,imgload1s,imgload2s,imgload3s,imgload4s,imgload5s,imgload6s,imgload7s,imgload8s,imgload9s],
+				borderColor: 'rgba(255, 99, 132, 1)',
+				backgroundColor: 'rgba(255, 99, 132, 0.7)',
+				fill: false,
+			}]
+		},
+		options: {
+			title: {
+				display: true,
+				text: 'Slow load (ms per count)'
+			},
+			scales: {
+				xAxes: [{
+					barPercentage: 0.5,
+					barThickness: 6,
+					maxBarThickness: 8,
+					minBarLength: 2,
+					gridLines: {
+						offsetGridLines: true
+					}
+				}]
+			}
+		}
+	});
+
+
+
+
+	var safariavg = parseInt("<%=data.browserslow.safariavg %>");
+	var chromeavg = parseInt("<%=data.browserslow.chromeavg %>");
+	var firefoxavg = parseInt("<%=data.browserslow.firefoxavg %>");
+
+	var browserSlowCtx = document.getElementById("browserslow");
+
+	var myChart = new Chart(browserSlowCtx, {
+		type: 'bar',
+		data: {
+			labels: ['safari','chrome','firefox'],
+			datasets: [{
+				label: "Load Time",
+				data: [safariavg, chromeavg, firefoxavg],
+				borderColor: 'rgba(255, 99, 132, 1)',
+				backgroundColor: 'rgba(255, 99, 132, 0.7)',
+				fill: false,
+			}]
+		},
+		options: {
+			title: {
+				display: true,
+				text: 'Slow load (ms per count)'
+			},
+			scales: {
+				xAxes: [{
+					barPercentage: 0.5,
+					barThickness: 6,
+					maxBarThickness: 8,
+					minBarLength: 2,
+					gridLines: {
+						offsetGridLines: true
+					}
+				}]
+			}
+		}
+	});
+
+</script>
 </html>
 
